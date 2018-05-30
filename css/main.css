@@ -3908,3 +3908,9 @@ p, .table, .alert, .carousel {
     .block, .block.full {border: none !important; padding: 0 !important;}
     .block-title {margin: 0 0 20px !important;}
 }
+
+/* ================================================================== */
+
+.hidden {
+    display: none;
+}

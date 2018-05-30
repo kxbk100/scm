@@ -1,256 +1,182 @@
 <!DOCTYPE html>
-<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!-->
 <html class="no-js" lang="zh-cn">
-<!--<![endif]-->
 
-<head>
+  <head>
     <meta charset="utf-8">
-
     <title>一流学科建设监控系统</title>
-
-    <meta name="description" content="AppUI is a Web App Bootstrap Admin Template created by pixelcave and published on Themeforest">
-    <meta name="author" content="pixelcave">
-    <meta name="robots" content="noindex, nofollow">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-
-    <!-- Stylesheets -->
-    <!-- Bootstrap is included in its original form, unaltered -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <!-- Related styles of various icon packs and plugins -->
     <link rel="stylesheet" href="css/plugins.css">
-
-    <!-- The main stylesheet of this template. All Bootstrap overwrites are defined in here -->
     <link rel="stylesheet" href="css/main.css">
-
-    <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
-
-    <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
     <link rel="stylesheet" href="css/themes.css">
-    <!-- END Stylesheets -->
-
-    <!-- Modernizr (browser feature detection library) -->
     <script src="js/vendor/modernizr-3.3.1.min.js"></script>
-</head>
+  </head>
 
-<body>
-    <!-- Page Wrapper -->
-    <!-- In the PHP version you can set the following options from inc/config file -->
-    <!--
-            Available classes:
-
-            'page-loading'      enables page preloader
-        -->
+  <body>
     <div id="page-wrapper" class="page-loading">
-        <!-- Preloader -->
-        <!-- Preloader functionality (initialized in js/app.js) - pageLoading() -->
-        <!-- Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version) -->
-        <div class="preloader">
-            <div class="inner">
-                <!-- Animation spinner for all modern browsers -->
-                <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
-
-                <!-- Text for IE9 -->
-                <h3 class="text-primary visible-lt-ie10">
-                    <strong>Loading..</strong>
-                </h3>
-            </div>
+      <div class="preloader">
+        <div class="inner">
+          <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+          <h3 class="text-primary visible-lt-ie10">
+            <strong>Loading..</strong>
+          </h3>
         </div>
-        <!-- END Preloader -->
+      </div>
 
-        <!-- Page Container -->
-        <!-- In the PHP version you can set the following options from inc/config file -->
-        <!--
-                Available #page-container classes:
+      <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+        <!-- Main Sidebar -->
+        <div id="sidebar">
+          <!-- Sidebar Brand -->
+          <div id="sidebar-brand" class="themed-background">
+            <a href="index.html" class="sidebar-title">
+              <i class="fa fa-cube"></i>
+              <span class="sidebar-nav-mini-hide">
+                <strong>学科建设监控系统</strong>
+              </span>
+            </a>
+          </div>
+          <!-- END Sidebar Brand -->
 
-                'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
+          <!-- Wrapper for scrolling functionality -->
+          <div id="sidebar-scroll">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+              <!-- Sidebar Navigation -->
+              <ul class="sidebar-nav">
+                <li>
+                  <a href="#" class="active">
+                    <i class="gi gi-inbox sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">师资队伍建设</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa fa-share-alt sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">人才培养</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="gi gi-picture sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="gi gi-shopping_cart sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">学科影响力</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="gi gi-shopping_cart sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">国际合作与交流</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="gi gi-shopping_cart sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">材料</span>
+                  </a>
+                </li>
+              </ul>
+              <!-- END Sidebar Navigation -->
+            </div>
+            <!-- END Sidebar Content -->
+          </div>
+          <!-- END Wrapper for scrolling functionality -->
 
-                'sidebar-visible-lg-mini'                       main sidebar condensed - Mini Navigation (> 991px)
-                'sidebar-visible-lg-full'                       main sidebar full - Full Navigation (> 991px)
+          <!-- Sidebar Extra Info -->
+          <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+            <div class="text-center">
+              <small>Copyright &copy;
+                <a href="#" target="_blank">夜猫</a> 版权所有
+              </small>
+            </div>
+          </div>
+          <!-- END Sidebar Extra Info -->
+        </div>
+        <!-- END Main Sidebar -->
 
-                'sidebar-alt-visible-lg'                        alternative sidebar visible by default (> 991px) (You can add it along with any other class)
+        <!-- Main Container -->
+        <div id="main-container">
+          <header class="navbar navbar-inverse navbar-fixed-top">
+            <!-- Left Header Navigation -->
+            <ul class="nav navbar-nav-custom">
+              <!-- Main Sidebar Toggle Button -->
+              <li>
+                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                </a>
+              </li>
+              <!-- END Main Sidebar Toggle Button -->
 
-                'header-fixed-top'                              has to be added only if the class 'navbar-fixed-top' was added on header.navbar
-                'header-fixed-bottom'                           has to be added only if the class 'navbar-fixed-bottom' was added on header.navbar
+              <!-- Header Link -->
+              <li class="hidden-xs animation-fadeInQuick">
+                <a href="">
+                  <strong>WELCOME</strong>
+                </a>
+              </li>
+              <!-- END Header Link -->
+            </ul>
+            <!-- END Left Header Navigation -->
 
-                'fixed-width'                                   for a fixed width layout (can only be used with a static header/main sidebar layout)
-
-                'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
-            -->
-        <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-
-
-            <!-- Main Sidebar -->
-            <div id="sidebar">
-                <!-- Sidebar Brand -->
-                <div id="sidebar-brand" class="themed-background">
-                    <a href="index.html" class="sidebar-title">
-                        <i class="fa fa-cube"></i>
-                        <span class="sidebar-nav-mini-hide">
-                            <strong>学科建设监控系统</strong>
-                        </span>
+            <!-- Right Header Navigation -->
+            <ul class="nav navbar-nav-custom pull-right">
+              <!-- User Dropdown -->
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-power-off fa-fw pull-right"></i>
+                      注销
                     </a>
-                </div>
-                <!-- END Sidebar Brand -->
+                  </li>
+                </ul>
+              </li>
+              <!-- END User Dropdown -->
+            </ul>
+            <!-- END Right Header Navigation -->
+          </header>
+          <!-- END Header -->
 
-                <!-- Wrapper for scrolling functionality -->
-                <div id="sidebar-scroll">
-                    <!-- Sidebar Content -->
-                    <div class="sidebar-content">
-                        <!-- Sidebar Navigation -->
-                        <ul class="sidebar-nav">
-                            <li>
-                                <a href="#" class="active">
-                                    <i class="gi gi-inbox sidebar-nav-icon"></i>
-                                    <span class="sidebar-nav-mini-hide">师资队伍建设</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-share-alt sidebar-nav-icon"></i>
-                                    <span class="sidebar-nav-mini-hide">人才培养</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="gi gi-picture sidebar-nav-icon"></i>
-                                    <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="gi gi-shopping_cart sidebar-nav-icon"></i>
-                                    <span class="sidebar-nav-mini-hide">学科影响力</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="gi gi-shopping_cart sidebar-nav-icon"></i>
-                                    <span class="sidebar-nav-mini-hide">国际合作与交流</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="gi gi-shopping_cart sidebar-nav-icon"></i>
-                                    <span class="sidebar-nav-mini-hide">材料</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- END Sidebar Navigation -->
-                    </div>
-                    <!-- END Sidebar Content -->
+          <!-- Page content -->
+          <div id="page-content">
+            <!-- Blank Header -->
+            <div class="content-header">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="header-section">
+                    <h1>欢迎使用！</h1>
+                  </div>
                 </div>
-                <!-- END Wrapper for scrolling functionality -->
-
-                <!-- Sidebar Extra Info -->
-                <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
-                    <div class="text-center">
-                        <small>Copyright &copy;
-                            <a href="#" target="_blank">夜猫</a>
-                            版权所有
-                        </small>
-                    </div>
-                </div>
-                <!-- END Sidebar Extra Info -->
+              </div>
             </div>
-            <!-- END Main Sidebar -->
+            <!-- END Blank Header -->
 
-            <!-- Main Container -->
-            <div id="main-container">
-                <!-- Header -->
-                <!-- In the PHP version you can set the following options from inc/config file -->
-                <!--
-                        Available header.navbar classes:
+            <!-- Get Started Block -->
+            <div class="block full">
+              <!-- Get Started Title -->
+              <div class="block-title">
+                <h2>进度概览</h2>
+              </div>
+              <!-- END Get Started Title -->
 
-                        'navbar-default'            for the default light header
-                        'navbar-inverse'            for an alternative dark header
-
-                        'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
-                            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
-
-                        'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
-                            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
-                    -->
-                <header class="navbar navbar-inverse navbar-fixed-top">
-                    <!-- Left Header Navigation -->
-                    <ul class="nav navbar-nav-custom">
-                        <!-- Main Sidebar Toggle Button -->
-                        <li>
-                            <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
-                                <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
-                                <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
-                            </a>
-                        </li>
-                        <!-- END Main Sidebar Toggle Button -->
-
-                        <!-- Header Link -->
-                        <li class="hidden-xs animation-fadeInQuick">
-                            <a href="">
-                                <strong>WELCOME</strong>
-                            </a>
-                        </li>
-                        <!-- END Header Link -->
-                    </ul>
-                    <!-- END Left Header Navigation -->
-
-                    <!-- Right Header Navigation -->
-                    <ul class="nav navbar-nav-custom pull-right">
-                        <!-- User Dropdown -->
-                        <li class="dropdown">
-                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-power-off fa-fw pull-right"></i>
-                                        注销
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- END User Dropdown -->
-                    </ul>
-                    <!-- END Right Header Navigation -->
-                </header>
-                <!-- END Header -->
-
-                <!-- Page content -->
-                <div id="page-content">
-                    <!-- Blank Header -->
-                    <div class="content-header">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="header-section">
-                                    <h1>欢迎使用！</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END Blank Header -->
-
-                    <!-- Get Started Block -->
-                    <div class="block full">
-                        <!-- Get Started Title -->
-                        <div class="block-title">
-                            <h2>进度概览</h2>
-                        </div>
-                        <!-- END Get Started Title -->
-
-                        <!-- Get Started Content -->
-                        Chart
-                        <!-- END Get Started Content -->
-                    </div>
-                    <!-- END Get Started Block -->
-                </div>
-                <!-- END Page Content -->
+              <!-- Get Started Content -->
+              Chart
+              <!-- END Get Started Content -->
             </div>
-            <!-- END Main Container -->
+            <!-- END Get Started Block -->
+          </div>
+          <!-- END Page Content -->
         </div>
-        <!-- END Page Container -->
+        <!-- END Main Container -->
+      </div>
+      <!-- END Page Container -->
     </div>
     <!-- END Page Wrapper -->
 
@@ -259,6 +185,6 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/app.js"></script>
-</body>
+  </body>
 
 </html>
