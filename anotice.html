@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <title>一流学科建设监控系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/plugins.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <script src="js/vendor/modernizr-3.3.1.min.js"></script>
+  <!--富文本编辑器部分 开头-->
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" charset="utf-8" src="ueditor/ueditor.all.min.js">
+  </script>
+  <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+  <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+  <script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+  <!--富文本编辑器部分 结尾-->
+</head>
+
+<body>
+  <div id="page-wrapper" class="page-loading">
+    <div class="preloader">
+      <div class="inner">
+        <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+        <h3 class="text-primary visible-lt-ie10">
+          <strong>Loading..</strong>
+        </h3>
+      </div>
+    </div>
+
+    <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+      <!-- Main Sidebar -->
+      <div id="sidebar">
+        <!-- Sidebar Brand -->
+        <div id="sidebar-brand" class="themed-background">
+          <a href="index.html" class="sidebar-title">
+            <i class="fa fa-cube"></i>
+            <span class="sidebar-nav-mini-hide">
+              <strong>学科建设监控系统</strong>
+            </span>
+          </a>
+        </div>
+        <!-- END Sidebar Brand -->
+
+        <!-- Wrapper for scrolling functionality -->
+        <div id="sidebar-scroll">
+          <!-- Sidebar Content -->
+          <div class="sidebar-content">
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav">
+              <li>
+                <a href="teachers.html">
+                  <i class="gi gi-group sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">师资队伍建设</span>
+                </a>
+              </li>
+              <li>
+                <a href="talent.html">
+                  <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">人才培养</span>
+                </a>
+              </li>
+              <li>
+                <a href="science.html">
+                  <i class="gi gi-lightbulb sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
+                </a>
+              </li>
+              <li>
+                <a href="subject.html">
+                  <i class="fa fa-line-chart sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">学科影响力</span>
+                </a>
+              </li>
+              <li>
+                <a href="international.html">
+                  <i class="fa fa-globe sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">国际合作与交流</span>
+                </a>
+              </li>
+              <li>
+                <a href="aMaterial.html">
+                  <i class="hi hi-list-alt sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">材料审核</span>
+                </a>
+              </li>
+              <li>
+                <a href="anotice.html" class="active">
+                  <i class="fa fa-bell sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">公告通知</span>
+                </a>
+              </li>
+            </ul>
+            <!-- END Sidebar Navigation -->
+          </div>
+          <!-- END Sidebar Content -->
+        </div>
+        <!-- END Wrapper for scrolling functionality -->
+
+        <!-- Sidebar Extra Info -->
+        <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+          <div class="text-center">
+            <small>Copyright &copy;
+              <a href="#" target="_blank">夜猫</a> 版权所有
+            </small>
+          </div>
+        </div>
+        <!-- END Sidebar Extra Info -->
+      </div>
+      <!-- END Main Sidebar -->
+
+      <!-- Main Container -->
+      <div id="main-container">
+        <header class="navbar navbar-inverse navbar-fixed-top">
+          <!-- Left Header Navigation -->
+          <ul class="nav navbar-nav-custom">
+            <!-- Main Sidebar Toggle Button -->
+            <li>
+              <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+              </a>
+            </li>
+            <!-- END Main Sidebar Toggle Button -->
+
+            <!-- Header Link -->
+
+            <!-- END Header Link -->
+          </ul>
+          <!-- END Left Header Navigation -->
+
+          <!-- Right Header Navigation -->
+          <ul class="nav navbar-nav-custom pull-right">
+            <!-- User Dropdown -->
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <a href="#">
+                    <i class="fa fa-power-off fa-fw pull-right"></i>
+                    注销
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <!-- END User Dropdown -->
+          </ul>
+          <!-- END Right Header Navigation -->
+        </header>
+        <!-- END Header -->
+
+        <!-- Page content -->
+        <div id="page-content">
+          <!-- Blank Header -->
+          <div class="content-header">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="header-section">
+                  <h1>公告通知</h1>
+                </div>
+              </div>
+              <a href="#modal-large" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">发布公告</a>
+              <!-- Regular Modal -->
+              <div id="modal-large" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h3 class="modal-title">
+                        <strong>发布公告</strong>
+                      </h3>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="/classModify/${bitclass.getId()}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="example-text-input">标题</label>
+                            <div class="col-md-6">
+                              <input type="text" id="example-text-input" name="title" class="form-control" required="required" value="" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="example-text-input">发布人</label>
+                            <div class="col-md-6">
+                              <input type="text" id="example-text-input" name="auth" class="form-control" required="required" value=""/>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="example-textarea-input">内容</label>
+                            <div class="col-md-6">
+                              <script id="editor" type="text/plain" style="height:300px;"></script>
+                            </div>
+                          </div>
+                          <div class="form-group form-actions">
+                            <div class="col-md-9 col-md-offset-3">
+                              <button type="submit" class="btn btn-effect-ripple btn-primary">
+                                发布
+                              </button>
+                              <button type="reset" class="btn btn-effect-ripple btn-danger">
+                                重置
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+
+                    </div>
+                    <!-- <div class="modal-footer">
+                      <button type="submit" class="btn btn-effect-ripple btn-primary">保存</button>
+                      <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">删除</button>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <!-- END Regular Modal -->
+            </div>
+          </div>
+          <!-- END Blank Header -->
+
+          <!-- Get Started Block -->
+
+
+          <!-- Notice Center Content -->
+          <div class="block overflow-hidden">
+            <!-- Message List -->
+            <div id="message-list">
+              <!-- Title -->
+              <div class="block-title clearfix">
+                <div class="block-options pull-right">
+                  <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default">
+                    <i class="fa fa-arrow-left"></i> 上一页</a>
+                  <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default">下一页
+                    <i class="fa fa-arrow-right"></i>
+                  </a>
+                </div>
+                <div class="block-options pull-left">
+                  <h3>公告列表</h3>
+                </div>
+              </div>
+              <!-- END Title -->
+
+              <!-- Messages -->
+              <div class="block-content-full">
+                <table class="table table-borderless table-striped table-vcenter remove-margin">
+                  <tbody>
+                    <!-- Use the first row as a prototype for your column widths -->
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>
+                          <span class="text-dark">
+                            <strong>标题</strong>
+                          </span>
+                        </h4>
+                        <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
+                      </td>
+                      <td class="hidden-xs text-center" style="width: 60px;">
+                        作者一
+                      </td>
+                      <td class="hidden-xs text-right text-muted" style="width: 120px;">
+                        <em>2018-06-01</em>
+                      </td>
+                      <td class="text-center">
+                        <h4>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                        </h4>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                          <i class="fa fa-times"></i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- END Messages -->
+            </div>
+            <!-- END Message List -->
+
+            <!-- Message View -->
+            <div id="message-view" class="block-section display-none">
+              <!-- Title -->
+              <div class="block-title clearfix">
+
+                <div class="block-options pull-left">
+                  <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" id="message-view-back">
+                    <i class="fa fa-chevron-left"></i> 返回列表</a>
+                </div>
+              </div>
+              <!-- END Title -->
+
+              
+
+              <!-- Message Body -->
+              <form action="/classModify/${bitclass.getId()}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="example-text-input">标题</label>
+                  <div class="col-md-6">
+                    <input type="text" id="example-text-input" name="title" class="form-control" required="required" value="" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="example-text-input">发布人</label>
+                  <div class="col-md-6">
+                    <input type="text" id="example-text-input" name="auth" class="form-control" required="required" value=""/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="example-textarea-input">内容</label>
+                  <div class="col-md-6">
+                    <script id="editor1" type="text/plain" style="height:300px;"></script>
+                  </div>
+                </div>
+                <div class="form-group form-actions">
+                  <div class="col-md-9 col-md-offset-3">
+                    <button type="submit" class="btn btn-effect-ripple btn-primary">
+                      修改
+                    </button>
+                    <button type="reset" class="btn btn-effect-ripple btn-danger">
+                      重置
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <!-- END Message Body -->
+
+
+
+            </div>
+            <!-- END Message View -->
+          </div>
+          <!-- END Notice Center Content -->
+
+          <!-- END Get Started Block -->
+        </div>
+        <!-- END Page Content -->
+      </div>
+      <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+  </div>
+  <!-- END Page Wrapper -->
+
+  <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pages/appEmail.js"></script>
+  <script>
+    $(function () { AppEmail.init(); });
+  </script>
+  <!--富文本编辑器的脚本-->
+  <script type="text/javascript">
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+
+
+    function isFocus(e) {
+      alert(UE.getEditor('editor').isFocus());
+      UE.dom.domUtils.preventDefault(e)
+    }
+
+    function setblur(e) {
+      UE.getEditor('editor').blur();
+      UE.dom.domUtils.preventDefault(e)
+    }
+
+    function insertHtml() {
+      var value = prompt('插入html代码', '');
+      UE.getEditor('editor').execCommand('insertHtml', value)
+    }
+
+    function createEditor() {
+      enableBtn();
+      UE.getEditor('editor');
+    }
+
+    function getAllHtml() {
+      alert(UE.getEditor('editor').getAllHtml())
+    }
+
+    function getContent() {
+      var arr = [];
+      arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+      arr.push("内容为：");
+      arr.push(UE.getEditor('editor').getContent());
+      alert(arr.join("\n"));
+    }
+
+    function getPlainTxt() {
+      var arr = [];
+      arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+      arr.push("内容为：");
+      arr.push(UE.getEditor('editor').getPlainTxt());
+      alert(arr.join('\n'))
+    }
+
+    function setContent(isAppendTo) {
+      var arr = [];
+      arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+      UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
+      alert(arr.join("\n"));
+    }
+
+    function setDisabled() {
+      UE.getEditor('editor').setDisabled('fullscreen');
+      disableBtn("enable");
+    }
+
+    function setEnabled() {
+      UE.getEditor('editor').setEnabled();
+      enableBtn();
+    }
+
+    function getText() {
+      //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+      var range = UE.getEditor('editor').selection.getRange();
+      range.select();
+      var txt = UE.getEditor('editor').selection.getText();
+      alert(txt)
+    }
+
+    function getContentTxt() {
+      var arr = [];
+      arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+      arr.push("编辑器的纯文本内容为：");
+      arr.push(UE.getEditor('editor').getContentTxt());
+      alert(arr.join("\n"));
+    }
+
+    function hasContent() {
+      var arr = [];
+      arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+      arr.push("判断结果为：");
+      arr.push(UE.getEditor('editor').hasContents());
+      alert(arr.join("\n"));
+    }
+
+    function setFocus() {
+      UE.getEditor('editor').focus();
+    }
+
+    function deleteEditor() {
+      disableBtn();
+      UE.getEditor('editor').destroy();
+    }
+
+    function disableBtn(str) {
+      var div = document.getElementById('btns');
+      var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+      for (var i = 0, btn; btn = btns[i++];) {
+        if (btn.id == str) {
+          UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+        } else {
+          btn.setAttribute("disabled", "true");
+        }
+      }
+    }
+
+    function enableBtn() {
+      var div = document.getElementById('btns');
+      var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+      for (var i = 0, btn; btn = btns[i++];) {
+        UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+      }
+    }
+
+    function getLocalData() {
+      alert(UE.getEditor('editor').execCommand("getlocaldata"));
+    }
+
+    function clearLocalData() {
+      UE.getEditor('editor').execCommand("clearlocaldata");
+      alert("已清空草稿箱")
+    }
+  </script>
+  <!--富文本编辑器的脚本-->
+  <script type="text/javascript">
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor1');
+
+
+    function isFocus(e) {
+      alert(UE.getEditor('editor1').isFocus());
+      UE.dom.domUtils.preventDefault(e)
+    }
+
+    function setblur(e) {
+      UE.getEditor('editor1').blur();
+      UE.dom.domUtils.preventDefault(e)
+    }
+
+    function insertHtml() {
+      var value = prompt('插入html代码', '');
+      UE.getEditor('editor1').execCommand('insertHtml', value)
+    }
+
+    function createEditor() {
+      enableBtn();
+      UE.getEditor('editor1');
+    }
+
+    function getAllHtml() {
+      alert(UE.getEditor('editor1').getAllHtml())
+    }
+
+    function getContent() {
+      var arr = [];
+      arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+      arr.push("内容为：");
+      arr.push(UE.getEditor('editor1').getContent());
+      alert(arr.join("\n"));
+    }
+
+    function getPlainTxt() {
+      var arr = [];
+      arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
+      arr.push("内容为：");
+      arr.push(UE.getEditor('editor1').getPlainTxt());
+      alert(arr.join('\n'))
+    }
+
+    function setContent(isAppendTo) {
+      var arr = [];
+      arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+      UE.getEditor('editor1').setContent('欢迎使用ueditor', isAppendTo);
+      alert(arr.join("\n"));
+    }
+
+    function setDisabled() {
+      UE.getEditor('editor1').setDisabled('fullscreen');
+      disableBtn("enable");
+    }
+
+    function setEnabled() {
+      UE.getEditor('editor1').setEnabled();
+      enableBtn();
+    }
+
+    function getText() {
+      //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
+      var range = UE.getEditor('editor1').selection.getRange();
+      range.select();
+      var txt = UE.getEditor('editor1').selection.getText();
+      alert(txt)
+    }
+
+    function getContentTxt() {
+      var arr = [];
+      arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
+      arr.push("编辑器的纯文本内容为：");
+      arr.push(UE.getEditor('editor1').getContentTxt());
+      alert(arr.join("\n"));
+    }
+
+    function hasContent() {
+      var arr = [];
+      arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
+      arr.push("判断结果为：");
+      arr.push(UE.getEditor('editor1').hasContents());
+      alert(arr.join("\n"));
+    }
+
+    function setFocus() {
+      UE.getEditor('editor1').focus();
+    }
+
+    function deleteEditor() {
+      disableBtn();
+      UE.getEditor('editor1').destroy();
+    }
+
+    function disableBtn(str) {
+      var div = document.getElementById('btns');
+      var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+      for (var i = 0, btn; btn = btns[i++];) {
+        if (btn.id == str) {
+          UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+        } else {
+          btn.setAttribute("disabled", "true");
+        }
+      }
+    }
+
+    function enableBtn() {
+      var div = document.getElementById('btns');
+      var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
+      for (var i = 0, btn; btn = btns[i++];) {
+        UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
+      }
+    }
+
+    function getLocalData() {
+      alert(UE.getEditor('editor1').execCommand("getlocaldata"));
+    }
+
+    function clearLocalData() {
+      UE.getEditor('editor1').execCommand("clearlocaldata");
+      alert("已清空草稿箱")
+    }
+  </script>
+</body>
+
+</html>

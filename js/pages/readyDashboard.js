@@ -84,7 +84,7 @@ var ReadyDashboard = function() {
                     }
                 ],
                 {
-                    colors: ['#5ccdde', '#454e59', '#ffffff'],
+                    colors: ['#2281E3', '#454e59', '#ffffff'],
                     legend: {show: true, position: 'nw', backgroundOpacity: 0},
                     grid: {borderWidth: 0, hoverable: true, clickable: true},
                     yaxis: {show: false, tickColor: '#f5f5f5', ticks: 3},

@@ -34,8 +34,8 @@ var CompCharts = function() {
             };
             $('#mini-chart-line1').sparkline('html', miniChartLineOptions);
 
-            miniChartLineOptions['lineColor'] = '#5ccdde';
-            miniChartLineOptions['fillColor'] = '#5ccdde';
+            miniChartLineOptions['lineColor'] = '#2281E3';
+            miniChartLineOptions['fillColor'] = '#2281E3';
             miniChartLineOptions['tooltipPrefix'] = '$ ';
             miniChartLineOptions['tooltipSuffix'] = '';
             $('#mini-chart-line2').sparkline('html', miniChartLineOptions);
@@ -55,7 +55,7 @@ var CompCharts = function() {
             };
             $('#mini-chart-bar1').sparkline('html', miniChartBarOptions);
 
-            miniChartBarOptions['barColor'] = '#5ccdde';
+            miniChartBarOptions['barColor'] = '#2281E3';
             miniChartBarOptions['tooltipPrefix'] = '$ ';
             miniChartBarOptions['tooltipSuffix'] = '';
             $('#mini-chart-bar2').sparkline('html', miniChartBarOptions);
@@ -119,7 +119,7 @@ var CompCharts = function() {
                     }
                 ],
                 {
-                    colors: ['#5ccdde', '#454e59', '#ffffff'],
+                    colors: ['#2281E3', '#454e59', '#ffffff'],
                     legend: {show: true, position: 'nw', backgroundOpacity: 0},
                     grid: {borderWidth: 0, hoverable: true, clickable: true},
                     yaxis: {tickColor: '#f5f5f5', ticks: 3},
@@ -160,7 +160,7 @@ var CompCharts = function() {
             $.plot(chartStacked,
                 [{label: 'Tickets', data: dataTickets}, {label: 'Sales', data: dataSales}, {label: 'Earnings', data: dataEarnings}],
                 {
-                    colors: ['#aaaaaa', '#454e59', '#5ccdde'],
+                    colors: ['#aaaaaa', '#454e59', '#2281E3'],
                     series: {stack: true, lines: {show: true, fill: true}},
                     lines: {show: true, lineWidth: 0, fill: true, fillColor: {colors: [{opacity: .6}, {opacity: .6}]}},
                     legend: {show: true, position: 'nw', sorted: true, backgroundOpacity: 0},
@@ -178,7 +178,7 @@ var CompCharts = function() {
                     {label: 'Earnings', data: 60}
                 ],
                 {
-                    colors: ['#454e59', '#5cafde', '#5ccdde'],
+                    colors: ['#454e59', '#5cafde', '#2281E3'],
                     legend: {show: false},
                     series: {
                         pie: {
@@ -212,7 +212,7 @@ var CompCharts = function() {
                     }
                 ],
                 {
-                    colors: ['#5ccdde', '#454e59'],
+                    colors: ['#2281E3', '#454e59'],
                     legend: {show: true, position: 'nw', backgroundOpacity: 0},
                     grid: {borderWidth: 0},
                     yaxis: {ticks: 3, tickColor: '#f5f5f5'},
@@ -259,7 +259,7 @@ var CompCharts = function() {
                 {
                     series: {shadowSize: 0},
                     lines: {show: true, lineWidth: 2, fill: true, fillColor: {colors: [{opacity: .2}, {opacity: .2}]}},
-                    colors: ['#5ccdde'],
+                    colors: ['#2281E3'],
                     grid: {borderWidth: 0, color: '#aaaaaa'},
                     yaxis: {show: true, min: 0, max: 110},
                     xaxis: {show: false}
@@ -289,7 +289,7 @@ var CompCharts = function() {
                     }
                 ],
                 {
-                    colors: ['#5ccdde', '#454e59', '#ffffff'],
+                    colors: ['#2281E3', '#454e59', '#ffffff'],
                     legend: {show: true, position: 'nw', backgroundOpacity: 0},
                     grid: {borderWidth: 0},
                     yaxis: {tickColor: '#f5f5f5', ticks: 3},
