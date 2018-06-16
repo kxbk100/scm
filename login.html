@@ -26,6 +26,7 @@
 
 <body>
 
+  <img src="img/placeholders/layout/login1.jpg" style="z-index:2;display:none;" alt="Full Background" class="full-bg animation-pulseSlow" id="login">
   <img src="img/placeholders/layout/login.jpg" alt="Full Background" class="full-bg animation-pulseSlow">
   <!-- END Full Background -->
 
@@ -94,63 +95,69 @@
   <!-- Load and execute javascript code used only in this page -->
   <script src="js/pages/readyLogin.js"></script>
   <script>$(function () { ReadyLogin.init(); });</script>
-  <!-- <script>
+  <script>
+    // $("#login").hide(); 
+    $("input").on('focus', function (){
+      $("#login").fadeIn(500);
+    })
+  </script>
+  // <script>
 
-    function login() {
-      localStorage.nodeUrl = "http://localhost:8888";
-      // var data = { "data": { "user": { "userId": 9, "userName": "wajkqwd", "userPasswd": "123", "userWx": "123", "userType": "chuangye", "token": "b4b01652-2766-40e1-9a82-9a7fe37c15c4", "userIcon": "" }, "token": "b4b01652-2766-40e1-9a82-9a7fe37c15c4" }, "msg": "登录成功", "code": 200 }
-      // localStorage.token = data.data.token;
-      // localStorage.userId = data.data.user.userId;
-      // localStorage.userName = data.data.user.userName;
-      // localStorage.userType = data.data.user.userType;
-      var data = {
-        "loginType": 1,
-        "passwd": $("#password").val(),
-        "telephoneNumber": $("#username").val(),
-        "userIcon": "",
-      }
-      console.log(1)
-      data = JSON.stringify(data)
-      $.ajax({
-        type: 'post',
-        url: 'http://localhost:8080/api/sessions',
-        data: data,
-        contentType: 'application/json',
-        dataType: 'JSON',
-        success: function (data) {
-          console.log(data);
-          // {"data":{"user":{"userId":9,"userName":"wajkqwd","userPasswd":"123","userWx":"123","userType":"chuangye","token":"b4b01652-2766-40e1-9a82-9a7fe37c15c4","userIcon":""},"token":"b4b01652-2766-40e1-9a82-9a7fe37c15c4"},"msg":"登录成功","code":200}
-          if (data.code == 200) {
-            // localStorage.userData = data.data;
-            alert(data.msg);
-            localStorage.token = data.data.token;
-            localStorage.userId = data.data.user.userId;
-            localStorage.userName = data.data.user.userName;
-            localStorage.userType = data.data.user.userType;
-            $.ajax({
-              type: 'post',
-              url: localStorage.nodeUrl + '/server/selectInapplyById',
-              data: {
-                userId: localStorage.userId
-              },
-              dataType: 'JSON',
-              success: function (data) {
-                console.log(data);
-                localStorage.inApply = data.inApply;
-                window.location.href = "./index.html"
-              }
-            });
+  //   function login() {
+  //     localStorage.nodeUrl = "http://localhost:8888";
+  //     var data = { "data": { "user": { "userId": 9, "userName": "wajkqwd", "userPasswd": "123", "userWx": "123", "userType": "chuangye", "token": "b4b01652-2766-40e1-9a82-9a7fe37c15c4", "userIcon": "" }, "token": "b4b01652-2766-40e1-9a82-9a7fe37c15c4" }, "msg": "登录成功", "code": 200 }
+  //     localStorage.token = data.data.token;
+  //     localStorage.userId = data.data.user.userId;
+  //     localStorage.userName = data.data.user.userName;
+  //     localStorage.userType = data.data.user.userType;
+  //     var data = {
+  //       "loginType": 1,
+  //       "passwd": $("#password").val(),
+  //       "telephoneNumber": $("#username").val(),
+  //       "userIcon": "",
+  //     }
+  //     console.log(1)
+  //     data = JSON.stringify(data)
+  //     $.ajax({
+  //       type: 'post',
+  //       url: 'http://localhost:8080/api/sessions',
+  //       data: data,
+  //       contentType: 'application/json',
+  //       dataType: 'JSON',
+  //       success: function (data) {
+  //         console.log(data);
+  //         {"data":{"user":{"userId":9,"userName":"wajkqwd","userPasswd":"123","userWx":"123","userType":"chuangye","token":"b4b01652-2766-40e1-9a82-9a7fe37c15c4","userIcon":""},"token":"b4b01652-2766-40e1-9a82-9a7fe37c15c4"},"msg":"登录成功","code":200}
+  //         if (data.code == 200) {
+  //           localStorage.userData = data.data;
+  //           alert(data.msg);
+  //           localStorage.token = data.data.token;
+  //           localStorage.userId = data.data.user.userId;
+  //           localStorage.userName = data.data.user.userName;
+  //           localStorage.userType = data.data.user.userType;
+  //           $.ajax({
+  //             type: 'post',
+  //             url: localStorage.nodeUrl + '/server/selectInapplyById',
+  //             data: {
+  //               userId: localStorage.userId
+  //             },
+  //             dataType: 'JSON',
+  //             success: function (data) {
+  //               console.log(data);
+  //               localStorage.inApply = data.inApply;
+  //               window.location.href = "./index.html"
+  //             }
+  //           });
             
-          } else {
-            alert(data.msg);
-            console.log("审核失败");
-          }
-        }
+  //         } else {
+  //           alert(data.msg);
+  //           console.log("审核失败");
+  //         }
+  //       }
 
-      })
-    }
+  //     })
+  //   }
 
-  </script> -->
+  // </script> 
 </body>
 
 </html>

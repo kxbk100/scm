@@ -165,7 +165,9 @@
                   <h1>公告通知</h1>
                 </div>
               </div>
-              <a href="#modal-large" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">发布公告</a>
+              <span id="add">
+                <a href="javascript:void(0)" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="tooltip">发布公告</a>
+              </span>
               <!-- Regular Modal -->
               <div id="modal-large" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -173,41 +175,41 @@
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                       <h3 class="modal-title">
-                        <strong>发布公告</strong>
+                        <strong>修改公告</strong>
                       </h3>
                     </div>
                     <div class="modal-body">
 
-                        <form action="/classModify/${bitclass.getId()}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
-                          <div class="form-group">
-                            <label class="col-md-3 control-label" for="example-text-input">标题</label>
-                            <div class="col-md-6">
-                              <input type="text" id="example-text-input" name="title" class="form-control" required="required" value="" />
-                            </div>
+                      <form action="/classModify/${bitclass.getId()}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="example-text-input">标题</label>
+                          <div class="col-md-6">
+                            <input type="text" id="example-text-input" name="title" class="form-control" required="required" value="" />
                           </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label" for="example-text-input">发布人</label>
-                            <div class="col-md-6">
-                              <input type="text" id="example-text-input" name="auth" class="form-control" required="required" value=""/>
-                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="example-text-input">发布人</label>
+                          <div class="col-md-6">
+                            <input type="text" id="example-text-input" name="auth" class="form-control" required="required" value="" />
                           </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label" for="example-textarea-input">内容</label>
-                            <div class="col-md-6">
-                              <script id="editor" type="text/plain" style="height:300px;"></script>
-                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="example-textarea-input">内容</label>
+                          <div class="col-md-6">
+                            <script id="editor" type="text/plain" style="height:300px;"></script>
                           </div>
-                          <div class="form-group form-actions">
-                            <div class="col-md-9 col-md-offset-3">
-                              <button type="submit" class="btn btn-effect-ripple btn-primary">
-                                发布
-                              </button>
-                              <button type="reset" class="btn btn-effect-ripple btn-danger">
-                                重置
-                              </button>
-                            </div>
+                        </div>
+                        <div class="form-group form-actions">
+                          <div class="col-md-9 col-md-offset-3">
+                            <button type="submit" class="btn btn-effect-ripple btn-primary">
+                              修改
+                            </button>
+                            <button type="reset" class="btn btn-effect-ripple btn-danger">
+                              重置
+                            </button>
                           </div>
-                        </form>
+                        </div>
+                      </form>
 
                     </div>
                     <!-- <div class="modal-footer">
@@ -258,18 +260,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -284,18 +284,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -310,18 +308,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -336,18 +332,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -362,18 +356,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -388,18 +380,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -414,18 +404,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -440,18 +428,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -466,18 +452,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -492,18 +476,16 @@
                         </h4>
                         <span class="text-muted">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容...</span>
                       </td>
-                      <td class="hidden-xs text-center" style="width: 60px;">
+                      <td class="hidden-xs text-center" style="width: 80px;">
                         作者一
                       </td>
                       <td class="hidden-xs text-right text-muted" style="width: 120px;">
                         <em>2018-06-01</em>
                       </td>
                       <td class="text-center">
-                        <h4>
-                          <a href="javascript:void(0)" data-toggle="tooltip" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
-                            <i class="fa fa-pencil"></i>
-                          </a>
-                        </h4>
+                        <a href="#modal-large" data-toggle="modal" title="修改或查看" class="btn btn-effect-ripple btn-xs btn-info">
+                          <i class="fa fa-pencil"></i>
+                        </a>
                         <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
@@ -520,7 +502,9 @@
             <div id="message-view" class="block-section display-none">
               <!-- Title -->
               <div class="block-title clearfix">
-
+                <div class="block-options pull-right">
+                     <h3>发布公告</h3> 
+                </div>
                 <div class="block-options pull-left">
                   <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" id="message-view-back">
                     <i class="fa fa-chevron-left"></i> 返回列表</a>
@@ -528,10 +512,10 @@
               </div>
               <!-- END Title -->
 
-              
+
 
               <!-- Message Body -->
-              <form action="/classModify/${bitclass.getId()}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
+              <form action="" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered">
                 <div class="form-group">
                   <label class="col-md-3 control-label" for="example-text-input">标题</label>
                   <div class="col-md-6">
@@ -541,7 +525,7 @@
                 <div class="form-group">
                   <label class="col-md-3 control-label" for="example-text-input">发布人</label>
                   <div class="col-md-6">
-                    <input type="text" id="example-text-input" name="auth" class="form-control" required="required" value=""/>
+                    <input type="text" id="example-text-input" name="auth" class="form-control" required="required" value="" />
                   </div>
                 </div>
                 <div class="form-group">
@@ -553,7 +537,7 @@
                 <div class="form-group form-actions">
                   <div class="col-md-9 col-md-offset-3">
                     <button type="submit" class="btn btn-effect-ripple btn-primary">
-                      修改
+                      发布
                     </button>
                     <button type="reset" class="btn btn-effect-ripple btn-danger">
                       重置
