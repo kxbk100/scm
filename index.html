@@ -1,190 +1,396 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zh-cn">
 
-  <head>
-    <meta charset="utf-8">
-    <title>一流学科建设监控系统</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/themes.css">
-    <script src="js/vendor/modernizr-3.3.1.min.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>一流学科建设监控系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/plugins.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <script src="js/vendor/modernizr-3.3.1.min.js"></script>
+</head>
 
-  <body>
-    <div id="page-wrapper" class="page-loading">
-      <div class="preloader">
-        <div class="inner">
-          <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
-          <h3 class="text-primary visible-lt-ie10">
-            <strong>Loading..</strong>
-          </h3>
-        </div>
+<body>
+  <div id="page-wrapper" class="page-loading">
+    <div class="preloader">
+      <div class="inner">
+        <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+        <h3 class="text-primary visible-lt-ie10">
+          <strong>Loading..</strong>
+        </h3>
       </div>
+    </div>
 
-      <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-        <!-- Main Sidebar -->
-        <div id="sidebar">
-          <!-- Sidebar Brand -->
-          <div id="sidebar-brand" class="themed-background">
-            <a href="index.html" class="sidebar-title">
-              <i class="fa fa-cube"></i>
-              <span class="sidebar-nav-mini-hide">
-                <strong>学科建设监控系统</strong>
-              </span>
-            </a>
+    <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+      <!-- Main Sidebar -->
+      <div id="sidebar">
+        <!-- Sidebar Brand -->
+        <div id="sidebar-brand" class="themed-background">
+          <a href="index.html" class="sidebar-title">
+            <i class="fa fa-cube"></i>
+            <span class="sidebar-nav-mini-hide">
+              <strong>学科建设监控系统</strong>
+            </span>
+          </a>
+        </div>
+        <!-- END Sidebar Brand -->
+
+        <!-- Wrapper for scrolling functionality -->
+        <div id="sidebar-scroll">
+          <!-- Sidebar Content -->
+          <div class="sidebar-content">
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav">
+              <li>
+                <a href="teachers.html">
+                  <i class="gi gi-group sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">师资队伍建设</span>
+                </a>
+              </li>
+              <li>
+                <a href="talent.html">
+                  <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">人才培养</span>
+                </a>
+              </li>
+              <li>
+                <a href="science.html">
+                  <i class="gi gi-lightbulb sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
+                </a>
+              </li>
+              <li>
+                <a href="subject.html">
+                  <i class="fa fa-line-chart sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">学科影响力</span>
+                </a>
+              </li>
+              <li>
+                <a href="international.html">
+                  <i class="fa fa-globe sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">国际合作与交流</span>
+                </a>
+              </li>
+              <li>
+                <a href="aMaterial.html">
+                  <i class="hi hi-list-alt sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">材料审核</span>
+                </a>
+              </li>
+              <li>
+                <a href="anotice.html">
+                  <i class="fa fa-bell sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">公告通知</span>
+                </a>
+              </li>
+            </ul>
+            </ul>
+            <!-- END Sidebar Navigation -->
           </div>
-          <!-- END Sidebar Brand -->
+          <!-- END Sidebar Content -->
+        </div>
+        <!-- END Wrapper for scrolling functionality -->
 
-          <!-- Wrapper for scrolling functionality -->
-          <div id="sidebar-scroll">
-            <!-- Sidebar Content -->
-            <div class="sidebar-content">
-              <!-- Sidebar Navigation -->
-              <ul class="sidebar-nav">
+        <!-- Sidebar Extra Info -->
+        <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+          <div class="text-center">
+            <small>Copyright &copy;
+              <a href="#" target="_blank">夜猫</a> 版权所有
+            </small>
+          </div>
+        </div>
+        <!-- END Sidebar Extra Info -->
+      </div>
+      <!-- END Main Sidebar -->
+
+      <!-- Main Container -->
+      <div id="main-container">
+        <header class="navbar navbar-inverse navbar-fixed-top">
+          <!-- Left Header Navigation -->
+          <ul class="nav navbar-nav-custom">
+            <!-- Main Sidebar Toggle Button -->
+            <li>
+              <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+              </a>
+            </li>
+            <!-- END Main Sidebar Toggle Button -->
+
+            <!-- Header Link -->
+            <li class="hidden-xs animation-fadeInQuick">
+              <a href="">
+                <strong>WELCOME</strong>
+              </a>
+            </li>
+            <!-- END Header Link -->
+          </ul>
+          <!-- END Left Header Navigation -->
+
+          <!-- Right Header Navigation -->
+          <ul class="nav navbar-nav-custom pull-right">
+            <!-- User Dropdown -->
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                  <a href="teachers.html">
-                    <i class="gi gi-group sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">师资队伍建设</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="talent.html">
-                    <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">人才培养</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="science.html">
-                    <i class="gi gi-lightbulb sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="subject.html">
-                    <i class="fa fa-line-chart sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">学科影响力</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="international.html">
-                    <i class="fa fa-globe sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">国际合作与交流</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="aMaterial.html">
-                    <i class="hi hi-list-alt sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">材料审核</span>
+                  <a href="#">
+                    <i class="fa fa-power-off fa-fw pull-right"></i>
+                    注销
                   </a>
                 </li>
               </ul>
-              <!-- END Sidebar Navigation -->
-            </div>
-            <!-- END Sidebar Content -->
-          </div>
-          <!-- END Wrapper for scrolling functionality -->
+            </li>
+            <!-- END User Dropdown -->
+          </ul>
+          <!-- END Right Header Navigation -->
+        </header>
+        <!-- END Header -->
 
-          <!-- Sidebar Extra Info -->
-          <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
-            <div class="text-center">
-              <small>Copyright &copy;
-                <a href="#" target="_blank">夜猫</a> 版权所有
-              </small>
-            </div>
-          </div>
-          <!-- END Sidebar Extra Info -->
-        </div>
-        <!-- END Main Sidebar -->
-
-        <!-- Main Container -->
-        <div id="main-container">
-          <header class="navbar navbar-inverse navbar-fixed-top">
-            <!-- Left Header Navigation -->
-            <ul class="nav navbar-nav-custom">
-              <!-- Main Sidebar Toggle Button -->
-              <li>
-                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
-                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
-                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
-                </a>
-              </li>
-              <!-- END Main Sidebar Toggle Button -->
-
-              <!-- Header Link -->
-              <li class="hidden-xs animation-fadeInQuick">
-                <a href="">
-                  <strong>WELCOME</strong>
-                </a>
-              </li>
-              <!-- END Header Link -->
-            </ul>
-            <!-- END Left Header Navigation -->
-
-            <!-- Right Header Navigation -->
-            <ul class="nav navbar-nav-custom pull-right">
-              <!-- User Dropdown -->
-              <li class="dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-power-off fa-fw pull-right"></i>
-                      注销
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <!-- END User Dropdown -->
-            </ul>
-            <!-- END Right Header Navigation -->
-          </header>
-          <!-- END Header -->
-
-          <!-- Page content -->
-          <div id="page-content">
-            <!-- Blank Header -->
-            <div class="content-header">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="header-section">
-                    <h1>欢迎使用！</h1>
-                  </div>
+        <!-- Page content -->
+        <div id="page-content">
+          <!-- Blank Header -->
+          <div class="content-header">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="header-section">
+                  <h1>欢迎使用！</h1>
                 </div>
               </div>
             </div>
-            <!-- END Blank Header -->
-
-            <!-- Get Started Block -->
-            <div class="block full">
-              <!-- Get Started Title -->
-              <div class="block-title">
-                <h2>进度概览</h2>
-              </div>
-              <!-- END Get Started Title -->
-
-              <!-- Get Started Content -->
-              Chart
-              <!-- END Get Started Content -->
-            </div>
-            <!-- END Get Started Block -->
           </div>
-          <!-- END Page Content -->
-        </div>
-        <!-- END Main Container -->
-      </div>
-      <!-- END Page Container -->
-    </div>
-    <!-- END Page Wrapper -->
+          <!-- END Blank Header -->
 
-    <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
-    <script src="js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+          <!-- Get Started Block -->
+          <!-- Get Started Content -->
+          <!-- Classic and Stacked Chart -->
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>学科建设进度</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart0" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>师资队伍建设</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart1" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+            <div class="col-sm-6">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>人才培养</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart2" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                <!-- Classic Chart Block -->
+                <div class="block full">
+                  <!-- Classic Chart Title -->
+                  <div class="block-title">
+                    <h2>科学研究与社会服务</h2>
+                  </div>
+                  <!-- END Classic Chart Title -->
+  
+                  <!-- Classic Chart Content -->
+                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                  <div id="chart3" style="height: 380px;"></div>
+                  <!-- END Classic Chart Content -->
+                </div>
+                <!-- END Classic Chart Block -->
+              </div>
+              <div class="col-sm-6">
+                <!-- Classic Chart Block -->
+                <div class="block full">
+                  <!-- Classic Chart Title -->
+                  <div class="block-title">
+                    <h2>学科影响力</h2>
+                  </div>
+                  <!-- END Classic Chart Title -->
+  
+                  <!-- Classic Chart Content -->
+                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                  <div id="chart4" style="height: 380px;"></div>
+                  <!-- END Classic Chart Content -->
+                </div>
+                <!-- END Classic Chart Block -->
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                  <!-- Classic Chart Block -->
+                  <div class="block full">
+                    <!-- Classic Chart Title -->
+                    <div class="block-title">
+                      <h2>国际合作与交流</h2>
+                    </div>
+                    <!-- END Classic Chart Title -->
+    
+                    <!-- Classic Chart Content -->
+                    <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                    <div id="chart5" style="height: 380px;"></div>
+                    <!-- END Classic Chart Content -->
+                  </div>
+                  <!-- END Classic Chart Block -->
+                </div>                
+              </div>
+          <!-- END Classic and Stacked Chart -->
+          <!-- END Get Started Content -->
+
+          <!-- END Get Started Block -->
+        </div>
+        <!-- END Page Content -->
+      </div>
+      <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+  </div>
+  <!-- END Page Wrapper -->
+
+  <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+  <script src="js/vendor/jquery-2.2.4.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/echarts.min.js"></script>
+  <script>
+    var dom = document.getElementById("chart0");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
+
+    option = {
+      tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}:  {d}%"
+      },
+      legend: {
+        orient: 'vertical',
+        x: 'left',
+        data: ['师资队伍建设', '人才培养', '科学研究与社会服务', '学科影响力','国际合作与交流']
+      },
+      series: [
+        {
+          name: '进度',
+          type: 'pie',
+          radius: ['75%', '95%'],
+          avoidLabelOverlap: false,
+          label: {
+            normal: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              show: true,
+              textStyle: {
+                fontSize: '30',
+                fontWeight: 'bold'
+              }
+            }
+          },
+          labelLine: {
+            normal: {
+              show: false
+            }
+          },
+          data: [
+            { value: 32, name: '师资队伍建设' },
+            { value: 28, name: '人才培养' },
+            { value: 40, name: '科学研究与社会服务' },
+            { value: 15, name: '学科影响力' },
+            { value: 5, name: '国际合作与交流' },
+          ]
+        }
+      ]
+    };
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>
+  <script>
+    var dom = document.getElementById("chart1");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
+
+    option = {
+      title: {
+        text: '学科建设进度',
+        subtext: '条形图'
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: []
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        boundaryGap: [0, 0.01]
+      },
+      yAxis: {
+        type: 'category',
+        data: ['国际合作与交流(%)', '学科影响力(%)', '科学研究与社会服务(%)', '人才培养(%)', '师资队伍建设(%)', '总进度(%)']
+      },
+      series: [
+        {
+          name: '2018年',
+          type: 'bar',
+          data: [15, 22, 54, 60, 72, 88]
+        }
+      ]
+    };
+    
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>      
+</body>
 
 </html>

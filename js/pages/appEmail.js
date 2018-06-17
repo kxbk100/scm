@@ -24,10 +24,11 @@ var AppEmail = function() {
             });
 
             /* Show/Hide Message view - Just for preview */
+            var inboxadd = $('#add')
             var inboxList = $('#message-list');
             var inboxView = $('#message-view');
 
-            inboxList.find('h4 > a').on('click', function(){
+            inboxadd.on('click', function(){
                 inboxList
                     .removeClass('animation-fadeInQuick2Inv')
                     .addClass('display-none');
