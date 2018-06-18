@@ -43,43 +43,49 @@
             <div class="sidebar-content">
               <!-- Sidebar Navigation -->
               <ul class="sidebar-nav">
-                <li>
-                  <a href="teachers.html">
-                    <i class="gi gi-group sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">师资队伍建设</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="talent.html">
-                    <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">人才培养</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="science.html">
-                    <i class="gi gi-lightbulb sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="subject.html">
-                    <i class="fa fa-line-chart sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">学科影响力</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="international.html">
-                    <i class="fa fa-globe sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">国际合作与交流</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="material.html" class="active">
-                    <i class="hi hi-list-alt sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">材料审核</span>
-                  </a>
-                </li>
-              </ul>
+                  <li>
+                    <a href="teachers.html">
+                      <i class="gi gi-group sidebar-nav-icon"></i>
+                      <span class="sidebar-nav-mini-hide">师资队伍建设</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="talent.html">
+                      <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
+                      <span class="sidebar-nav-mini-hide">人才培养</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="science.html">
+                      <i class="gi gi-lightbulb sidebar-nav-icon"></i>
+                      <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="subject.html">
+                      <i class="fa fa-line-chart sidebar-nav-icon"></i>
+                      <span class="sidebar-nav-mini-hide">学科影响力</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="international.html">
+                      <i class="fa fa-globe sidebar-nav-icon"></i>
+                      <span class="sidebar-nav-mini-hide">国际合作与交流</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="amaterial.html" class="active">
+                      <i class="hi hi-list-alt sidebar-nav-icon"></i>
+                      <span class="sidebar-nav-mini-hide">材料审核</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="anotice.html">
+                      <i class="fa fa-bell sidebar-nav-icon"></i>
+                      <span class="sidebar-nav-mini-hide">公告通知</span>
+                    </a>
+                  </li>
+                </ul>
               <!-- END Sidebar Navigation -->
             </div>
             <!-- END Sidebar Content -->
@@ -162,23 +168,14 @@
                               <div class="form-group form-inline">
                                   <label class="col-md-3 control-label" for="example-text-input">指标</label>
                                   <div class="col-md-4">
-                                      <select name="first" class="form-control" id="first" onchange="getName()">
-                                          <option value="">请选择一级指标</option>
-                                          <option value="">师资队伍建设</option>
-                                          <option value="">人才培养</option>
-                                          <option value="">科学研究与社会服务</option>
-                                          <option value="">学科影响力</option>
-                                          <option value="">国际合作与交流</option>
+                                      <select name="first" class="form-control" id="first">
+                                          <option value="0">请选择一级指标</option>
                                       </select>
                                       <select name="second" class="form-control" id="second">
-                                          <option value="">请选择二级指标</option>
-                                          <option value="">专任教师人数</option>
-                                          <option value="">专任教师结构</option>
-                                          <option value="">团队</option>
+                                          <option value="0">请选择二级指标</option>
                                       </select>
-                                      <select name="second" class="form-control" id="third">
-                                          <option value="">请选择具体指标</option>
-                                        <option value="">研究生以第一作者在SCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在国内一级期刊（浙大标准）发表论文数（篇）</option>
+                                      <select name="third" class="form-control" id="third">
+                                          <option value="0">请选择具体指标</option>
                                     </select>
                                   </div>
                                 </div>
@@ -338,6 +335,24 @@
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/app.js"></script>
+    <script>
+      fillfrist();
+      fillsecond();
+      fliithird();
+
+      $("#first").on('change',function(){
+        fillsecond();
+        fillthird();
+      })
+
+      $("#second").on('change',function(){
+        fillthird();
+      })
+
+      function fillfrist(){
+        
+      }
+    </script>
   </body>
 
 </html>
