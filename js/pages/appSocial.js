@@ -29,7 +29,7 @@ var AppSocial = function() {
                         chatTalk
                             .find('ul')
                             .append('<li class="chatui-talk-msg chatui-talk-msg-right animation-expandUp">'
-                                    + '<img src="img/placeholders/avatars/avatar9.jpg" alt="Avatar" class="img-circle chatui-talk-msg-avatar">'
+                                    + '<img src="img/placeholders/avatars/user.jpg" alt="Avatar" class="img-circle chatui-talk-msg-avatar">'
                                     + $('<div />').text(chatMsg).html()
                                     + '</li>');
 
