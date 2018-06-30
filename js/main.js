@@ -10,7 +10,7 @@ function updateTable(n) {
   console.log(JSON.stringify(table));
   $.ajax({
     type: "POST",
-    url: "http://192.168.1.114:8080/goal/updateGoal",
+    url: "http://localhost:8080/goal/updateGoal",
     data: { table: JSON.stringify(table) },
     success: function (msg) {
       console.log("success");
