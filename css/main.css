@@ -2175,7 +2175,6 @@ input[type="email"].form-control.input-lg {
 .table tbody > tr > td {
     padding-top: 8px;
     padding-bottom: 8px;
-    padding-left: 20px;
 }
 
 .table.table-condensed tbody > tr > th,
@@ -3919,3 +3918,11 @@ p, .table, .alert, .carousel {
 .material-admin{
     padding-top: 6px;
 }
+
+.text_overflow{
+    /* width:27rem; */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
