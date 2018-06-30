@@ -43,49 +43,49 @@
             <div class="sidebar-content">
               <!-- Sidebar Navigation -->
               <ul class="sidebar-nav">
-                  <li>
-                    <a href="teachers.html" class="active">
-                      <i class="gi gi-group sidebar-nav-icon"></i>
-                      <span class="sidebar-nav-mini-hide">师资队伍建设</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="talent.html">
-                      <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
-                      <span class="sidebar-nav-mini-hide">人才培养</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="science.html">
-                      <i class="gi gi-lightbulb sidebar-nav-icon"></i>
-                      <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="subject.html">
-                      <i class="fa fa-line-chart sidebar-nav-icon"></i>
-                      <span class="sidebar-nav-mini-hide">学科影响力</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="international.html">
-                      <i class="fa fa-globe sidebar-nav-icon"></i>
-                      <span class="sidebar-nav-mini-hide">国际合作与交流</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="amaterial.html">
-                      <i class="hi hi-list-alt sidebar-nav-icon"></i>
-                      <span class="sidebar-nav-mini-hide">材料审核</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="anotice.html">
-                      <i class="fa fa-bell sidebar-nav-icon"></i>
-                      <span class="sidebar-nav-mini-hide">公告通知</span>
-                    </a>
-                  </li>
-                </ul>
+                <li>
+                  <a href="teachers.html" class="active">
+                    <i class="gi gi-group sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">师资队伍建设</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="talent.html">
+                    <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">人才培养</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="science.html">
+                    <i class="gi gi-lightbulb sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="subject.html">
+                    <i class="fa fa-line-chart sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">学科影响力</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="international.html">
+                    <i class="fa fa-globe sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">国际合作与交流</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="amaterial.html" id="ma">
+                    <i class="hi hi-list-alt sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">材料审核</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="anotice.html" id="no">
+                    <i class="fa fa-bell sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">公告通知</span>
+                  </a>
+                </li>
+              </ul>
               <!-- END Sidebar Navigation -->
             </div>
             <!-- END Sidebar Content -->
@@ -125,11 +125,11 @@
               <!-- User Dropdown -->
               <li class="dropdown">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="img/placeholders/avatars/avatar9.jpg" alt="avatar">
+                <img src="img/placeholders/avatars/user.jpg" alt="avatar">
               </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
-                    <a href="#">
+                    <a href="login.html">
                       <i class="fa fa-power-off fa-fw pull-right"></i>
                       注销
                     </a>
@@ -159,7 +159,7 @@
                 </span>
 
                 <!-- Regular Modal -->
-                <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div id="modal" class="modal fade fade" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -321,7 +321,7 @@
       // 2. 调整表格中的dom结构和id，数字随table数定
       // 3. 调整ajax中的first和swith-case中的item.second
       $.ajax({
-        url: 'http://192.168.43.103:8080/goal/getGoal?first=师资队伍建设',
+        url: 'http://192.168.1.114:8080/goal/getGoal?first=师资队伍建设',
         type: 'POST',
         cache: false,
         success: function (data) {
@@ -403,7 +403,7 @@
         },
         error: function (e) { }
       })
-      for (var i = 0; i < 4; i++) {
+      for (var i = 0; i < 3; i++) {
         let ii = i;
         $("#edit" + ii).on('click', function () {
           edit(ii);
@@ -418,9 +418,23 @@
           cancel(ii);
         })
       }
+
+      $("#edit3").on('click', function () {
+        edit(3);
+      })
+
+      $("#save3").on('click', function () {
+        save(3);
+      })
+
+      $("#cancel3").on('click', function () {
+        cancel(3);
+      })
+
       $("#add3").on('click', function () {
         add(3);
       })
+
 
     </script>
 

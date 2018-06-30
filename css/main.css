@@ -1,28 +1,3 @@
-/*
- *  Document   : main.css
- *  Author     : pixelcave
- *  Description: The main stylesheet of the template
- *
- *  Structure (with shortcodes):
- *      (#m01mls) MAIN LAYOUT
- *      (#m02hds) HEADER
- *      (#m03sns) SIDEBAR/NAVIGATION
- *      (#m04mcs) MAIN CONTENT
- *      (#m05pgs) PAGES
- *      (#m06bos) BOOTSTRAP OVERWRITE/EXTEND STYLES
- *      (#m07hes) HELPERS
- *      (#m08ths) THEMES
- *      (#m09res) RESPONSIVE
- *      (#m10prs) PRINT
- */
-
-/*
-=================================================================
-(#m01mls) MAIN LAYOUT
-=================================================================
-*/
-
-
 /* Preloader */
 #page-wrapper.page-loading {
     overflow: hidden;
@@ -2171,10 +2146,14 @@ input[type="email"].form-control.input-lg {
     padding-bottom: 15px;
 }
 
+
 .table tbody > tr > th,
 .table tbody > tr > td {
     padding-top: 8px;
     padding-bottom: 8px;
+}
+.table.notice tbody > tr > td {
+    padding-left: 30px;
 }
 
 .table.table-condensed tbody > tr > th,
