@@ -153,9 +153,10 @@
                   </div>
                 </div>
 
-                <a href="#modal-regular" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">设置阶段检查时间</a>
+                <a href="#modal" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal" id="set">设置阶段检查时间</a>
+                <a class="btn btn-effect-ripple btn-primary btn-title" id="save">保存</a>
                 <span class="title-text">
-                  <strong>下一阶段检查时间：2018/07/06</strong>
+                  <strong id="showdeadline"></strong>
                 </span>
                 <!-- Regular Modal -->
                 <div id="modal-regular" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -344,7 +345,7 @@
       // 2. 调整表格中的dom结构和id，数字随table数定
       // 3. 调整ajax中的first和swith-case中的item.second
       $.ajax({
-        url: 'http://192.168.1.114:8080/goal/getGoal?first=人才培养',
+        url: 'http://localhost:8080/goal/getGoal?first=人才培养',
         type: 'POST',
         cache: false,
         success: function (data) {
