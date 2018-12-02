@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <title>一流学科建设监控系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/themes.css">
-    <script src="js/vendor/modernizr-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/plugins.css">
+    <link rel="stylesheet" href="../../../../css/main.css">
+    <link rel="stylesheet" href="../../../../css/themes.css">
+    <script src="../../../../js/vendor/modernizr-3.3.1.min.js"></script>
   </head>
 
   <body>
@@ -44,7 +44,7 @@
               <!-- Sidebar Navigation -->
               <ul class="sidebar-nav">
                 <li>
-                  <a href="teachers.html" class="active">
+                  <a href="teachers.html">
                     <i class="gi gi-group sidebar-nav-icon"></i>
                     <span class="sidebar-nav-mini-hide">师资队伍建设</span>
                   </a>
@@ -56,7 +56,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="science.html">
+                  <a href="science.html" class="active">
                     <i class="gi gi-lightbulb sidebar-nav-icon"></i>
                     <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
                   </a>
@@ -125,7 +125,7 @@
               <!-- User Dropdown -->
               <li class="dropdown">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="img/placeholders/avatars/user.jpg" alt="avatar">
+                <img src="../../../../img/placeholders/avatars/user.jpg" alt="avatar">
               </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
@@ -149,17 +149,17 @@
               <div class="row">
                 <div class="col-xs-6">
                   <div class="header-section">
-                    <h1>师资队伍建设</h1>
+                    <h1>科学研究与社会服务</h1>
                   </div>
                 </div>
+
                 <a href="#modal" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal" id="set">设置阶段检查时间</a>
                 <a class="btn btn-effect-ripple btn-primary btn-title" id="save">保存</a>
                 <span class="title-text">
                   <strong id="showdeadline"></strong>
                 </span>
-
                 <!-- Regular Modal -->
-                <div id="modal" class="modal fade fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div id="modal-regular" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -168,13 +168,13 @@
                           <strong>设置阶段检查时间</strong>
                         </h3>
                       </div>
-
                       <div class="modal-body">
-                        <div class="text-center modal-time">
-                          <input type="date" id="deadline" />
-                        </div>
-                      </div>
 
+                        <div class="text-center modal-time">
+                          <input type="date" id="deadline" name="deadline" required="required" />
+                        </div>
+
+                      </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-effect-ripple btn-primary" id="setdeadline" data-dismiss="modal">保存</button>
                         <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
@@ -183,7 +183,6 @@
                   </div>
                 </div>
                 <!-- END Regular Modal -->
-
               </div>
             </div>
             <!-- END Blank Header -->
@@ -192,7 +191,7 @@
 
             <div class="block full">
               <div class="block-title">
-                <h2>专任教师人数</h2>
+                <h2>科研平台</h2>
                 <div class="btn-table">
                   <button type="button" class="btn btn-effect-ripple btn-primary" id="edit0">编辑</button>
                   <button type="submit" class="btn btn-effect-ripple btn-primary hidden" id="save0">保存</button>
@@ -219,7 +218,7 @@
 
             <div class="block full">
               <div class="block-title">
-                <h2>专任教师结构</h2>
+                <h2>科研项目与经费</h2>
                 <div class="btn-table">
                   <button type="button" class="btn btn-effect-ripple btn-primary" id="edit1">编辑</button>
                   <button type="submit" class="btn btn-effect-ripple btn-primary hidden" id="save1">保存</button>
@@ -230,6 +229,7 @@
                 <table id="table1" class="table table-striped table-bordered table-vcenter">
                   <thead>
                     <tr>
+                      <th class="hidden">id</th>
                       <th class="text-center" style="width: 420px;">具体指标</th>
                       <th class="text-center" style="width: 75px;">现状值</th>
                       <th class="text-center" style="width: 75px;">目标值</th>
@@ -244,7 +244,7 @@
             </div>
             <div class="block full">
               <div class="block-title">
-                <h2>团队</h2>
+                <h2>科研成果</h2>
                 <div class="btn-table">
                   <button type="button" class="btn btn-effect-ripple btn-primary" id="edit2">编辑</button>
                   <button type="submit" class="btn btn-effect-ripple btn-primary hidden" id="save2">保存</button>
@@ -255,6 +255,7 @@
                 <table id="table2" class="table table-striped table-bordered table-vcenter">
                   <thead>
                     <tr>
+                      <th class="hidden">id</th>
                       <th class="text-center" style="width: 420px;">具体指标</th>
                       <th class="text-center" style="width: 75px;">现状值</th>
                       <th class="text-center" style="width: 75px;">目标值</th>
@@ -267,17 +268,13 @@
                 </table>
               </div>
             </div>
-
             <div class="block full">
               <div class="block-title">
-                <h2>自设指标</h2>
+                <h2>成果奖励</h2>
                 <div class="btn-table">
-                  <div class="btn-table">
-                    <button type="button" class="btn btn-effect-ripple btn-primary" id="edit3">编辑</button>
-                    <button type="button" class="btn btn-effect-ripple btn-primary hidden" id="add3">新增</button>
-                    <button type="submit" class="btn btn-effect-ripple btn-primary hidden" id="save3">保存</button>
-                    <button type="button" class="btn btn-effect-ripple btn-danger hidden" id="cancel3">取消</button>
-                  </div>
+                  <button type="button" class="btn btn-effect-ripple btn-primary" id="edit3">编辑</button>
+                  <button type="submit" class="btn btn-effect-ripple btn-primary hidden" id="save3">保存</button>
+                  <button type="button" class="btn btn-effect-ripple btn-danger hidden" id="cancel3">取消</button>
                 </div>
               </div>
               <div class="table-responsive">
@@ -293,12 +290,65 @@
                       <th class="text-center">进度</th>
                     </tr>
                   </thead>
-                  <tbody id="self">
-
-                  </tbody>
+                  <tbody></tbody>
                 </table>
               </div>
             </div>
+            <div class="block full">
+              <div class="block-title">
+                <h2>社会服务</h2>
+                <div class="btn-table">
+                  <button type="button" class="btn btn-effect-ripple btn-primary" id="edit4">编辑</button>
+                  <button type="submit" class="btn btn-effect-ripple btn-primary hidden" id="save4">保存</button>
+                  <button type="button" class="btn btn-effect-ripple btn-danger hidden" id="cancel4">取消</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table id="table4" class="table table-striped table-bordered table-vcenter">
+                  <thead>
+                    <tr>
+                      <th class="hidden">id</th>
+                      <th class="text-center" style="width: 420px;">具体指标</th>
+                      <th class="text-center" style="width: 75px;">现状值</th>
+                      <th class="text-center" style="width: 75px;">目标值</th>
+                      <th class="text-center" style="width: 95px;" name="stage">阶段目标</th>
+                      <th class="text-center" style="width: 125px;">截止时间</th>
+                      <th class="text-center">进度</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="block full">
+              <div class="block-title">
+                <h2>自设指标</h2>
+                <div class="btn-table">
+                  <button type="button" class="btn btn-effect-ripple btn-primary" id="edit5">编辑</button>
+                  <button type="button" class="btn btn-effect-ripple btn-primary hidden" id="add3">新增</button>
+                  <button type="submit" class="btn btn-effect-ripple btn-primary hidden" id="save5">保存</button>
+                  <button type="button" class="btn btn-effect-ripple btn-danger hidden" id="cancel5">取消</button>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table id="table5" class="table table-striped table-bordered table-vcenter">
+                  <thead>
+                    <tr>
+                      <th class="hidden">id</th>
+                      <th class="text-center" style="width: 420px;">具体指标</th>
+                      <th class="text-center" style="width: 75px;">现状值</th>
+                      <th class="text-center" style="width: 75px;">目标值</th>
+                      <th class="text-center" style="width: 95px;" name="stage">阶段目标</th>
+                      <th class="text-center" style="width: 125px;">截止时间</th>
+                      <th class="text-center">进度</th>
+                    </tr>
+                  </thead>
+                  <tbody id="self"></tbody>
+                </table>
+              </div>
+            </div>
+            <!-- END Datatables Block -->
+            <!-- END Get Started Content -->
           </div>
           <!-- END Get Started Block -->
         </div>
@@ -309,19 +359,19 @@
     <!-- END Page Container -->
 
     <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
-    <script src="js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/jquery.tabletojson.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../../../../js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="../../../../js/vendor/bootstrap.min.js"></script>
+    <script src="../../../../js/plugins.js"></script>
+    <script src="../../../../js/app.js"></script>
+    <script src="../../../../js/pages/uiTables.js"></script>
+    <script src="../../../../js/main.js"></script>
     <script>
       // 0. 修改ajax的url
       // 1. 引入main.js
       // 2. 调整表格中的dom结构和id，数字随table数定
       // 3. 调整ajax中的first和swith-case中的item.second
       $.ajax({
-        url: 'http://localhost:8080/goal/getGoal?first=师资队伍建设',
+        url: 'http://localhost:8080/goal/getGoal?first=科学研究与社会服务',
         type: 'POST',
         cache: false,
         success: function (data) {
@@ -381,17 +431,23 @@
           </tr>
           `
             switch (item.second) {
-              case "专任教师人数":
+              case "科研平台":
                 $("#table0 tbody").append(table);
                 break;
-              case "专任教师结构":
+              case "科研项目与经费":
                 $("#table1 tbody").append(table);
                 break;
-              case "团队":
+              case "科研成果":
                 $("#table2 tbody").append(table);
                 break;
-              case "自设指标":
+              case "成果奖励":
                 $("#table3 tbody").append(table);
+                break;
+              case "社会服务":
+                $("#table4 tbody").append(table);
+                break;
+              case "自设指标":
+                $("#table5 tbody").append(table);
                 break;
               default:
                 break;
@@ -403,7 +459,7 @@
         },
         error: function (e) { }
       })
-      for (var i = 0; i < 3; i++) {
+      for (var i = 0; i < 5; i++) {
         let ii = i;
         $("#edit" + ii).on('click', function () {
           edit(ii);
@@ -419,20 +475,20 @@
         })
       }
 
-      $("#edit3").on('click', function () {
-        edit(3);
+      $("#edit5").on('click', function () {
+        edit(5);
       })
 
-      $("#save3").on('click', function () {
-        save(3);
+      $("#save4").on('click', function () {
+        save(5);
       })
 
-      $("#cancel3").on('click', function () {
-        cancel(3);
+      $("#cancel5").on('click', function () {
+        cancel(5);
       })
 
-      $("#add3").on('click', function () {
-        add(3);
+      $("#add5").on('click', function () {
+        add(5);
       })
 
 
