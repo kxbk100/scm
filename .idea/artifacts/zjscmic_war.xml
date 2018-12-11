@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="zjscmic:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="zjscmic.war">
-      <element id="artifact" artifact-name="zjscmic:war exploded" />
-    </root>
-  </artifact>
-</component>

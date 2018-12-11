@@ -3,7 +3,7 @@ package entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "targets", schema = "zjscmic")
+@Table(name = "targets", schema = "zjscmic", catalog = "")
 public class TargetsEntity {
     private int id;
     private String first;

@@ -3,10 +3,12 @@ package entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "other", schema = "zjscmic")
+@Table(name = "other", schema = "zjscmic", catalog = "")
 public class OtherEntity {
     private int id;
     private String value;
+    private int status;
+    private String src;
 
     @Id
     @Column(name = "id")
@@ -28,6 +30,26 @@ public class OtherEntity {
         this.value = value;
     }
 
+    @Basic
+    @Column(name = "status")
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    @Basic
+    @Column(name = "src")
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,7 +58,9 @@ public class OtherEntity {
         OtherEntity that = (OtherEntity) o;
 
         if (id != that.id) return false;
+        if (status != that.status) return false;
         if (value != null ? !value.equals(that.value) : that.value != null) return false;
+        if (src != null ? !src.equals(that.src) : that.src != null) return false;
 
         return true;
     }
@@ -45,6 +69,8 @@ public class OtherEntity {
     public int hashCode() {
         int result = id;
         result = 31 * result + (value != null ? value.hashCode() : 0);
+        result = 31 * result + status;
+        result = 31 * result + (src != null ? src.hashCode() : 0);
         return result;
     }
 }
