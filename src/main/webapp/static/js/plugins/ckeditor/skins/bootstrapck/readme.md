@@ -13,7 +13,7 @@ documentation.
 **Just skin please**
 
 Add the whole bootstrapck folder to the skin folder.<br />
-In ckeditor.js and config.js change the skin name to "bootstrapck".<br />
+In ckeditor.js and com.scm.configuration.js change the skin name to "bootstrapck".<br />
 Done!
 
 **The whole skin - sass - grunt package**

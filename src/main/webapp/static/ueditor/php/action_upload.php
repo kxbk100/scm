@@ -11,7 +11,7 @@ include "Uploader.class.php";
 $base64 = "upload";
 switch (htmlspecialchars($_GET['action'])) {
     case 'uploadimage':
-        $config = array(
+        $com.scm.configuration = array(
             "pathFormat" => $CONFIG['imagePathFormat'],
             "maxSize" => $CONFIG['imageMaxSize'],
             "allowFiles" => $CONFIG['imageAllowFiles']
@@ -19,7 +19,7 @@ switch (htmlspecialchars($_GET['action'])) {
         $fieldName = $CONFIG['imageFieldName'];
         break;
     case 'uploadscrawl':
-        $config = array(
+        $com.scm.configuration = array(
             "pathFormat" => $CONFIG['scrawlPathFormat'],
             "maxSize" => $CONFIG['scrawlMaxSize'],
             "allowFiles" => $CONFIG['scrawlAllowFiles'],
@@ -29,7 +29,7 @@ switch (htmlspecialchars($_GET['action'])) {
         $base64 = "base64";
         break;
     case 'uploadvideo':
-        $config = array(
+        $com.scm.configuration = array(
             "pathFormat" => $CONFIG['videoPathFormat'],
             "maxSize" => $CONFIG['videoMaxSize'],
             "allowFiles" => $CONFIG['videoAllowFiles']
@@ -38,7 +38,7 @@ switch (htmlspecialchars($_GET['action'])) {
         break;
     case 'uploadfile':
     default:
-        $config = array(
+        $com.scm.configuration = array(
             "pathFormat" => $CONFIG['filePathFormat'],
             "maxSize" => $CONFIG['fileMaxSize'],
             "allowFiles" => $CONFIG['fileAllowFiles']
@@ -48,7 +48,7 @@ switch (htmlspecialchars($_GET['action'])) {
 }
 
 /* 生成上传实例对象并完成上传 */
-$up = new Uploader($fieldName, $config, $base64);
+$up = new Uploader($fieldName, $com.scm.configuration, $base64);
 
 /**
  * 得到上传文件所对应的各个参数,数组结构

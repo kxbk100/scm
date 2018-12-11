@@ -8010,10 +8010,10 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * @param { String } action action名称
          * @example
          * ```javascript
-         * editor.getActionUrl('config'); //返回 "/ueditor/php/controller.php?action=config"
-         * editor.getActionUrl('image'); //返回 "/ueditor/php/controller.php?action=uplaodimage"
-         * editor.getActionUrl('scrawl'); //返回 "/ueditor/php/controller.php?action=uplaodscrawl"
-         * editor.getActionUrl('imageManager'); //返回 "/ueditor/php/controller.php?action=listimage"
+         * editor.getActionUrl('com.scm.configuration'); //返回 "/ueditor/php/com.scm.controller.php?action=com.scm.configuration"
+         * editor.getActionUrl('image'); //返回 "/ueditor/php/com.scm.controller.php?action=uplaodimage"
+         * editor.getActionUrl('scrawl'); //返回 "/ueditor/php/com.scm.controller.php?action=uplaodscrawl"
+         * editor.getActionUrl('imageManager'); //返回 "/ueditor/php/com.scm.controller.php?action=listimage"
          * ```
          */
         getActionUrl: function(action){
@@ -28662,7 +28662,7 @@ UE.ui = baidu.editor.ui = {};
 
                 UE.browser.ie && UE.browser.version === 6 && editor.container.ownerDocument.execCommand("BackgroundImageCache", false, true);
 
-                //display bottom-bar label based on config
+                //display bottom-bar label based on com.scm.configuration
                 if (editor.options.elementPathEnabled) {
                     editor.ui.getDom('elementpath').innerHTML = '<div class="edui-editor-breadcrumb">' + editor.getLang("elementPathTip") + ':</div>';
                 }

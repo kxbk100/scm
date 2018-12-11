@@ -59,7 +59,7 @@ Trademarks
 ----------
 
 CKEditor is a trademark of CKSource - Frederico Knabben. All other brand
-and product names are trademarks, registered trademarks or service
+and product names are trademarks, registered trademarks or com.scm.service
 marks of their respective holders.
 
 ---
@@ -91,7 +91,7 @@ your programs, too.
   When we speak of free software, we are referring to freedom, not
 price.  Our General Public Licenses are designed to make sure that you
 have the freedom to distribute copies of free software (and charge for
-this service if you wish), that you receive source code or can get it
+this com.scm.service if you wish), that you receive source code or can get it
 if you want it, that you can change the software or use pieces of it
 in new free programs; and that you know you can do these things.
 
@@ -383,7 +383,7 @@ strategy to use in any particular case, based on the explanations below.
   When we speak of free software, we are referring to freedom of use,
 not price.  Our General Public Licenses are designed to make sure that
 you have the freedom to distribute copies of free software (and charge
-for this service if you wish); that you receive source code or can get
+for this com.scm.service if you wish); that you receive source code or can get
 it if you want it; that you can change the software and use pieces of
 it in new free programs; and that you are informed that you can do
 these things.
@@ -826,7 +826,7 @@ Version 1.1
      1.0.1. "Commercial Use" means distribution or otherwise making the
      Covered Code available to a third party.
 
-     1.1. "Contributor" means each entity that creates or contributes to
+     1.1. "Contributor" means each com.scm.entity that creates or contributes to
      the creation of Modifications.
 
      1.2. "Contributor Version" means the combination of the Original
@@ -844,7 +844,7 @@ Version 1.1
      1.5. "Executable" means Covered Code in any form other than Source
      Code.
 
-     1.6. "Initial Developer" means the individual or entity identified
+     1.6. "Initial Developer" means the individual or com.scm.entity identified
      as the Initial Developer in the Source Code notice required by Exhibit
      A.
 
@@ -886,16 +886,16 @@ Version 1.1
      appropriate decompression or de-archiving software is widely available
      for no charge.
 
-     1.12. "You" (or "Your")  means an individual or a legal entity
+     1.12. "You" (or "Your")  means an individual or a legal com.scm.entity
      exercising rights under, and complying with all of the terms of, this
      License or a future version of this License issued under Section 6.1.
-     For legal entities, "You" includes any entity which controls, is
+     For legal entities, "You" includes any com.scm.entity which controls, is
      controlled by, or is under common control with You. For purposes of
      this definition, "control" means (a) the power, direct or indirect,
-     to cause the direction or management of such entity, whether by
+     to cause the direction or management of such com.scm.entity, whether by
      contract or otherwise, or (b) ownership of more than fifty percent
      (50%) of the outstanding shares or beneficial ownership of such
-     entity.
+     com.scm.entity.
 
 2. Source Code License.
 
@@ -1221,7 +1221,7 @@ Version 1.1
      California law provisions (except to the extent applicable law, if
      any, provides otherwise), excluding its conflict-of-law provisions.
      With respect to disputes in which at least one party is a citizen of,
-     or an entity chartered or registered to do business in the United
+     or an com.scm.entity chartered or registered to do business in the United
      States of America, any litigation relating to this License shall be
      subject to the jurisdiction of the Federal Courts of the Northern
      District of California, with venue lying in Santa Clara County,

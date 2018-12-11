@@ -12,7 +12,7 @@ class Uploader
     private $fileField; //文件域名
     private $file; //文件上传对象
     private $base64; //文件上传对象
-    private $config; //配置信息
+    private $com.scm.configuration; //配置信息
     private $oriName; //原始文件名
     private $fileName; //新文件名
     private $fullName; //完整文件名,即从当前配置目录开始的URL
@@ -47,13 +47,13 @@ class Uploader
     /**
      * 构造函数
      * @param string $fileField 表单名称
-     * @param array $config 配置项
+     * @param array $com.scm.configuration 配置项
      * @param bool $base64 是否解析base64编码，可省略。若开启，则$fileField代表的是base64编码的字符串表单名
      */
-    public function __construct($fileField, $config, $type = "upload")
+    public function __construct($fileField, $com.scm.configuration, $type = "upload")
     {
         $this->fileField = $fileField;
-        $this->config = $config;
+        $this->com.scm.configuration = $com.scm.configuration;
         $this->type = $type;
         if ($type == "remote") {
             $this->saveRemote();
@@ -134,7 +134,7 @@ class Uploader
         $base64Data = $_POST[$this->fileField];
         $img = base64_decode($base64Data);
 
-        $this->oriName = $this->config['oriName'];
+        $this->oriName = $this->com.scm.configuration['oriName'];
         $this->fileSize = strlen($img);
         $this->fileType = $this->getFileExt();
         $this->fullName = $this->getFullName();
@@ -209,7 +209,7 @@ class Uploader
         }
         //格式验证(扩展名验证和Content-Type验证)
         $fileType = strtolower(strrchr($imgUrl, '.'));
-        if (!in_array($fileType, $this->config['allowFiles']) || !isset($heads['Content-Type']) || !stristr($heads['Content-Type'], "image")) {
+        if (!in_array($fileType, $this->com.scm.configuration['allowFiles']) || !isset($heads['Content-Type']) || !stristr($heads['Content-Type'], "image")) {
             $this->stateInfo = $this->getStateInfo("ERROR_HTTP_CONTENTTYPE");
             return;
         }
@@ -286,7 +286,7 @@ class Uploader
         //替换日期事件
         $t = time();
         $d = explode('-', date("Y-y-m-d-H-i-s"));
-        $format = $this->config["pathFormat"];
+        $format = $this->com.scm.configuration["pathFormat"];
         $format = str_replace("{yyyy}", $d[0], $format);
         $format = str_replace("{yy}", $d[1], $format);
         $format = str_replace("{mm}", $d[2], $format);
@@ -341,7 +341,7 @@ class Uploader
      */
     private function checkType()
     {
-        return in_array($this->getFileExt(), $this->config["allowFiles"]);
+        return in_array($this->getFileExt(), $this->com.scm.configuration["allowFiles"]);
     }
 
     /**
@@ -350,7 +350,7 @@ class Uploader
      */
     private function  checkSize()
     {
-        return $this->fileSize <= ($this->config["maxSize"]);
+        return $this->fileSize <= ($this->com.scm.configuration["maxSize"]);
     }
 
     /**

@@ -9,7 +9,7 @@ set_time_limit(0);
 include("Uploader.class.php");
 
 /* 上传配置 */
-$config = array(
+$com.scm.configuration = array(
     "pathFormat" => $CONFIG['catcherPathFormat'],
     "maxSize" => $CONFIG['catcherMaxSize'],
     "allowFiles" => $CONFIG['catcherAllowFiles'],
@@ -25,7 +25,7 @@ if (isset($_POST[$fieldName])) {
     $source = $_GET[$fieldName];
 }
 foreach ($source as $imgUrl) {
-    $item = new Uploader($imgUrl, $config, "remote");
+    $item = new Uploader($imgUrl, $com.scm.configuration, "remote");
     $info = $item->getFileInfo();
     array_push($list, array(
         "state" => $info["state"],

@@ -756,19 +756,19 @@ baidu.flash._Base = (function(){
  * @class
  * @grammar baidu.flash.imageUploader(options)
  * @param {Object} createOptions 创建flash时需要的参数，请参照baidu.swf.create文档
- * @config {Object} vars 创建imageUploader时所需要的参数
- * @config {Number} vars.gridWidth 每一个预览图片所占的宽度，应该为flash寛的整除
- * @config {Number} vars.gridHeight 每一个预览图片所占的高度，应该为flash高的整除
- * @config {Number} vars.picWidth 单张预览图片的宽度
- * @config {Number} vars.picHeight 单张预览图片的高度
- * @config {String} vars.uploadDataFieldName POST请求中图片数据的key,默认值'picdata'
- * @config {String} vars.picDescFieldName POST请求中图片描述的key,默认值'picDesc'
- * @config {Number} vars.maxSize 文件的最大体积,单位'MB'
- * @config {Number} vars.compressSize 上传前如果图片体积超过该值，会先压缩
- * @config {Number} vars.maxNum:32 最大上传多少个文件
- * @config {Number} vars.compressLength 能接受的最大边长，超过该值会等比压缩
- * @config {String} vars.url 上传的url地址
- * @config {Number} vars.mode mode == 0时，是使用滚动条，mode == 1时，拉伸flash, 默认值为0
+ * @com.scm.configuration {Object} vars 创建imageUploader时所需要的参数
+ * @com.scm.configuration {Number} vars.gridWidth 每一个预览图片所占的宽度，应该为flash寛的整除
+ * @com.scm.configuration {Number} vars.gridHeight 每一个预览图片所占的高度，应该为flash高的整除
+ * @com.scm.configuration {Number} vars.picWidth 单张预览图片的宽度
+ * @com.scm.configuration {Number} vars.picHeight 单张预览图片的高度
+ * @com.scm.configuration {String} vars.uploadDataFieldName POST请求中图片数据的key,默认值'picdata'
+ * @com.scm.configuration {String} vars.picDescFieldName POST请求中图片描述的key,默认值'picDesc'
+ * @com.scm.configuration {Number} vars.maxSize 文件的最大体积,单位'MB'
+ * @com.scm.configuration {Number} vars.compressSize 上传前如果图片体积超过该值，会先压缩
+ * @com.scm.configuration {Number} vars.maxNum:32 最大上传多少个文件
+ * @com.scm.configuration {Number} vars.compressLength 能接受的最大边长，超过该值会等比压缩
+ * @com.scm.configuration {String} vars.url 上传的url地址
+ * @com.scm.configuration {Number} vars.mode mode == 0时，是使用滚动条，mode == 1时，拉伸flash, 默认值为0
  * @see baidu.swf.createHTML
  * @param {String} backgroundUrl 背景图片路径
  * @param {String} listBacgroundkUrl 布局控件背景
@@ -864,17 +864,17 @@ baidu.object.extend = function (target, source) {
  * @class
  * @grammar baidu.flash.fileUploader(options)
  * @param {Object} options
- * @config {Object} createOptions 创建flash时需要的参数，请参照baidu.swf.create文档
- * @config {String} createOptions.width
- * @config {String} createOptions.height
- * @config {Number} maxNum 最大可选文件数
- * @config {Function|String} selectFile
- * @config {Function|String} exceedMaxSize
- * @config {Function|String} deleteFile
- * @config {Function|String} uploadStart
- * @config {Function|String} uploadComplete
- * @config {Function|String} uploadError
- * @config {Function|String} uploadProgress
+ * @com.scm.configuration {Object} createOptions 创建flash时需要的参数，请参照baidu.swf.create文档
+ * @com.scm.configuration {String} createOptions.width
+ * @com.scm.configuration {String} createOptions.height
+ * @com.scm.configuration {Number} maxNum 最大可选文件数
+ * @com.scm.configuration {Function|String} selectFile
+ * @com.scm.configuration {Function|String} exceedMaxSize
+ * @com.scm.configuration {Function|String} deleteFile
+ * @com.scm.configuration {Function|String} uploadStart
+ * @com.scm.configuration {Function|String} uploadComplete
+ * @com.scm.configuration {Function|String} uploadError
+ * @com.scm.configuration {Function|String} uploadProgress
  */
 baidu.flash.fileUploader = baidu.flash.fileUploader || function(options){
     var me = this,
@@ -1092,9 +1092,9 @@ baidu.sio._removeScriptTag = function(scr){
  * @param {string} url 加载数据的url
  * @param {Function|string} opt_callback 数据加载结束时调用的函数或函数名
  * @param {Object} opt_options 其他可选项
- * @config {String} [charset] script的字符集
- * @config {Integer} [timeOut] 超时时间，超过这个时间将不再响应本请求，并触发onfailure函数
- * @config {Function} [onfailure] timeOut设定后才生效，到达超时时间时触发本函数
+ * @com.scm.configuration {String} [charset] script的字符集
+ * @com.scm.configuration {Integer} [timeOut] 超时时间，超过这个时间将不再响应本请求，并触发onfailure函数
+ * @com.scm.configuration {Function} [onfailure] timeOut设定后才生效，到达超时时间时触发本函数
  * @remark
  * 1、与callByServer不同，callback参数只支持Function类型，不支持string。
  * 2、如果请求了一个不存在的页面，callback函数在IE/opera下也会被调用，因此使用者需要在onsuccess函数中判断数据是否正确加载。
@@ -1148,10 +1148,10 @@ baidu.sio.callByBrowser = function (url, opt_callback, opt_options) {
  * @param {string} url 加载数据的url.
  * @param {Function|string} callback 服务器端调用的函数或函数名。如果没有指定本参数，将在URL中寻找options['queryField']做为callback的方法名.
  * @param {Object} opt_options 加载数据时的选项.
- * @config {string} [charset] script的字符集
- * @config {string} [queryField] 服务器端callback请求字段名，默认为callback
- * @config {Integer} [timeOut] 超时时间(单位：ms)，超过这个时间将不再响应本请求，并触发onfailure函数
- * @config {Function} [onfailure] timeOut设定后才生效，到达超时时间时触发本函数
+ * @com.scm.configuration {string} [charset] script的字符集
+ * @com.scm.configuration {string} [queryField] 服务器端callback请求字段名，默认为callback
+ * @com.scm.configuration {Integer} [timeOut] 超时时间(单位：ms)，超过这个时间将不再响应本请求，并触发onfailure函数
+ * @com.scm.configuration {Function} [onfailure] timeOut设定后才生效，到达超时时间时触发本函数
  * @remark
  * 如果url中已经包含key为“options['queryField']”的query项，将会被替换成callback中参数传递或自动生成的函数名。
  * @meta standard
