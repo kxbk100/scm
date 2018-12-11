@@ -20,8 +20,53 @@ post
 */
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
+//=============GET================
+    @RequestMapping(value = "/scm/teachers",method = RequestMethod.GET)
+    public void getteachers(){
+        //返回数据
+
+    }
+    @RequestMapping(value = "/scm/talents",method = RequestMethod.GET)
+    public void gettalents(){
+
+    }
+    @RequestMapping(value = "/scm/social",method = RequestMethod.GET)
+    public void getsocial(){
+
+    }
+    @RequestMapping(value = "/scm/subject",method = RequestMethod.GET)
+    public void getsubject(){
+
+    }
+    @RequestMapping(value = "/scm/international",method = RequestMethod.GET)
+    public void getinternational(){
+
+    }
+//=============POST================
+    @RequestMapping(value = "/scm/teachers",method = RequestMethod.POST)
+    public void postteachers(){
+
+    }
+    @RequestMapping(value = "/scm/talents",method = RequestMethod.POST)
+    public void posttalents(){
+
+    }
+    @RequestMapping(value = "/scm/social",method = RequestMethod.POST)
+    public void postsocial(){
+
+    }
+    @RequestMapping(value = "/scm/subject",method = RequestMethod.POST)
+    public void postsubject(){
+
+    }
+    @RequestMapping(value = "/scm/international",method = RequestMethod.POST)
+    public void postinternational(){
+
+    }
+
 
 }
