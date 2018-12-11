@@ -1,4 +1,4 @@
-package controller;
+package com.scm.controller;
 /*
 post
 登录  /scm
@@ -19,7 +19,6 @@ post
 设置国际合作与交流数据 /scm/international
 */
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {

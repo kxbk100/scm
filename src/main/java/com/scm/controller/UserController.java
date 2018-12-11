@@ -1,4 +1,4 @@
-package controller;
+package com.scm.controller;
 /*
 用户查看 /scm/users/show
 用户修改 /scm/users/modify
