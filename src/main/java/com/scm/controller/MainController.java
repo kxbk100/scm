@@ -19,8 +19,26 @@ post
 设置国际合作与交流数据 /scm/international
 */
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.xml.registry.infomodel.User;
+
 
 @Controller
+@RequestMapping("/scm")
 public class MainController {
 
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.GET)
+    public String checkLogin(){
+        return "1";
+    }
+
+    @PostMapping(value = "/index")
+    public String showIndex(){
+        return "fuck";
+    }
 }

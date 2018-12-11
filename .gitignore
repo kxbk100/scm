@@ -3,7 +3,7 @@ Thumbs.db
 ehthumbs.db
 ehthumbs_vista.db
 
-# Folder com.scm.config file
+# Folder com.scm.configuration file
 Desktop.ini
 
 # Recycle Bin used on file shares
@@ -27,7 +27,7 @@ $RECYCLE.BIN/
 ### Example user template
 
 # IntelliJ project files
-.idea
+.idea/
 *.iml
 out
 gen

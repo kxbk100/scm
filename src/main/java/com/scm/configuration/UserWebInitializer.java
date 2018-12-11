@@ -1,9 +1,8 @@
-package com.scm.config;
+package com.scm.configuration;
 
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
 public class UserWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

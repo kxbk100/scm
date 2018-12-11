@@ -1,4 +1,4 @@
-package com.scm.config;
+package com.scm.configuration;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
