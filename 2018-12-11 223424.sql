@@ -29,6 +29,8 @@ CREATE TABLE `items` (
   `rank` int(11) NOT NULL,
   `type` int(11) NOT NULL,
   `isImportant` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -43,6 +45,32 @@ LOCK TABLES `items` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `notices`
+--
+
+DROP TABLE IF EXISTS `notices`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notices` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `author` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notices`
+--
+
+LOCK TABLES `notices` WRITE;
+/*!40000 ALTER TABLE `notices` DISABLE KEYS */;
+/*!40000 ALTER TABLE `notices` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `other`
 --
 
@@ -53,6 +81,8 @@ CREATE TABLE `other` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(255) NOT NULL,
   `point_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `other_points_FK` (`point_id`),
   CONSTRAINT `other_points_FK` FOREIGN KEY (`point_id`) REFERENCES `points` (`id`)
@@ -81,6 +111,8 @@ CREATE TABLE `papers` (
   `firstType` int(11) NOT NULL,
   `member` varchar(255) NOT NULL,
   `paperType` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -126,6 +158,34 @@ LOCK TABLES `points` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `records`
+--
+
+DROP TABLE IF EXISTS `records`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `records` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userId` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `type` int(11) NOT NULL,
+  `recordId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `records_users_FK` (`userId`),
+  CONSTRAINT `records_users_FK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `records`
+--
+
+LOCK TABLES `records` WRITE;
+/*!40000 ALTER TABLE `records` DISABLE KEYS */;
+/*!40000 ALTER TABLE `records` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `targets`
 --
 
@@ -150,6 +210,36 @@ LOCK TABLES `targets` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `teachers`
+--
+
+DROP TABLE IF EXISTS `teachers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teachers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL,
+  `birthday` date DEFAULT NULL,
+  `edu` int(11) DEFAULT NULL,
+  `title` varchar(20) DEFAULT NULL,
+  `rank` int(11) DEFAULT NULL COMMENT '人才等级（国家级 省级）',
+  `isImportant` int(11) DEFAULT '0',
+  `status` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teachers`
+--
+
+LOCK TABLES `teachers` WRITE;
+/*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `teams`
 --
 
@@ -161,6 +251,8 @@ CREATE TABLE `teams` (
   `rank` int(11) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `member` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `src` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -183,14 +275,10 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(20) NOT NULL,
-  `name` varchar(10) NOT NULL,
-  `password` varchar(20) NOT NULL DEFAULT '123456',
-  `birthday` date DEFAULT NULL,
-  `edu` int(11) DEFAULT NULL,
-  `title` varchar(20) DEFAULT NULL,
-  `rank` int(11) DEFAULT NULL COMMENT '人才等级（国家级 省级）',
-  `isImportant` int(11) DEFAULT '0',
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `type` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -217,4 +305,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-02 20:22:41
+-- Dump completed on 2018-12-11 19:56:38
