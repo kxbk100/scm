@@ -1,4 +1,4 @@
-package controller;
+package com.scm.controller;
 /*
 post
 登录  /scm

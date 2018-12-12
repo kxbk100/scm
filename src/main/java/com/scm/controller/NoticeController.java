@@ -1,4 +1,4 @@
-package controller;
+package com.scm.controller;
 /*
 管理员发布通知 /scm/notices/add
 管理员修改通知 /scm/notices/modify
