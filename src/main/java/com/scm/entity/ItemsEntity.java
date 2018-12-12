@@ -1,9 +1,9 @@
-package entity;
+package com.scm.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "items", schema = "zjscmic", catalog = "")
+@Table(name = "items")
 public class ItemsEntity {
     private int id;
     private String name;
