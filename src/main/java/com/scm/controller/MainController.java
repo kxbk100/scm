@@ -18,34 +18,55 @@ post
 设置学科影响力数据 /scm/subject
 设置国际合作与交流数据 /scm/international
 */
+import com.scm.model.ContentGetModel;
+import com.scm.service.ContentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class MainController {
+    @Autowired
+    ContentService contentService;
 //=============GET================
     @RequestMapping(value = "/scm/teachers",method = RequestMethod.GET)
-    public void getteachers(){
-        //返回数据
-
+    @ResponseBody
+    public List<ContentGetModel> getteachers(){
+        return contentService.GetContentlistByFirst("师资队伍建设");
     }
+
+
     @RequestMapping(value = "/scm/talents",method = RequestMethod.GET)
-    public void gettalents(){
-
+    @ResponseBody
+    public List<ContentGetModel> gettalents(){
+        return contentService.GetContentlistByFirst("人才培养");
     }
+
+
     @RequestMapping(value = "/scm/social",method = RequestMethod.GET)
-    public void getsocial(){
-
+    @ResponseBody
+    public List<ContentGetModel> getsocial(){
+        return contentService.GetContentlistByFirst("科学研究与社会服务");
     }
+
+
     @RequestMapping(value = "/scm/subject",method = RequestMethod.GET)
-    public void getsubject(){
-
+    @ResponseBody
+    public List<ContentGetModel> getsubject(){
+        return contentService.GetContentlistByFirst("学科影响力");
     }
+
+
     @RequestMapping(value = "/scm/international",method = RequestMethod.GET)
-    public void getinternational(){
-
+    @ResponseBody
+    public List<ContentGetModel> getinternational(){
+        return contentService.GetContentlistByFirst("国际合作与交流");
     }
+
 //=============POST================
     @RequestMapping(value = "/scm/teachers",method = RequestMethod.POST)
     public void postteachers(){
