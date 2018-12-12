@@ -18,12 +18,24 @@ post
 设置学科影响力数据 /scm/subject
 设置国际合作与交流数据 /scm/international
 */
+
+import com.scm.model.UserModel;
+import com.scm.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 public class MainController {
+    @Autowired
+    private UserService userService;
+
+
+
+
 //=============GET================
     @RequestMapping(value = "/scm/teachers",method = RequestMethod.GET)
     public void getteachers(){
@@ -47,6 +59,27 @@ public class MainController {
 
     }
 //=============POST================
+    @RequestMapping(value = "/scm",method = RequestMethod.POST)
+    @ResponseBody
+    public String login(UserModel user){
+        UserModel queryUser=userService.findUserByUserName(user.getUserName());
+        if (queryUser==null){
+            return "-1";
+        }
+        if(queryUser.getPassWord().equals(user.getPassWord())){
+            return "1";
+        }else {
+            return "0";
+        }
+    }
+
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    @ResponseBody
+    public UserModel test(){
+        UserModel userModel=userService.findUserByUserName("123456");
+        return userModel;
+    }
+
     @RequestMapping(value = "/scm/teachers",method = RequestMethod.POST)
     public void postteachers(){
 
