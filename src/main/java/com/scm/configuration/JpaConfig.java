@@ -11,7 +11,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import javax.sql.DataSource;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "com.scm.entity")
+@EnableJpaRepositories(basePackages = "com.scm")
 @ImportResource("classpath:dataSource.xml")
 public class JpaConfig {
     @Bean

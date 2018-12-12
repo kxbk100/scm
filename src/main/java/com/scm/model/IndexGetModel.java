@@ -20,7 +20,7 @@ nextdeadline:?],
 
  */
 public class IndexGetModel {
-    private String username;
+    private String username;//从哪里来的
     private List<ContentGetModel> contentGetModelList;
 
     public String getUsername() {

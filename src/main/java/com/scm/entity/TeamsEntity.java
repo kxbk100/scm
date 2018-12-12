@@ -3,7 +3,7 @@ package com.scm.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "teams", schema = "zjscmic", catalog = "")
+@Table(name = "teams")
 public class TeamsEntity {
     private int id;
     private Integer rank;

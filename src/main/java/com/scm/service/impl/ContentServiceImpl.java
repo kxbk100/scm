@@ -11,21 +11,20 @@ import com.scm.service.ContentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
+@Transactional
 @Repository
 public class ContentServiceImpl implements ContentService {
-
-    private final PointsRepo pointsRepo;
-    private final TargetsRepo targetsRepo;
-
     @Autowired
-    public ContentServiceImpl(PointsRepo pointsRepo, TargetsRepo targetsRepo) {
-        this.pointsRepo = pointsRepo;
-        this.targetsRepo = targetsRepo;
-    }
+    private  PointsRepo pointsRepo;
+    @Autowired
+    private TargetsRepo targetsRepo;
+
 
        public List<ContentGetModel> GetContentlistByFirst(String first) {
         List<ContentGetModel> contentGetModelList = new ArrayList<>();
@@ -64,6 +63,7 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public IndexGetModel GetIndexData() {
         IndexGetModel indexGetModel = new IndexGetModel();
+        //1.获取username
 
         return null;
     }

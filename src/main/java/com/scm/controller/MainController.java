@@ -32,14 +32,8 @@ import java.util.List;
 
 @Controller
 public class MainController {
-
-    private final ContentService contentService;
-
     @Autowired
-    public MainController(ContentService contentService) {
-        this.contentService = contentService;
-    }
-
+    private  ContentService contentService;
     //=============GET================
     @RequestMapping(value = "/scm/teachers",method = RequestMethod.GET)
     @ResponseBody

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "points", schema = "zjscmic", catalog = "")
+@Table(name = "points")
 public class PointsEntity {
     private int id;
     private String content;
@@ -13,6 +13,7 @@ public class PointsEntity {
     private Date deadline;
     private Float nextgoal;
     private Date nextdeadline;
+    private Integer targetid;
 
     @Id
     @Column(name = "id")
@@ -32,6 +33,16 @@ public class PointsEntity {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Basic
+    @Column(name = "targetId")
+    public Integer getTargetid() {
+        return targetid;
+    }
+
+    public void setTargetid(Integer targetid) {
+        this.targetid = targetid;
     }
 
     @Basic
