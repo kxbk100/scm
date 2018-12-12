@@ -19,20 +19,28 @@ post
 设置国际合作与交流数据 /scm/international
 */
 import com.scm.model.ContentGetModel;
+import com.scm.model.ContentPostModel;
 import com.scm.service.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
 @Controller
 public class MainController {
+
+    private final ContentService contentService;
+
     @Autowired
-    ContentService contentService;
-//=============GET================
+    public MainController(ContentService contentService) {
+        this.contentService = contentService;
+    }
+
+    //=============GET================
     @RequestMapping(value = "/scm/teachers",method = RequestMethod.GET)
     @ResponseBody
     public List<ContentGetModel> getteachers(){
@@ -68,26 +76,28 @@ public class MainController {
     }
 
 //=============POST================
-    @RequestMapping(value = "/scm/teachers",method = RequestMethod.POST)
-    public void postteachers(){
-
+    @RequestMapping(value = {"/scm/teachers","/scm/talents","/scm/social","/scm/subject","/scm/international"},method = RequestMethod.POST)
+    @ResponseBody
+    public List<ContentPostModel> postteachers(@RequestParam List<ContentPostModel> contentPostModelList){
+        //更新数据库,按照得到的post数据
+        return contentService.UpdateContent(contentPostModelList);//保存了之后返回修改的数据(直接返回了提交的数据)
     }
-    @RequestMapping(value = "/scm/talents",method = RequestMethod.POST)
-    public void posttalents(){
-
-    }
-    @RequestMapping(value = "/scm/social",method = RequestMethod.POST)
-    public void postsocial(){
-
-    }
-    @RequestMapping(value = "/scm/subject",method = RequestMethod.POST)
-    public void postsubject(){
-
-    }
-    @RequestMapping(value = "/scm/international",method = RequestMethod.POST)
-    public void postinternational(){
-
-    }
+//    @RequestMapping(value = ,method = RequestMethod.POST)
+//    public void posttalents(@RequestParam ContentPostModel contentPostModel){
+//
+//    }
+//    @RequestMapping(value = ,method = RequestMethod.POST)
+//    public void postsocial(@RequestParam ContentPostModel contentPostModel){
+//
+//    }
+//    @RequestMapping(value = ,method = RequestMethod.POST)
+//    public void postsubject(@RequestParam ContentPostModel contentPostModel){
+//
+//    }
+//    @RequestMapping(value = ,method = RequestMethod.POST)
+//    public void postinternational(@RequestParam ContentPostModel contentPostModel){
+//
+//    }
 
 
 }

@@ -20,7 +20,7 @@ public class JpaConfig {
         LocalContainerEntityManagerFactoryBean emfb=new LocalContainerEntityManagerFactoryBean();
         emfb.setDataSource(dataSource);
         emfb.setJpaVendorAdapter(jpaVendorAdapter);
-        emfb.setPackagesToScan("nigel.model");
+        emfb.setPackagesToScan("com.scm");
         return emfb;
     }
 

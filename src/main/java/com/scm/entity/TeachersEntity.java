@@ -1,4 +1,4 @@
-package entity;
+package com.scm.entity;
 
 import javax.persistence.*;
 import java.sql.Date;

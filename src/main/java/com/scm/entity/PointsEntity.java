@@ -1,4 +1,4 @@
-package entity;
+package com.scm.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -8,10 +8,10 @@ import java.sql.Date;
 public class PointsEntity {
     private int id;
     private String content;
-    private Double now;
-    private Double goal;
+    private Float now;
+    private Float goal;
     private Date deadline;
-    private Double nextgoal;
+    private Float nextgoal;
     private Date nextdeadline;
 
     @Id
@@ -36,21 +36,21 @@ public class PointsEntity {
 
     @Basic
     @Column(name = "now")
-    public Double getNow() {
+    public Float getNow() {
         return now;
     }
 
-    public void setNow(Double now) {
+    public void setNow(Float now) {
         this.now = now;
     }
 
     @Basic
     @Column(name = "goal")
-    public Double getGoal() {
+    public Float getGoal() {
         return goal;
     }
 
-    public void setGoal(Double goal) {
+    public void setGoal(Float goal) {
         this.goal = goal;
     }
 
@@ -66,11 +66,11 @@ public class PointsEntity {
 
     @Basic
     @Column(name = "nextgoal")
-    public Double getNextgoal() {
+    public Float getNextgoal() {
         return nextgoal;
     }
 
-    public void setNextgoal(Double nextgoal) {
+    public void setNextgoal(Float nextgoal) {
         this.nextgoal = nextgoal;
     }
 

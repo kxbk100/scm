@@ -29,6 +29,7 @@ $RECYCLE.BIN/
 # IntelliJ project files
 .idea
 *.iml
+resource/db.properties
 out
 gen
 target
