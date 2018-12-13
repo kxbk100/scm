@@ -1,6 +1,8 @@
 package com.scm.model;
 
-public class PaperModel{
+
+public class PaperModel {
+
     private int id;
     private String title;
     private int firstType;

@@ -19,13 +19,16 @@ post
 设置国际合作与交流数据 /scm/international
 */
 
+
 import com.scm.model.IndexGetModel;
 import com.scm.model.UserModel;
-import com.scm.service.UserService;
+
 import com.scm.model.ContentGetModel;
 import com.scm.model.ContentPostModel;
+import com.scm.model.UserModel;
 import com.scm.service.ContentService;
-
+import com.scm.service.UserService;
+import com.scm.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -35,7 +38,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
+@RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MainController {
     private final ContentService contentService;
 
@@ -99,15 +104,21 @@ public class MainController {
         return contentService.UpdateContent(contentPostModelList);//保存了之后返回修改的数据(直接返回了提交的数据)
     }
 
+    /**
+     * 用户登录，密码使用MD5校验
+     * @param user
+     * @return 用户不存在返回-1，密码错误返回0，正确登录返回用户的名字
+     */
     @RequestMapping(value = "/scm",method = RequestMethod.POST)
     @ResponseBody
-    public String login(UserModel user){
+    public String login(UserModel user, HttpSession session){
         UserModel queryUser=userService.findUserByUserName(user.getUsername());
         if (queryUser==null){
             return "-1";
         }
-        if(queryUser.getPassword().equals(user.getPassword())){
-            return "1";
+        if(queryUser.getPassword().equals(MD5Util.MD5Encode(user.getPassword(),"utf-8"))){
+            session.setAttribute("user",queryUser);
+            return queryUser.getName();
         }else {
             return "0";
         }
