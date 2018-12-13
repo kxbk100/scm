@@ -9,9 +9,17 @@ public class OtherEntity {
     private String value;
     private int status;
     private String src;
+    private PointsEntity pointsEntity;
     @OneToOne
     @JoinColumn(name = "point_id")
-    private PointsEntity pointsEntity;
+    public PointsEntity getPointsEntity() {
+        return pointsEntity;
+    }
+
+    public void setPointsEntity(PointsEntity pointsEntity) {
+        this.pointsEntity = pointsEntity;
+    }
+
 
     @Id
     @Column(name = "id")

@@ -1,7 +1,7 @@
 package com.scm.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 @Table(name = "points")
@@ -13,7 +13,18 @@ public class PointsEntity {
     private Date deadline;
     private Float nextgoal;
     private Date nextdeadline;
-    private Integer targetid;
+    private TargetsEntity targetsEntity;
+
+
+    @ManyToOne
+    @JoinColumn(name = "targetId")
+    public TargetsEntity getTargetsEntity() {
+        return targetsEntity;
+    }
+
+    public void setTargetsEntity(TargetsEntity targetsEntity) {
+        this.targetsEntity = targetsEntity;
+    }
 
     @Id
     @Column(name = "id")
@@ -35,15 +46,6 @@ public class PointsEntity {
         this.content = content;
     }
 
-    @Basic
-    @Column(name = "targetId")
-    public Integer getTargetid() {
-        return targetid;
-    }
-
-    public void setTargetid(Integer targetid) {
-        this.targetid = targetid;
-    }
 
     @Basic
     @Column(name = "now")

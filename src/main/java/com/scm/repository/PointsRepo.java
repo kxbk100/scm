@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PointsRepo extends JpaRepository<PointsEntity,Integer> {
-    List<PointsEntity> findByTargetid(Integer targetid);
+
 }

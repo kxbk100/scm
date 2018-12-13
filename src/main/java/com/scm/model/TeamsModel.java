@@ -1,13 +1,10 @@
 package com.scm.model;
 
-
-public class PaperModel {
-
+public class TeamsModel {
     private int id;
-    private String title;
-    private int firstType;
+    private Integer rank;
+    private String name;
     private String member;
-    private int paperType;
     private int status;
     private String src;
 
@@ -19,20 +16,20 @@ public class PaperModel {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public Integer getRank() {
+        return rank;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setRank(Integer rank) {
+        this.rank = rank;
     }
 
-    public int getFirstType() {
-        return firstType;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstType(int firstType) {
-        this.firstType = firstType;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMember() {
@@ -41,14 +38,6 @@ public class PaperModel {
 
     public void setMember(String member) {
         this.member = member;
-    }
-
-    public int getPaperType() {
-        return paperType;
-    }
-
-    public void setPaperType(int paperType) {
-        this.paperType = paperType;
     }
 
     public int getStatus() {

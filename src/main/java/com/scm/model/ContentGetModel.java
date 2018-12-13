@@ -1,5 +1,7 @@
 package com.scm.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /*
@@ -22,7 +24,9 @@ public class ContentGetModel {
     private Float now;
     private Float goal;
     private Float nextgoal;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date deadline;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date nextdeadline;
 
     public Integer getTargetId() {

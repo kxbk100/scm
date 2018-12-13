@@ -2,12 +2,15 @@ package com.scm.model;
 
 import com.scm.repository.PointModel;
 
+
 public class OtherModel {
     private int id;
     private String value;
     private int status;
     private String src;
+
     private PointModel pointModel;
+
 
     public int getId() {
         return id;
@@ -41,6 +44,7 @@ public class OtherModel {
         this.src = src;
     }
 
+
     public PointModel getPointModel() {
         return pointModel;
     }
@@ -48,4 +52,5 @@ public class OtherModel {
     public void setPointModel(PointModel pointModel) {
         this.pointModel = pointModel;
     }
+
 }

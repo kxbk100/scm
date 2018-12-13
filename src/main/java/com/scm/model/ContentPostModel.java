@@ -1,5 +1,7 @@
 package com.scm.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 /*
@@ -12,10 +14,12 @@ nextdeadline:?],…
 }
  */
 public class ContentPostModel {
-    private Integer id;//point的id
+    private Integer id;
     private Float goal;
     private Float nextgoal;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     private Date deadline;
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
     private Date nextdeadline;
 
     public Integer getId() {
