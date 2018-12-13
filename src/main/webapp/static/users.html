@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <title>一流学科建设监控系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/plugins.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/themes.css">
+    <script src="./js/vendor/modernizr-3.3.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="page-wrapper" class="page-loading">
+      <div class="preloader">
+        <div class="inner">
+          <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+          <h3 class="text-primary visible-lt-ie10">
+            <strong>Loading..</strong>
+          </h3>
+        </div>
+      </div>
+
+      <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+        <!-- Main Sidebar -->
+        <div id="sidebar">
+          <!-- Sidebar Brand -->
+          <div id="sidebar-brand" class="themed-background">
+            <a href="index.html" class="sidebar-title">
+              <i class="fa fa-cube"></i>
+              <span class="sidebar-nav-mini-hide">
+                <strong>学科建设监控系统</strong>
+              </span>
+            </a>
+          </div>
+          <!-- END Sidebar Brand -->
+
+          <!-- Wrapper for scrolling functionality -->
+          <div id="sidebar-scroll">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+              <!-- Sidebar Navigation -->
+              <ul class="sidebar-nav">
+                <li>
+                  <a href="teachers.html">
+                    <i class="gi gi-group sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">师资队伍建设</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="talent.html">
+                    <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">人才培养</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="science.html">
+                    <i class="gi gi-lightbulb sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="subject.html">
+                    <i class="fa fa-line-chart sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">学科影响力</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="international.html">
+                    <i class="fa fa-globe sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">国际合作与交流</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="amaterial.html" id="ma">
+                    <i class="hi hi-list-alt sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">材料审核</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="anotice.html" id="no">
+                    <i class="fa fa-bell sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">公告通知</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="users.html" id="" class="active">
+                    <i class="fa fa-user sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">用户管理</span>
+                  </a>
+                </li>
+              </ul>
+              <!-- END Sidebar Navigation -->
+            </div>
+            <!-- END Sidebar Content -->
+          </div>
+          <!-- END Wrapper for scrolling functionality -->
+
+          <!-- Sidebar Extra Info -->
+          <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+            <div class="text-center">
+              <small>Copyright &copy;
+                <a href="#" target="_blank">夜猫</a> 版权所有
+              </small>
+            </div>
+          </div>
+          <!-- END Sidebar Extra Info -->
+        </div>
+        <!-- END Main Sidebar -->
+
+        <!-- Main Container -->
+        <div id="main-container">
+          <header class="navbar navbar-inverse navbar-fixed-top">
+            <!-- Left Header Navigation -->
+            <ul class="nav navbar-nav-custom">
+              <!-- Main Sidebar Toggle Button -->
+              <li>
+                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                </a>
+              </li>
+              <!-- END Main Sidebar Toggle Button -->
+
+            </ul>
+            <!-- END Left Header Navigation -->
+
+            <!-- Right Header Navigation -->
+            <ul class="nav navbar-nav-custom pull-right">
+              <!-- User Dropdown -->
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li>
+                    <a href="#modal-pwd" data-toggle="modal">
+                      <i class="fa fa-pencil-square fa-fw pull-right"></i>
+                      修改密码
+                    </a>
+                  </li>
+                  <!-- 弹框 -->
+                  <li>
+                    <a href="login.html">
+                      <i class="fa fa-power-off fa-fw pull-right"></i>
+                      注销
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- END User Dropdown -->
+            </ul>
+            <!-- END Right Header Navigation -->
+          </header>
+          <!-- END Header -->
+
+          <!-- Page content -->
+          <div id="page-content">
+            <!-- Blank Header -->
+            <div class="content-header">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="header-section">
+                    <h1>用户管理</h1>
+                  </div>
+                </div>
+                <a href="#modal-add" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">新增用户</a>
+                <!-- 新增用户 Modal -->
+                <div id="modal-add" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog ">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title">
+                          <strong>新增用户</strong>
+                        </h3>
+                      </div>
+                      <div class="modal-body">
+                        <form method="post" class="form-horizontal form-bordered">
+                          
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="username">工号</label>
+                            <div class="col-md-4">
+                              <input type="number" id="username" name="username" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">用户名</label>
+                            <div class="col-md-4">
+                              <input type="text" id="name" name="name" class="form-control" required="required" />
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-effect-ripple btn-primary">确定</button>
+                        <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- END 新增用户 Modal -->
+              </div>
+            </div>
+            <!-- END Blank Header -->
+
+            <!-- Get Started Block -->
+
+            <div class="block full">
+              <div class="block-title">
+                <h2>用户管理</h2>
+                <!-- <div class="btn-table">
+                  <button type="button" class="btn btn-effect-ripple btn-primary" name="number" id="edit">编辑</button>
+                  <button type="submit" class="btn btn-effect-ripple btn-primary" name="goal" id="save">保存</button>
+                  <button type="button" class="btn btn-effect-ripple btn-danger" name="goal" id="cancel">取消</button>
+                </div> -->
+              </div>
+              <div class="table-responsive">
+                <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
+                  <thead>
+                    <tr>
+                      <th class="text-center" style="width: 125px;">序号</th>
+                      <th class="text-center">工号</th>
+                      <th class="text-center">用户名</th>
+                      <th class="text-center">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">
+                        <strong>1</strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>
+                          <span name="number">123456</span>
+                        </strong>
+                      </td>
+                      <td class="text-center">
+                        <strong>
+                          <span name="number">张宇宙</span>
+                        </strong>
+                      </td>
+                      <td class="text-center">
+                          <a href="#modal-modify" data-toggle="modal" title="修改" class="btn btn-effect-ripple btn-xs btn-info">
+                            <i class="fa fa-pencil"></i>
+                          </a>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="重置密码" class="btn btn-effect-ripple btn-xs btn-warning">
+                            <i class="fa fa-refresh"></i>
+                          </a>
+                          <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                            <i class="fa fa-times"></i>
+                          </a>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="text-center">
+                          <strong>2</strong>
+                        </td>
+                        <td class="text-center">
+                          <strong>
+                            <span name="number">123456</span>
+                          </strong>
+                        </td>
+                        <td class="text-center">
+                          <strong>
+                            <span name="number">张宇宙</span>
+                          </strong>
+                        </td>
+                        <td class="text-center">
+                            <a href="#modal-modify" data-toggle="modal" title="修改" class="btn btn-effect-ripple btn-xs btn-info">
+                              <i class="fa fa-pencil"></i>
+                            </a>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="重置密码" class="btn btn-effect-ripple btn-xs btn-warning">
+                              <i class="fa fa-refresh"></i>
+                            </a>
+                            <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                              <i class="fa fa-times"></i>
+                            </a>
+                        </td>
+                      </tr>
+                      <tr>
+                          <td class="text-center">
+                            <strong>3</strong>
+                          </td>
+                          <td class="text-center">
+                            <strong>
+                              <span name="number">123456</span>
+                            </strong>
+                          </td>
+                          <td class="text-center">
+                            <strong>
+                              <span name="number">张宇宙</span>
+                            </strong>
+                          </td>
+                          <td class="text-center">
+                              <a href="#modal-modify" data-toggle="modal" title="修改" class="btn btn-effect-ripple btn-xs btn-info">
+                                <i class="fa fa-pencil"></i>
+                              </a>
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="重置密码" class="btn btn-effect-ripple btn-xs btn-warning">
+                                <i class="fa fa-refresh"></i>
+                              </a>
+                              <a href="javascript:void(0)" data-toggle="tooltip" title="删除" class="btn btn-effect-ripple btn-xs btn-danger">
+                                <i class="fa fa-times"></i>
+                              </a>
+                          </td>
+                        </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- END Datatables Block -->
+            <!-- END Get Started Content -->
+          </div>
+          <!-- END Page Content -->
+        </div>
+        <!-- END Main Container -->
+      </div>
+      <!-- END Page Container -->
+    </div>
+    <!-- END Page Wrapper -->
+    <!-- 用户修改Modal -->
+    <div id="modal-modify" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3 class="modal-title">
+                <strong>用户修改</strong>
+              </h3>
+            </div>
+            <div class="modal-body">
+              <form method="post" class="form-horizontal form-bordered">
+                
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="username">工号</label>
+                  <div class="col-md-4">
+                    <input type="number" id="musername" name="username" class="form-control" required="required" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="name">用户名</label>
+                  <div class="col-md-4">
+                    <input type="text" id="mname" name="name" class="form-control" required="required" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-effect-ripple btn-primary">确定</button>
+              <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END 用户修改 Modal -->
+
+      <!-- 密码修改Modal -->
+    <div id="modal-pwd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog ">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h3 class="modal-title">
+                <strong>密码修改</strong>
+              </h3>
+            </div>
+            <div class="modal-body">
+              <form method="post" class="form-horizontal form-bordered">
+                
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="pwd">旧密码</label>
+                  <div class="col-md-4">
+                    <input type="password" id="pwd" name="pwd" class="form-control" required="required" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-md-3 control-label" for="newpwd">新密码</label>
+                  <div class="col-md-4">
+                    <input type="password" id="newpwd" name="newpwd" class="form-control" required="required" />
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label" for="repwd">确认密码</label>
+                    <div class="col-md-4">
+                      <input type="password" id="repwd" name="repwd" class="form-control" required="required" />
+                    </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-effect-ripple btn-primary" id="modifypwd">确定</button>
+              <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END 用户修改 Modal -->
+    <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+    <script src="./js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="./js/vendor/bootstrap.min.js"></script>
+    <script src="./js/plugins.js"></script>
+    <script src="./js/app.js"></script>
+    <!-- <script>
+      $(function () {
+        function objInit(obj) {
+          return $(obj).html('<option>请选择</option>');
+        }
+        var arrData = {
+          师资队伍建设:
+          {
+            专任教师人数: '专任教师人数,国家级人才,省级人才',
+            专任教师结构: '博士学位教师占比,45周岁以下青年教师占比',
+            团队: '省部级及以上创新团队数',
+            自设指标: ''
+          },
+          人才培养:
+          {
+            教学平台: '国家教学平台,省级教学平台',
+            本科生教育: '学生在核心以上期刊（浙大标准）发表论文数,本科生读研率',
+            研究生教育: '研究生以第一作者在SCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在国内一级期刊（浙大标准）发表论文数,研究生学位论文抽检优良率,研究生学位论文抽检优良率',
+            教学成果与奖励: '国家教学成果奖,省级教学成果奖,国家精品课程、视频公开课,国家级规划教材,省部级及以上学科竞赛奖励',
+            自设指标: ''
+          },
+          科学研究与社会服务:
+          {
+            科研平台: '国家级科研创新平台数,省部级科研创新平台数',
+            科研项目与经费: '主持国家级科研项目数,国家级重点、重大项目数,主持省部级科研项目数,省部级重点、重大项目数,师均科研经费',
+            科研成果: '在SCI、SSCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在一级期刊（浙大标准）发表论文数,国内权威期刊论文数,SCI top收录期刊论文数,出版著作,授权发明专利',
+            成果奖励: '获国家级成果奖励,获省部级成果奖励,一等奖',
+            社会服务: '横向课题到款经费,横向课题项目个数,产学研平台,科技成果转化收入',
+            自设指标: ''
+          },
+          学科影响力:
+          {
+            学科排名: '国务院学位中心学科评估排名,ESI学科排名',
+            学位点建设: '一级学科博士点或博士专业学位类别数,一级学科硕士点或硕士专业学位类别数',
+            专业建设: '国家特色专业、国家专业综合改革试点,省优势、特色、新兴专业',
+            学术兼职: '在重要学术机构担任重要职务的人数',
+            自设指标: ''
+          },
+          国际合作与交流:
+          {
+            师资国际化: '一年及以上出国（境）研修教师占比,聘请外国专家人数',
+            人才培养国际化: '赴国（境）外联合培养（三个月以上）学生占比,外国学历留学生数',
+            国际交流: '国际科研合作项目数,主办国际学术会议,参加国际学术会议人次',
+            自设指标: ''
+          }
+        };
+        $.each(arrData, function (pF) {
+          $('#selF').append('<option>' + pF + '</option>');
+        });
+        $('#selF').change(function () {
+          objInit('#selT');
+          objInit('#selC');
+          $.each(arrData, function (pF, pS) {
+            if ($('#selF option:selected').text() == pF) {
+              $.each(pS, function (pT, pC) {
+                $('#selT').append('<option>' + pT + '</option>');
+              });
+              $('#selT').change(function () {
+                objInit('#selC');
+                $.each(pS, function (pT, pC) {
+                  if ($('#selT option:selected').text() == pT) {
+                    $.each(pC.split(","), function () {
+                      $('#selC').append('<option>' + this + '</option>');
+                    })
+                  }
+                })
+
+              });
+            }
+          })
+        });
+      });
+    </script> -->
+    <script>
+      $("#modifypwd").on("click", function () {
+        a = $("#newpwd").val();
+        b = $("#repwd").val();
+        if (a != b) {
+          alert("密码不一致");
+        } else {
+          return ture;
+        }
+      })
+    </script>
+  </body>
+
+</html>
