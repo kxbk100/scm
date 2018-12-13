@@ -7,6 +7,9 @@
  *  use them only in specific pages. Also, if you remove a js plugin you won't use, make
  *  sure to remove its initialization from uiInit().
  */
+
+var ip = "http://192.168.1.106:8080";
+
 if (localStorage.id == 1) {
     $("[id^=edit]").hide();
     $("#set").hide();
