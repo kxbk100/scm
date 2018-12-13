@@ -1,6 +1,7 @@
 package com.scm.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "targets")
@@ -8,6 +9,15 @@ public class TargetsEntity {
     private int id;
     private String first;
     private String second;
+    private List<PointsEntity> pointsEntityList;
+    @OneToMany(mappedBy = "targetsEntity")
+    public List<PointsEntity> getPointsEntityList() {
+        return pointsEntityList;
+    }
+
+    public void setPointsEntityList(List<PointsEntity> pointsEntityList) {
+        this.pointsEntityList = pointsEntityList;
+    }
 
     @Id
     @Column(name = "id")

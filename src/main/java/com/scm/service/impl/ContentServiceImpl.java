@@ -34,20 +34,15 @@ public class ContentServiceImpl implements ContentService {
         List<ContentGetModel> contentGetModelList = new ArrayList<>();
         List<TargetsEntity> targetsEntityList = targetsRepo.findByFirst(first);
            for (TargetsEntity one:targetsEntityList) {
-               Integer targetId = one.getId();
-               List<PointsEntity> pointsEntityList = pointsRepo.findByTargetid(targetId);
+               List<PointsEntity> pointsEntityList = one.getPointsEntityList();
                for (PointsEntity pointsEntity:pointsEntityList){
                    ContentGetModel contentGetModel = new ContentGetModel();
+                   BeanUtils.copyProperties(pointsEntity,contentGetModel);
 
-                   contentGetModel.setPointsId(pointsEntity.getId());
-                   contentGetModel.setNextgoal(pointsEntity.getNextgoal());
                    contentGetModel.setSecond(one.getSecond());
-                   contentGetModel.setContent(pointsEntity.getContent());
-                   contentGetModel.setNextdeadline(pointsEntity.getNextdeadline());
-                   contentGetModel.setGoal(pointsEntity.getGoal());
-                   contentGetModel.setDeadline(pointsEntity.getDeadline());
-                   contentGetModel.setNow(pointsEntity.getNow());
-                   contentGetModel.setTargetId(pointsEntity.getTargetid());//这个是外键,需要映射吗(不用似乎也可以
+                   contentGetModel.setPointsId(pointsEntity.getId());
+                   contentGetModel.setTargetId(one.getId());
+
                    contentGetModelList.add(contentGetModel);
                }
            }
@@ -60,7 +55,7 @@ public class ContentServiceImpl implements ContentService {
         for (ContentPostModel one:contentPostModelList){
             if(pointsRepo.findById(one.getId()).isPresent()){
                 PointsEntity pointsEntity = pointsRepo.findById(one.getId()).get();
-                BeanUtils.copyProperties(pointsEntity,one);
+                BeanUtils.copyProperties(one,pointsEntity);
                 pointsRepo.save(pointsEntity);
             }
         }
@@ -71,7 +66,23 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public IndexGetModel GetIndexData() {
         IndexGetModel indexGetModel = new IndexGetModel();
-        //1.获取username
-        return null;
+        List<ContentGetModel> contentGetModelList = new ArrayList<>();
+        List<TargetsEntity> targetsEntityList = targetsRepo.findAll();
+        for (TargetsEntity one:targetsEntityList) {
+            List<PointsEntity> pointsEntityList = one.getPointsEntityList();
+            for (PointsEntity pointsEntity:pointsEntityList){
+                ContentGetModel contentGetModel = new ContentGetModel();
+                BeanUtils.copyProperties(pointsEntity,contentGetModel);
+
+                contentGetModel.setSecond(one.getSecond());
+                contentGetModel.setPointsId(pointsEntity.getId());
+                contentGetModel.setTargetId(one.getId());
+
+                contentGetModelList.add(contentGetModel);
+            }
+        }
+        indexGetModel.setContentGetModelList(contentGetModelList);
+
+        return indexGetModel;
     }
 }
