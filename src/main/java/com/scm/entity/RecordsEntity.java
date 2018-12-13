@@ -1,13 +1,17 @@
 package com.scm.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "records")
 public class RecordsEntity {
     private int id;
-    private Timestamp date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date date;
     private int type;
     private int recordId;
 
@@ -23,11 +27,11 @@ public class RecordsEntity {
 
     @Basic
     @Column(name = "date")
-    public Timestamp getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

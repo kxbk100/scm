@@ -9,6 +9,9 @@ public class OtherEntity {
     private String value;
     private int status;
     private String src;
+    @OneToOne
+    @JoinColumn(name = "point_id")
+    private PointsEntity pointsEntity;
 
     @Id
     @Column(name = "id")
@@ -50,6 +53,14 @@ public class OtherEntity {
         this.src = src;
     }
 
+    public PointsEntity getPointsEntity() {
+        return pointsEntity;
+    }
+
+    public void setPointsEntity(PointsEntity pointsEntity) {
+        this.pointsEntity = pointsEntity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,5 +83,16 @@ public class OtherEntity {
         result = 31 * result + status;
         result = 31 * result + (src != null ? src.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "OtherEntity{" +
+                "id=" + id +
+                ", value='" + value + '\'' +
+                ", status=" + status +
+                ", src='" + src + '\'' +
+                ", entity=" + pointsEntity.getContent() +
+                '}';
     }
 }
