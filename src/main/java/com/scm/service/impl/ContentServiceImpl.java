@@ -20,30 +20,36 @@ import java.util.List;
 @Transactional
 @Repository
 public class ContentServiceImpl implements ContentService {
+    private final PointsRepo pointsRepo;
+    private final TargetsRepo targetsRepo;
+
     @Autowired
-    private  PointsRepo pointsRepo;
-    @Autowired
-    private TargetsRepo targetsRepo;
+    public ContentServiceImpl(PointsRepo pointsRepo, TargetsRepo targetsRepo) {
+        this.pointsRepo = pointsRepo;
+        this.targetsRepo = targetsRepo;
+    }
 
 
-       public List<ContentGetModel> GetContentlistByFirst(String first) {
+    public List<ContentGetModel> GetContentlistByFirst(String first) {
         List<ContentGetModel> contentGetModelList = new ArrayList<>();
         List<TargetsEntity> targetsEntityList = targetsRepo.findByFirst(first);
            for (TargetsEntity one:targetsEntityList) {
                Integer targetId = one.getId();
-               PointsEntity pointsEntity = pointsRepo.findByTargetid(targetId);
-               ContentGetModel contentGetModel = new ContentGetModel();
+               List<PointsEntity> pointsEntityList = pointsRepo.findByTargetid(targetId);
+               for (PointsEntity pointsEntity:pointsEntityList){
+                   ContentGetModel contentGetModel = new ContentGetModel();
 
-               contentGetModel.setPointsId(pointsEntity.getId());
-               contentGetModel.setNextgoal(pointsEntity.getNextgoal());
-               contentGetModel.setSecond(one.getSecond());
-               contentGetModel.setContent(pointsEntity.getContent());
-               contentGetModel.setNextgoal(pointsEntity.getNextgoal());
-               contentGetModel.setNextdeadline(pointsEntity.getNextdeadline());
-               contentGetModel.setGoal(pointsEntity.getGoal());
-               contentGetModel.setNextgoal(pointsEntity.getNextgoal());
-
-               contentGetModelList.add(contentGetModel);
+                   contentGetModel.setPointsId(pointsEntity.getId());
+                   contentGetModel.setNextgoal(pointsEntity.getNextgoal());
+                   contentGetModel.setSecond(one.getSecond());
+                   contentGetModel.setContent(pointsEntity.getContent());
+                   contentGetModel.setNextdeadline(pointsEntity.getNextdeadline());
+                   contentGetModel.setGoal(pointsEntity.getGoal());
+                   contentGetModel.setDeadline(pointsEntity.getDeadline());
+                   contentGetModel.setNow(pointsEntity.getNow());
+                   contentGetModel.setTargetId(pointsEntity.getTargetid());//这个是外键,需要映射吗(不用似乎也可以
+                   contentGetModelList.add(contentGetModel);
+               }
            }
 
         return contentGetModelList;
@@ -52,9 +58,11 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public List<ContentPostModel> UpdateContent(List<ContentPostModel> contentPostModelList) {
         for (ContentPostModel one:contentPostModelList){
-            PointsEntity pointsEntity = pointsRepo.findById(one.getId()).get();
-            BeanUtils.copyProperties(pointsEntity,one);
-            pointsRepo.save(pointsEntity);
+            if(pointsRepo.findById(one.getId()).isPresent()){
+                PointsEntity pointsEntity = pointsRepo.findById(one.getId()).get();
+                BeanUtils.copyProperties(pointsEntity,one);
+                pointsRepo.save(pointsEntity);
+            }
         }
         return contentPostModelList;
     }
@@ -64,7 +72,6 @@ public class ContentServiceImpl implements ContentService {
     public IndexGetModel GetIndexData() {
         IndexGetModel indexGetModel = new IndexGetModel();
         //1.获取username
-
         return null;
     }
 }
