@@ -38,7 +38,6 @@ public class ContentServiceImpl implements ContentService {
                List<PointsEntity> pointsEntityList = pointsRepo.findByTargetid(targetId);
                for (PointsEntity pointsEntity:pointsEntityList){
                    ContentGetModel contentGetModel = new ContentGetModel();
-
                    contentGetModel.setPointsId(pointsEntity.getId());
                    contentGetModel.setNextgoal(pointsEntity.getNextgoal());
                    contentGetModel.setSecond(one.getSecond());
