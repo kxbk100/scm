@@ -15,6 +15,7 @@ nextdeadline:?],…
 }
  */
 public class ContentGetModel {
+    private Integer targetId;//为了与欢迎页中返回的数据结构相同添加了此属性
     private Integer pointsId;
     private String second;
     private String content;
@@ -23,6 +24,14 @@ public class ContentGetModel {
     private Float nextgoal;
     private Date deadline;
     private Date nextdeadline;
+
+    public Integer getTargetId() {
+        return targetId;
+    }
+
+    public void setTargetId(Integer targetId) {
+        this.targetId = targetId;
+    }
 
     public Integer getPointsId() {
         return pointsId;

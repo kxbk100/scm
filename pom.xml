@@ -19,6 +19,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring.version>5.0.9.RELEASE</spring.version>
     <hibernate.version>5.3.7.Final</hibernate.version>
+    <jackson.version>2.9.7</jackson.version>
   </properties>
 
   <dependencies>
@@ -120,6 +121,17 @@
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-jpa</artifactId>
       <version>2.1.2.RELEASE</version>
+    </dependency>
+    <!-- jackson -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
   </dependencies>
 

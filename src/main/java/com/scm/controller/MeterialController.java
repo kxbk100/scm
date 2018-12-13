@@ -7,7 +7,6 @@ package com.scm.controller;
 教师材料的提交上传 /scm/material/teachers/upload
 教师材料提交记录的查看 /scm/material/admin/show
 教师材料提交记录的修改 /scm/material/admin/check
-
  */
 import org.springframework.stereotype.Controller;
 

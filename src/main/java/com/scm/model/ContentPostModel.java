@@ -12,7 +12,7 @@ nextdeadline:?],…
 }
  */
 public class ContentPostModel {
-    private Integer id;
+    private Integer id;//point的id
     private Float goal;
     private Float nextgoal;
     private Date deadline;
