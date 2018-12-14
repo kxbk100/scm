@@ -3,7 +3,7 @@ package com.scm.service.impl;
 import com.scm.entity.*;
 import com.scm.model.*;
 import com.scm.repository.*;
-import com.scm.service.MeterialService;
+import com.scm.service.MaterialService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class MeterialServiceImpl implements MeterialService {
+public class MaterialServiceImpl implements MaterialService {
     @Autowired
     RecordRepo recordDao;
     @Autowired
@@ -33,10 +33,24 @@ public class MeterialServiceImpl implements MeterialService {
         for(RecordsEntity entity:entities){
             RecordModel model=new RecordModel();
             BeanUtils.copyProperties(entity,model);
+            model.setRealName(entity.getUsersEntity().getName());
             recordModels.add(model);
         }
         return recordModels;
     }
+
+    @Override
+    public List<RecordModel> findByUserId(int id) {
+        List<RecordsEntity> entities=recordDao.findByUserId(id);
+        List<RecordModel> recordModels=new ArrayList<>();
+        for(RecordsEntity entity:entities){
+            RecordModel model=new RecordModel();
+            BeanUtils.copyProperties(entity,model);
+            recordModels.add(model);
+        }
+        return recordModels;
+    }
+
 
     @Override
     public OtherModel findOtherById(int id) {

@@ -1,7 +1,10 @@
 package com.scm.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "notices")
@@ -9,7 +12,7 @@ public class NoticesEntity {
     private int id;
     private String title;
     private String content;
-    private Timestamp date;
+    private Date date;
     private String author;
 
     @Id
@@ -44,11 +47,12 @@ public class NoticesEntity {
 
     @Basic
     @Column(name = "date")
-    public Timestamp getDate() {
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

@@ -3,14 +3,13 @@ package com.scm.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
 @Table(name = "records")
 public class RecordsEntity {
     private int id;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private UsersEntity usersEntity;
     private Date date;
     private int type;
     private int recordId;
@@ -27,6 +26,7 @@ public class RecordsEntity {
 
     @Basic
     @Column(name = "date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getDate() {
         return date;
     }
@@ -53,6 +53,16 @@ public class RecordsEntity {
 
     public void setRecordId(int recordId) {
         this.recordId = recordId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    public UsersEntity getUsersEntity() {
+        return usersEntity;
+    }
+
+    public void setUsersEntity(UsersEntity usersEntity) {
+        this.usersEntity = usersEntity;
     }
 
     @Override
