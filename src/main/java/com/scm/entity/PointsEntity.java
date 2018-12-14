@@ -1,5 +1,7 @@
 package com.scm.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -69,6 +71,7 @@ public class PointsEntity {
 
     @Basic
     @Column(name = "deadline")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getDeadline() {
         return deadline;
     }
@@ -89,6 +92,7 @@ public class PointsEntity {
 
     @Basic
     @Column(name = "nextdeadline")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date getNextdeadline() {
         return nextdeadline;
     }

@@ -1,5 +1,7 @@
 package com.scm.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -38,6 +40,7 @@ public class TeachersEntity {
 
     @Basic
     @Column(name = "birthday")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     public Date getBirthday() {
         return birthday;
     }
