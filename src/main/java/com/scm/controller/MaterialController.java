@@ -50,10 +50,10 @@ public class MaterialController {
     @ResponseBody
     public List<Pair<RecordModel,?>> showTeacherMaterial(HttpSession session){
         List<Pair<RecordModel,?>> pairs=new ArrayList<>();
-//        UserModel userModel=(UserModel) session.getAttribute("user");
-        UserModel userModel=new UserModel();
-        userModel.setId(2);
-        userModel.setName("张宇宙");
+        UserModel userModel=(UserModel) session.getAttribute("user");
+//        UserModel userModel=new UserModel();
+//        userModel.setId(2);
+//        userModel.setName("张宇宙");
         List<RecordModel> recordModels=materialService.findByUserId(userModel.getId());
         preparePairList(recordModels,pairs);
         return pairs;
