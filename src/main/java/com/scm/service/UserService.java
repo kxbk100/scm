@@ -1,5 +1,6 @@
 package com.scm.service;
 
+import com.scm.model.PageUserModel;
 import com.scm.model.UserModel;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
     UserModel findUserByUserName(String userName);
-    List<UserModel> findAllUser();
+    List<PageUserModel> findAllUser();
     Integer ModifyUser(UserModel userModel);
     Integer ResetUser(Integer userId);
     Integer DeleteUser(Integer userId);

@@ -1,6 +1,7 @@
 package com.scm.service.impl;
 
 import com.scm.entity.UsersEntity;
+import com.scm.model.PageUserModel;
 import com.scm.model.UserModel;
 import com.scm.repository.UserRepo;
 import com.scm.service.UserService;
@@ -36,18 +37,18 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<UserModel> findAllUser() {
-        List<UserModel> userModelList = new ArrayList<>();
+    public List<PageUserModel> findAllUser() {
+        List<PageUserModel> pageUserModelList = new ArrayList<>();
         List<UsersEntity> usersEntityList = userDao.findAll();
         for (UsersEntity one:usersEntityList){
             if (one.getType() == ADMIN){
                 continue;
             }
-            UserModel userModel = new UserModel();
-            BeanUtils.copyProperties(one,userModel);
-            userModelList.add(userModel);
+            PageUserModel PageUserModel = new PageUserModel();
+            BeanUtils.copyProperties(one,PageUserModel);
+            pageUserModelList.add(PageUserModel);
         }
-        return userModelList;
+        return pageUserModelList;
     }
 
 

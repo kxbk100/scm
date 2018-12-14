@@ -8,6 +8,7 @@ package com.scm.controller;
 用户自己密码修改 /scm/users/password
  */
 import com.scm.entity.UsersEntity;
+import com.scm.model.PageUserModel;
 import com.scm.model.UserModel;
 import com.scm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class UserController {
 
     @RequestMapping(value = "/scm/users/show",method = RequestMethod.GET)
     @ResponseBody
-    public List<UserModel> GetShowUser(){
+    public List<PageUserModel> GetShowUser(){
         return userService.findAllUser();
     }
     @RequestMapping(value = "/scm/users/modify",method = RequestMethod.POST)
