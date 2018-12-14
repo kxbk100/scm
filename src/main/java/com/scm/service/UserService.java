@@ -8,11 +8,9 @@ import java.util.List;
 public interface UserService {
     UserModel findUserByUserName(String userName);
     List<UserModel> findAllUser();
-    void ModifyUser(UserModel userModel);
-
-    void ResetUser(Integer userId);
-
-    void DeleteUser(Integer userId);
-
-    void AddUser(UserModel userModel);
+    Integer ModifyUser(UserModel userModel);
+    Integer ResetUser(Integer userId);
+    Integer DeleteUser(Integer userId);
+    Integer AddUser(UserModel userModel);
+    Integer UserPasswordModify(Integer userId,String OldPassword,String NewPassword);
 }

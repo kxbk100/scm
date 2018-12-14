@@ -5,13 +5,16 @@ package com.scm.controller;
 用户增加 /scm/users/add
 密码重置 /scm/users/reset
 用户删除 /scm/users/delete
+用户自己密码修改 /scm/users/password
  */
+import com.scm.entity.UsersEntity;
 import com.scm.model.UserModel;
 import com.scm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
@@ -30,23 +33,40 @@ public class UserController {
         return userService.findAllUser();
     }
     @RequestMapping(value = "/scm/users/modify",method = RequestMethod.POST)
-    public void PostModifyUser(@RequestBody UserModel userModel){
-        userService.ModifyUser(userModel);
+    @ResponseBody
+    public Integer PostModifyUser(@RequestBody UserModel userModel){
+       return userService.ModifyUser(userModel);
     }
 
     @RequestMapping(value = "/scm/users/add",method = RequestMethod.POST)
-    public void PostAddUser(@RequestBody UserModel userModel){
-        userService.AddUser(userModel);
+    @ResponseBody
+    public Integer PostAddUser(@RequestBody UserModel userModel){
+        return userService.AddUser(userModel);
     }
 
     @RequestMapping(value = "/scm/users/reset",method = RequestMethod.POST)
-    public void PostResetUser(@RequestParam Integer userId){
-        userService.ResetUser(userId);
+    @ResponseBody
+    public Integer PostResetUser(@RequestParam Integer userId){
+        return userService.ResetUser(userId);
     }
 
     @RequestMapping(value = "/scm/users/delete",method = RequestMethod.POST)
-    public void PostDeleteUser(@RequestParam Integer userId){
-        userService.DeleteUser(userId);
+    @ResponseBody
+    public Integer PostDeleteUser(@RequestParam Integer userId){
+       return userService.DeleteUser(userId);
     }
 
+    @RequestMapping(value = "/scm/users/password",method = RequestMethod.POST)
+    @ResponseBody
+    public Integer PostChangePassword(@RequestParam String OldPassword, @RequestParam String NewPassword, HttpSession session)
+    {
+        if(session.getAttribute("user")!=null){
+            UsersEntity usersEntity = (UsersEntity) session.getAttribute("user");
+            return userService.UserPasswordModify(usersEntity.getId(),OldPassword,NewPassword);
+        }else{
+            return 1;
+        }
+
+
+    }
 }

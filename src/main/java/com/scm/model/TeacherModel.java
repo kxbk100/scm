@@ -1,6 +1,6 @@
 package com.scm.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class TeacherModel {
     private int id;
