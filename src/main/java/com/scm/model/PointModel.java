@@ -1,4 +1,4 @@
-package com.scm.repository;
+package com.scm.model;
 
 import java.sql.Date;
 

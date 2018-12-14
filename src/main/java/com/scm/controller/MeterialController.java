@@ -2,20 +2,17 @@ package com.scm.controller;
 
 
 /*
-
-
-import com.scm.model.OtherModel;
-import com.scm.model.RecordModel;
-import com.scm.service.MeterialService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.util.Pair;
-
 管理员查看材料提交  /scm/material/admin/show
 管理员审核材料提交 /scm/material/admin/check
 教师材料的提交上传 /scm/material/teachers/upload
 教师材料提交记录的查看 /scm/meterial/teachers/show
 教师材料提交记录的修改 /scm/material/teachers/modify
  */
+import com.scm.model.OtherModel;
+import com.scm.model.RecordModel;
+import com.scm.service.MeterialService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
 import org.springframework.http.MediaType;
 
 import org.springframework.stereotype.Controller;

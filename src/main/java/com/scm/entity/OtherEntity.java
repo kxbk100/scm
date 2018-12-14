@@ -61,13 +61,6 @@ public class OtherEntity {
         this.src = src;
     }
 
-    public PointsEntity getPointsEntity() {
-        return pointsEntity;
-    }
-
-    public void setPointsEntity(PointsEntity pointsEntity) {
-        this.pointsEntity = pointsEntity;
-    }
 
     @Override
     public boolean equals(Object o) {
