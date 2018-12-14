@@ -1,7 +1,5 @@
 package com.scm.model;
 
-import com.scm.repository.PointModel;
-
 
 public class OtherModel {
     private int id;
