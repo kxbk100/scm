@@ -45,7 +45,11 @@ public class MaterialController {
         return pairs;
     }
 
-
+    /**
+     *
+     * @param session 从session中拿当前User
+     * @return 一组Pair{first:RecordModel,second:OtherModel/TeacherModel/ItemModel/PaperModel}
+     */
     @RequestMapping(value = "teachers/show",method = RequestMethod.GET)
     @ResponseBody
     public List<Pair<RecordModel,?>> showTeacherMaterial(HttpSession session){
