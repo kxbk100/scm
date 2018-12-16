@@ -6,7 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PaperRepo extends JpaRepository<PapersEntity,Integer> {
-
     PapersEntity getById(int id);
-
 }

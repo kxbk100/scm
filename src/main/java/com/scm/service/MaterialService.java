@@ -11,4 +11,11 @@ public interface MaterialService {
     PaperModel findPaperById(int id);
     TeacherModel findTeacherById(int id);
     ItemModel findItemById(int id);
+    int saveOther(OtherModel model);
+    int saveTeacher(TeacherModel model);
+    int saveItem(ItemModel model);
+    int savePaper(PaperModel model);
+    void saveRecord(int userId,int type,int recordId);
+    void updateRecordDate(int id);
+    void updateStatus(int id,int type,int status);
 }

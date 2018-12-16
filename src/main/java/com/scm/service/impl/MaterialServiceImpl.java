@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -28,7 +29,7 @@ public class MaterialServiceImpl implements MaterialService {
 
     @Override
     public List<RecordModel> findAllRecord() {
-        List<RecordsEntity> entities=recordDao.findAll();
+        List<RecordsEntity> entities=recordDao.findAllOrOrderByDate();
         List<RecordModel> recordModels=new ArrayList<>();
         for(RecordsEntity entity:entities){
             RecordModel model=new RecordModel();
@@ -87,4 +88,83 @@ public class MaterialServiceImpl implements MaterialService {
         return model;
     }
 
+    @Override
+    public int saveOther(OtherModel model) {
+        OtherEntity otherEntity=new OtherEntity();
+        PointsEntity pointsEntity=new PointsEntity();
+        pointsEntity.setId(model.getPointModel().getId());
+        BeanUtils.copyProperties(model,otherEntity);
+        otherEntity.setPointsEntity(pointsEntity);
+        return otherDao.saveAndFlush(otherEntity).getId();
+    }
+
+    @Override
+    public int saveTeacher(TeacherModel model) {
+        TeachersEntity teachersEntity=new TeachersEntity();
+        BeanUtils.copyProperties(model,teachersEntity);
+        return teacherDao.saveAndFlush(teachersEntity).getId();
+    }
+
+    @Override
+    public int saveItem(ItemModel model) {
+        ItemsEntity itemsEntity=new ItemsEntity();
+        BeanUtils.copyProperties(model,itemsEntity);
+        return itemDao.saveAndFlush(itemsEntity).getId();
+    }
+
+    @Override
+    public int savePaper(PaperModel model) {
+        PapersEntity papersEntity=new PapersEntity();
+        BeanUtils.copyProperties(model,papersEntity);
+        return paperDao.saveAndFlush(papersEntity).getId();
+    }
+
+    @Override
+    public void saveRecord(int userId,int type,int recordId) {
+        RecordsEntity recordsEntity=new RecordsEntity();
+        UsersEntity usersEntity=new UsersEntity();
+        usersEntity.setId(userId);
+        recordsEntity.setUsersEntity(usersEntity);
+        recordsEntity.setDate(new Date(System.currentTimeMillis()));
+        recordsEntity.setType(type);
+        recordsEntity.setRecordId(recordId);
+        recordDao.save(recordsEntity);
+    }
+
+    @Override
+    public void updateRecordDate(int id) {
+        recordDao.updateDate(new Date(System.currentTimeMillis()),id);
+    }
+
+    /**
+     *
+     * @param id 对象在各自表中的id
+     * @param type 对应的对象的类型Other 0，Teacher 1，Item 2，Paper 3
+     * @param status 修改的状态
+     */
+    @Override
+    public void updateStatus(int id, int type, int status) {
+        switch (type){
+            case 0:
+                OtherEntity otherEntity=otherDao.getById(id);
+                otherEntity.setStatus(status);
+                otherDao.save(otherEntity);
+                break;
+            case 1:
+                TeachersEntity teachersEntity=teacherDao.getById(id);
+                teachersEntity.setStatus(status);
+                teacherDao.save(teachersEntity);
+                break;
+            case 2:
+                ItemsEntity itemsEntity=itemDao.getById(id);
+                itemsEntity.setStatus(status);
+                itemDao.save(itemsEntity);
+                break;
+            case 3:
+                PapersEntity papersEntity=paperDao.getById(id);
+                papersEntity.setStatus(status);
+                paperDao.save(papersEntity);
+                break;
+        }
+    }
 }

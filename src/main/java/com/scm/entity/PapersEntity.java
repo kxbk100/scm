@@ -3,7 +3,7 @@ package com.scm.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "papers")
+@Table(name = "static/resources/papers")
 public class PapersEntity {
     private int id;
     private String title;
@@ -15,6 +15,7 @@ public class PapersEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }

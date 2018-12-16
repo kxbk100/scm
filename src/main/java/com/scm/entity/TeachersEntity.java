@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "teachers")
+@Table(name = "static/resources/teachers")
 public class TeachersEntity {
     private int id;
     private String name;
@@ -20,6 +20,7 @@ public class TeachersEntity {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
