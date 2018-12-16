@@ -34,8 +34,8 @@ public class WebConfig implements WebMvcConfigurer{
     }
 
     @Bean
-    public CommonsMultipartResolver multipartResolver() throws IOException{
-        return new CommonsMultipartResolver();
+    public MultipartResolver multipartResolver() throws IOException{
+        return new StandardServletMultipartResolver();
     }
 
     @Override
