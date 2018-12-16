@@ -67,7 +67,11 @@ public class UserController {
         }else{
             return 1;
         }
+    }
 
-
+    @RequestMapping(value = "/scm/users/id/{userId}",method = RequestMethod.GET)
+    @ResponseBody
+    public PageUserModel GetUsersInfo(@PathVariable Integer userId){
+        return userService.findUsersById(userId);
     }
 }

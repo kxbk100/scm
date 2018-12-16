@@ -125,4 +125,14 @@ public class UserServiceImpl implements UserService{
             return FAIL;
         }
     }
+
+    @Override
+    public PageUserModel findUsersById(Integer id) {
+        UsersEntity usersEntity = userDao.findById(id).get();
+        PageUserModel pageUserModel = new PageUserModel();
+        pageUserModel.setId(id);
+        pageUserModel.setName(usersEntity.getName());
+        pageUserModel.setUsername(usersEntity.getUsername());
+        return pageUserModel;
+    }
 }
