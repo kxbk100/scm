@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 @Service
 @Transactional
@@ -51,15 +52,32 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public List<ContentPostModel> UpdateContent(List<ContentPostModel> contentPostModelList) {
-        for (ContentPostModel one:contentPostModelList){
-            if(pointsRepo.findById(one.getId()).isPresent()){
-                PointsEntity pointsEntity = pointsRepo.findById(one.getId()).get();
-                BeanUtils.copyProperties(one,pointsEntity);
-                pointsRepo.save(pointsEntity);
+    public Integer UpdateContent(List<ContentPostModel> contentPostModelList,Integer targetId) {
+        try{
+            for (ContentPostModel one:contentPostModelList){
+                if(pointsRepo.findById(one.getId()).isPresent()){
+                    PointsEntity pointsEntity = pointsRepo.findById(one.getId()).get();
+                    pointsEntity.setGoal(one.getGoal());
+                    pointsEntity.setNextgoal(one.getNextgoal());
+                    pointsEntity.setDeadline(one.getDeadline());
+                    if(one.getContent()!=null)
+                    {
+                        pointsEntity.setContent(one.getContent());
+                    }
+                    pointsRepo.save(pointsEntity);
+                }else{
+                    PointsEntity pointsEntity = new PointsEntity();
+                    pointsEntity.setGoal(one.getGoal());
+                    pointsEntity.setContent(one.getContent());
+                    pointsEntity.setNextgoal(one.getNextgoal());
+                    pointsEntity.setDeadline(one.getDeadline());
+                    pointsRepo.save(pointsEntity);
+                }
             }
+            return 1;
+        }catch (Exception e){
+            return 0;
         }
-        return contentPostModelList;
     }
 
 
@@ -84,5 +102,22 @@ public class ContentServiceImpl implements ContentService {
         indexGetModel.setContentGetModelList(contentGetModelList);
 
         return indexGetModel;
+    }
+
+    @Override
+    public Integer SetNextDeadlineByFirst(String first, Date NextDeadline) {
+        try {
+            List<TargetsEntity> targetsEntityList = targetsRepo.findByFirst(first);
+            for (TargetsEntity one : targetsEntityList) {
+                List<PointsEntity> pointsEntityList = one.getPointsEntityList();
+                for (PointsEntity pointsEntity : pointsEntityList) {
+                    pointsEntity.setNextdeadline(NextDeadline);
+                    pointsRepo.save(pointsEntity);
+                }
+            }
+            return 1;
+        }catch (Exception e){
+            return 0;
+        }
     }
 }

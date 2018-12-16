@@ -14,4 +14,5 @@ public interface UserService {
     Integer DeleteUser(Integer userId);
     Integer AddUser(UserModel userModel);
     Integer UserPasswordModify(Integer userId,String OldPassword,String NewPassword);
+    PageUserModel findUsersById(Integer id);
 }

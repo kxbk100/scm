@@ -28,6 +28,7 @@ import com.scm.model.ContentPostModel;
 import com.scm.model.UserModel;
 import com.scm.service.ContentService;
 import com.scm.service.UserService;
+import com.scm.utils.DateUtil;
 import com.scm.utils.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -75,7 +76,7 @@ public class MainController {
     }
 
 
-    @RequestMapping(value = "/scm/social",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/scm/science",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public List<ContentGetModel> getsocial(){
         return contentService.GetContentlistByFirst("科学研究与社会服务水平");
@@ -97,11 +98,56 @@ public class MainController {
 
 //=============POST================
 
-    @RequestMapping(value = {"/scm/teachers","/scm/talents","/scm/social","/scm/subject","/scm/international"},method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = {"/scm/{part}","/scm/talents","/scm/science","/scm/subject","/scm/international"},method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public List<ContentPostModel> postteachers(@RequestBody List<ContentPostModel> contentPostModelList) {
+    public Integer postteachers(@RequestBody List<ContentPostModel> contentPostModelList,@PathVariable String part) {
         //更新数据库,按照得到的post数据
-        return contentService.UpdateContent(contentPostModelList);//保存了之后返回修改的数据(直接返回了提交的数据)
+        Integer result = null;
+        switch(part){
+            case "teachers":
+                result = contentService.UpdateContent(contentPostModelList,4);
+                break;
+            case "talents":
+                result = contentService.UpdateContent(contentPostModelList,9);
+                break;
+            case "science":
+                result = contentService.UpdateContent(contentPostModelList,15);
+                break;
+            case "subject":
+                result = contentService.UpdateContent(contentPostModelList,20);
+                break;
+            case "international":
+                result = contentService.UpdateContent(contentPostModelList,24);
+                break;
+        }
+        return result;//保存了之后返回修改的数据(直接返回了提交的数据)
+    }
+
+    @RequestMapping(value = "/scm/teachers/nextdeadline",method = RequestMethod.POST)
+    @ResponseBody
+    public Integer postteachersnextdeadline(@RequestParam String nextdeadline) {
+
+        return contentService.SetNextDeadlineByFirst("师资队伍建设", DateUtil.StringtoDate(nextdeadline));
+    }
+    @RequestMapping(value = "/scm/talents/nextdeadline",method = RequestMethod.POST)
+    @ResponseBody
+    public Integer posttalentsnextdeadline(@RequestParam String nextdeadline){
+        return contentService.SetNextDeadlineByFirst("人才培养",DateUtil.StringtoDate(nextdeadline));
+    }
+    @RequestMapping(value = "/scm/science/nextdeadline",method = RequestMethod.POST)
+    @ResponseBody
+    public Integer postsciencenextdeadline(@RequestParam String nextdeadline){
+        return contentService.SetNextDeadlineByFirst("科学研究与社会服务水平",DateUtil.StringtoDate(nextdeadline));
+    }
+    @RequestMapping(value = "/scm/subject/nextdeadline",method = RequestMethod.POST)
+    @ResponseBody
+    public Integer postsubjectnextdeadline(@RequestParam String nextdeadline){
+        return contentService.SetNextDeadlineByFirst("学科影响力",DateUtil.StringtoDate(nextdeadline));
+    }
+    @RequestMapping(value = "/scm/international/nextdeadline",method = RequestMethod.POST)
+    @ResponseBody
+    public Integer postinternationalnextdeadline(@RequestParam String nextdeadline){
+        return contentService.SetNextDeadlineByFirst("国际合作与交流",DateUtil.StringtoDate(nextdeadline));
     }
 
     /**
