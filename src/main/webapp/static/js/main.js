@@ -1,17 +1,43 @@
 $("#save").hide();
 
 // 将所有表格的数据更新至数据库
-function updateTable(n) {
+function updateTable(type, n) {
+  var suffix;
+  switch (type) {
+    case 0:
+      suffix = "/scm/teachers"
+      break;
+    case 1:
+      suffix = "scm/talents"
+      breakl;
+    case 1:
+      suffix = "scm/science"
+      break;
+    case 2:
+      suffix = "scm/talents"
+      break;
+    case 3:
+      suffix = "scm/subject"
+      break;
+    case 4:
+      suffix = "scm/international"
+      break;
+  }
   var table = $("#table" + n).tableToJSON({
     ignoreHiddenRows: false,
-    headings: ['id', 'content', 'now', 'goal', 'next_goal', "dead_line"]
+    headings: ['id', 'goal', 'nextgoal', "deadline"],
+    onlyColumns: [0, 3, 4, 5]
   });
   table.shift();
+  // console.log(JSON.stringify(table));
   console.log(JSON.stringify(table));
   $.ajax({
+    url: ip + suffix,
     type: "POST",
-    url: "http://localhost:8080/goal/updateGoal",
-    data: { table: JSON.stringify(table) },
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: JSON.stringify(table),
     success: function (msg) {
       console.log("success");
     },
@@ -37,7 +63,7 @@ function edit(n) {
 }
 
 // 点击保存按钮触发事件
-function save(n) {
+function save(type, n) {
   $("#edit" + n).removeClass("hidden");
   $("#add" + n).addClass("hidden");
   $("#save" + n).addClass("hidden");
@@ -49,7 +75,7 @@ function save(n) {
   }
   goal.hide();
   number.show();
-  updateTable(n);
+  updateTable(type, n);
 }
 
 // 点击新增自设指标触发事件
@@ -128,19 +154,20 @@ $("#setdeadline").on('click', function () {
   goal.show();
 });
 
-// 输入下一阶段目标值后触发事件
-$("#save").on('click', function () {
-  $("#save").hide();
-  $("#set").show();
-  var number = $("[name='stage'] [name='number']");
-  var goal = $("[name='stage'] [name='goal']");
-  for (var i = 0; i < goal.length; i++) {
-    $(number[i]).html($(goal[i]).val());
-  }
-  goal.hide();
-  number.show();
-  for (i = 0; i < 6; i++) {
-    updateTable(i);
-  }
-})
+// // 输入下一阶段目标值后触发事件
+// $("#save").on('click', function () {
+//   $("#save").hide();
+//   $("#set").show();
+//   var number = $("[name='stage'] [name='number']");
+//   var goal = $("[name='stage'] [name='goal']");
+//   for (var i = 0; i < goal.length; i++) {
+//     $(number[i]).html($(goal[i]).val());
+//   }
+//   goal.hide();
+//   number.show();
+//   for (i = 0; i < 6; i++) {
+//     updateTable(i);
+//     // 下一阶段
+//   }
+
 

@@ -8,11 +8,12 @@
  *  sure to remove its initialization from uiInit().
  */
 
-var ip = "http://192.168.1.106:8080";
+var ip = "http://192.168.1.109:8080";
 
 if (localStorage.id == 1) {
     $("[id^=edit]").hide();
     $("#set").hide();
+    $("#us").hide();
     $("#ma span").text("材料提交");
     $("#ma").attr("href", "tmaterial.html");
     $("#no").attr("href", "tnotice.html");
