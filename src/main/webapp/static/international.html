@@ -58,7 +58,7 @@
                 <li>
                   <a href="./science.html">
                     <i class="gi gi-lightbulb sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">科学研究与社会服务</span>
+                    <span class="sidebar-nav-mini-hide">科学研究与社会服务水平</span>
                   </a>
                 </li>
                 <li>
@@ -83,6 +83,12 @@
                   <a href="anotice.html" id="no">
                     <i class="fa fa-bell sidebar-nav-icon"></i>
                     <span class="sidebar-nav-mini-hide">公告通知</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="users.html" id="us">
+                    <i class="fa fa-user sidebar-nav-icon"></i>
+                    <span class="sidebar-nav-mini-hide">用户管理</span>
                   </a>
                 </li>
               </ul>
@@ -328,18 +334,21 @@
       // 2. 调整表格中的dom结构和id，数字随table数定
       // 3. 调整ajax中的first和swith-case中的item.second
       $.ajax({
-        url: 'http://localhost:8080/goal/getGoal?first=国际合作与交流',
-        type: 'POST',
+        url: ip + '/scm/international',
+        type: 'GET',
         cache: false,
         success: function (data) {
           console.log(data);
           $.each(data, function (i, item) {
-            var id = item.id
+            var targetid = item.targetId;
+            var pointsid = item.pointsId;
+            var secondid = item.secondId;
             var content = item.content;
             var now = item.now ? item.now : 0;
             var goal = item.goal ? item.goal : 0;
-            var next_goal = item.next_goal;
-            var dead_line = item.dead_line ? item.dead_line : '';
+            var nextgoal = item.nextgoal;
+            var deadline = item.deadline ? item.deadline : '';
+            var nextdeadline = item.nextdeadline ? item.nextdeadline : '';                                                
             var percent = parseInt((now / goal * 100) ? (now / goal * 100) : 0);
             var color;
             if (percent < 20) {
@@ -351,9 +360,9 @@
             }
             var table = `
           <tr>
-            <td class="text-center hidden">` + id + `</td>
+            <td class="text-center hidden">` + targetid + `</td>
             <td class="text-center">
-              <input type="hidden" value="` + id + `">
+              <input type="hidden" value="` + pointsid + `">
               <strong>` + content + `</strong>
             </td>
             <td class="text-center">
@@ -370,13 +379,13 @@
             <td class="text-center" name="stage">
               <input type="number" class="form-control input-sm" name="goal" placeholder="">
               <strong>
-                <span name="number">` + next_goal + `</span>
+                <span name="number">` + nextgoal + `</span>
               </strong>
             </td>
             <td class="text-center">
               <input type="date" class="form-control input-sm" name="goal" placeholder="">
               <strong>
-                <span name="number">` + dead_line + `</span>
+                <span name="number">` + deadline + `</span>
               </strong>
             </td>
             <td class="text-center">
