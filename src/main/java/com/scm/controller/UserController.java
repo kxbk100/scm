@@ -45,15 +45,15 @@ public class UserController {
         return userService.AddUser(userModel);
     }
 
-    @RequestMapping(value = "/scm/users/reset",method = RequestMethod.POST)
+    @RequestMapping(value = "/scm/users/reset/{userId}",method = RequestMethod.PATCH)
     @ResponseBody
-    public Integer PostResetUser(@RequestParam Integer userId){
+    public Integer PostResetUser(@PathVariable Integer userId){
         return userService.ResetUser(userId);
     }
 
-    @RequestMapping(value = "/scm/users/delete",method = RequestMethod.POST)
+    @RequestMapping(value = "/scm/users/delete/{userId}",method = RequestMethod.DELETE)
     @ResponseBody
-    public Integer PostDeleteUser(@RequestParam Integer userId){
+    public Integer PostDeleteUser(@PathVariable Integer userId){
        return userService.DeleteUser(userId);
     }
 
