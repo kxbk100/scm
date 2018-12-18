@@ -1,4 +1,54 @@
 $("#save").hide();
+// 用户表格信息
+function userTable(){
+  $.ajax({
+    url: ip + '/scm/users/show',
+    type: "get",
+    cache: false,
+    success: function (data) {
+      console.log(data);
+      $.each(data, function (i, item) {
+        var id = item.id;
+        var username = item.username;
+        var name = item.name;
+        var x = 1 + i;
+        var table = `
+                  <tr>                     
+                    <td class="text-center">
+                      <strong id="index">` + x + `</strong>
+                    </td>
+                    
+                    <td class="text-center">
+                      <strong>
+                        <span id="username">`+ username + `</span>
+                      </strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>
+                        <span id="name">`+ name + `</span>
+                      </strong>
+                    </td>
+                    <td class="text-center">
+                        <a href="#modal-modify" data-toggle="modal" title="修改" id="modify" class="btn btn-effect-ripple btn-xs btn-info" onclick="modify(` + id + `)">
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="重置密码" id="reset" class="btn btn-effect-ripple btn-xs btn-warning" onclick="reset(` + id + `)">
+                          <i class="fa fa-refresh"></i>
+                        </a>
+                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" id="delete" class="btn btn-effect-ripple btn-xs btn-danger" onclick="del(` + id + `)">
+                          <i class="fa fa-times"></i>
+                        </a>
+                    </td>
+                  </tr>
+                  `
+        $("#user").append(table);
+      })
+
+    },
+    error: function (e) {
+    }
+  })
+}
 
 // 将所有表格的数据更新至数据库
 function updateTable(type, n) {
