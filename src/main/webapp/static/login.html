@@ -105,26 +105,27 @@
         var username = $("#username").val();
         var password = $("#password").val();
         $.ajax({
-          url: ip + "/scm?username=" + username + "&password=" + password,
+          url: ip + "/scm",
           type: 'POST',
           cache: false,
           data: {
-            // username: username,
-            // password: password
+            username: username,
+            password: password
           },
           success: function (data) {
-            console.log(1)
+            console.log(data)
             if (data == 0) {
               alert("密码错误");
             } else if (data == -1) {
               alert("账号不存在")
             } else {
-              console.log(data)
-              // window.location.href = "index.html"
+              // console.log(data);
+              window.location.href = "index.html"
               localStorage.name = data;
             }
           },
           error: function (e) {
+            console.log(e)
           }
         })
         return false;
