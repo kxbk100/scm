@@ -35,17 +35,17 @@ public class UserController {
     }
     @RequestMapping(value = "/scm/users/modify",method = RequestMethod.POST)
     @ResponseBody
-    public Integer PostModifyUser(@RequestBody UserModel userModel){
+    public Integer PostModifyUser(UserModel userModel){
        return userService.ModifyUser(userModel);
     }
 
     @RequestMapping(value = "/scm/users/add",method = RequestMethod.POST)
     @ResponseBody
-    public Integer PostAddUser(@RequestBody UserModel userModel){
+    public Integer PostAddUser(UserModel userModel){
         return userService.AddUser(userModel);
     }
 
-    @RequestMapping(value = "/scm/users/reset/{userId}",method = RequestMethod.PATCH)
+    @RequestMapping(value = "/scm/users/reset/{userId}",method = RequestMethod.POST)
     @ResponseBody
     public Integer PostResetUser(@PathVariable Integer userId){
         return userService.ResetUser(userId);
