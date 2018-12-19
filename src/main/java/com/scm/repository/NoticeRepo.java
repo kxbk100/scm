@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface NoticeRepo extends JpaRepository<NoticesEntity,Integer> {
-    List<NoticesEntity> findAllOrOrderByDate();
+    List<NoticesEntity> findAllByOrderByDate();
     void deleteById(int id);
 }

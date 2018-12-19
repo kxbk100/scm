@@ -29,7 +29,7 @@ public class MaterialServiceImpl implements MaterialService {
 
     @Override
     public List<RecordModel> findAllRecord() {
-        List<RecordsEntity> entities=recordDao.findAllOrOrderByDate();
+        List<RecordsEntity> entities=recordDao.findAllByOrderByDateDesc();
         List<RecordModel> recordModels=new ArrayList<>();
         for(RecordsEntity entity:entities){
             RecordModel model=new RecordModel();
