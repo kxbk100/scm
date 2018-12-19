@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RecordRepo extends JpaRepository<RecordsEntity,Integer> {
-    List<RecordsEntity> findAllOrOrderByDate();
+    List<RecordsEntity> findAllByOrderByDateDesc();
     
     @Query(value = "SELECT * FROM records WHERE userId=?1",nativeQuery = true)
     List<RecordsEntity> findByUserId(int id);

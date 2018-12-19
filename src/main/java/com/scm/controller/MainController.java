@@ -169,11 +169,4 @@ public class MainController {
             return "0";
         }
     }
-
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
-    @ResponseBody
-    public UserModel test(){
-        UserModel userModel=userService.findUserByUserName("123456");
-        return userModel;
-    }
 }

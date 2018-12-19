@@ -18,7 +18,7 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public List<NoticeModel> getAllNotice() {
         List<NoticeModel> models=new ArrayList<>();
-        List<NoticesEntity> entities=noticeDao.findAllOrOrderByDate();
+        List<NoticesEntity> entities=noticeDao.findAllByOrderByDate();
         for (NoticesEntity entity:entities){
             NoticeModel model=new NoticeModel();
             BeanUtils.copyProperties(entity,model);
