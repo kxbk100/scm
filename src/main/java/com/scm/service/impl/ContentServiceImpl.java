@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 @Service
 @Transactional
 @Repository
@@ -34,48 +35,48 @@ public class ContentServiceImpl implements ContentService {
     public List<ContentGetModel> GetContentlistByFirst(String first) {
         List<ContentGetModel> contentGetModelList = new ArrayList<>();
         List<TargetsEntity> targetsEntityList = targetsRepo.findByFirst(first);
-           for (TargetsEntity one:targetsEntityList) {
-               List<PointsEntity> pointsEntityList = one.getPointsEntityList();
-               for (PointsEntity pointsEntity:pointsEntityList){
-                   ContentGetModel contentGetModel = new ContentGetModel();
-                   BeanUtils.copyProperties(pointsEntity,contentGetModel);
+        for (TargetsEntity one : targetsEntityList) {
+            List<PointsEntity> pointsEntityList = one.getPointsEntityList();
+            for (PointsEntity pointsEntity : pointsEntityList) {
+                ContentGetModel contentGetModel = new ContentGetModel();
+                BeanUtils.copyProperties(pointsEntity, contentGetModel);
 
-                   contentGetModel.setSecond(one.getSecond());
-                   contentGetModel.setPointsId(pointsEntity.getId());
-                   contentGetModel.setTargetId(one.getId());
+                contentGetModel.setSecond(one.getSecond());
+                contentGetModel.setPointsId(pointsEntity.getId());
+                contentGetModel.setTargetId(one.getId());
 
-                   contentGetModelList.add(contentGetModel);
-               }
-           }
+                contentGetModelList.add(contentGetModel);
+            }
+        }
 
         return contentGetModelList;
     }
 
     @Override
-    public Integer UpdateContent(List<ContentPostModel> contentPostModelList,Integer targetId) {
-        try{
-            for (ContentPostModel one:contentPostModelList){
-                if(pointsRepo.findById(one.getId()).isPresent()){
+    public Integer UpdateContent(List<ContentPostModel> contentPostModelList, Integer targetId) {
+        try {
+            for (ContentPostModel one : contentPostModelList) {
+                if (one.getId() != null) {
                     PointsEntity pointsEntity = pointsRepo.findById(one.getId()).get();
                     pointsEntity.setGoal(one.getGoal());
                     pointsEntity.setNextgoal(one.getNextgoal());
                     pointsEntity.setDeadline(one.getDeadline());
-                    if(one.getContent()!=null)
-                    {
-                        pointsEntity.setContent(one.getContent());
-                    }
+//                    if (one.getContent() != null) {
+//                        pointsEntity.setContent(one.getContent());
+//                    }
                     pointsRepo.save(pointsEntity);
-                }else{
+                } else {
                     PointsEntity pointsEntity = new PointsEntity();
                     pointsEntity.setGoal(one.getGoal());
                     pointsEntity.setContent(one.getContent());
                     pointsEntity.setNextgoal(one.getNextgoal());
                     pointsEntity.setDeadline(one.getDeadline());
+                    pointsEntity.setTargetsEntity(targetsRepo.findById(targetId).get());
                     pointsRepo.save(pointsEntity);
                 }
             }
             return 1;
-        }catch (Exception e){
+        } catch (Exception e) {
             return 0;
         }
     }
@@ -86,11 +87,11 @@ public class ContentServiceImpl implements ContentService {
         IndexGetModel indexGetModel = new IndexGetModel();
         List<ContentGetModel> contentGetModelList = new ArrayList<>();
         List<TargetsEntity> targetsEntityList = targetsRepo.findAll();
-        for (TargetsEntity one:targetsEntityList) {
+        for (TargetsEntity one : targetsEntityList) {
             List<PointsEntity> pointsEntityList = one.getPointsEntityList();
-            for (PointsEntity pointsEntity:pointsEntityList){
+            for (PointsEntity pointsEntity : pointsEntityList) {
                 ContentGetModel contentGetModel = new ContentGetModel();
-                BeanUtils.copyProperties(pointsEntity,contentGetModel);
+                BeanUtils.copyProperties(pointsEntity, contentGetModel);
 
                 contentGetModel.setSecond(one.getSecond());
                 contentGetModel.setPointsId(pointsEntity.getId());
@@ -116,7 +117,7 @@ public class ContentServiceImpl implements ContentService {
                 }
             }
             return 1;
-        }catch (Exception e){
+        } catch (Exception e) {
             return 0;
         }
     }

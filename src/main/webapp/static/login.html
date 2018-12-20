@@ -108,6 +108,8 @@
           url: ip + "/scm",
           type: 'POST',
           cache: false,
+          async: false,
+          dataType: 'text',
           data: {
             username: username,
             password: password
@@ -119,13 +121,14 @@
             } else if (data == -1) {
               alert("账号不存在")
             } else {
-              // console.log(data);
+              console.log(data);
               window.location.href = "index.html"
               localStorage.name = data;
             }
           },
-          error: function (e) {
-            console.log(e)
+
+          error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(XMLHttpRequest.readyState + '控控' + XMLHttpRequest.status + '控控' + XMLHttpRequest.responseText);
           }
         })
         return false;
