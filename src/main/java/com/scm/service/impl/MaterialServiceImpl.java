@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +28,8 @@ public class MaterialServiceImpl implements MaterialService {
     TeacherRepo teacherDao;
     @Autowired
     ItemRepo itemDao;
+    @Autowired
+    PointsRepo pointDao;
 
     @Override
     public List<RecordModel> findAllRecord() {
@@ -165,6 +169,83 @@ public class MaterialServiceImpl implements MaterialService {
                 papersEntity.setStatus(status);
                 paperDao.save(papersEntity);
                 break;
+        }
+    }
+
+    /**
+     * 更新观测点
+     * 对应的对象的类型Other 0，Teacher 1，Item 2，Paper 3
+     * @param type
+     */
+    @Override
+    public void updateContent(int type,int id) {
+        switch (type){
+            case 0:
+                OtherEntity otherEntity=otherDao.getById(id);
+                update(otherEntity.getPointsEntity().getId(),otherEntity.getValue());
+                break;
+            case 1:
+                TeachersEntity teachersEntity=teacherDao.getById(id);
+                int teacherCount=teacherDao.countAll();
+
+                //教师总人数
+                update(1);
+
+                //博士占比
+                float eduPc=((float) teacherDao.countByEdu(0))/teacherCount;
+                update(4,eduPc);
+
+                //35周岁以下占比
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date=format.parse("1983-1-1");
+                    float birthPc=((float)teacherDao.countByAge(date))/teacherCount;
+                    update(5,birthPc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                //国家级
+                if(teachersEntity.getRank()==0){
+                    update(2);
+                    //省级
+                } else if(teachersEntity.getRank()==1){
+                    update(3);
+                }
+                //重要学术机构担任职位人数
+                if(teachersEntity.getIsImportant()==1){
+                    update(46);
+                }
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+    }
+
+    /**
+     * 只需+1的数据更新方法
+     * @param id
+     */
+    private void update(int id){
+        update(id,-1);
+    }
+
+    /**
+     * 直接更新数据的更新方法
+     * @param id
+     * @param data
+     */
+    private void update(int id,float data){
+        PointsEntity pointsEntity;
+        if(data==-1){
+            pointsEntity=pointDao.getById(id);
+            pointsEntity.updateNow();
+            pointDao.saveAndFlush(pointsEntity);
+        }else {
+            pointsEntity=pointDao.getById(id);
+            pointsEntity.updateNowWithData(data);
+            pointDao.saveAndFlush(pointsEntity);
         }
     }
 }

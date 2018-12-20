@@ -102,6 +102,14 @@ public class PointsEntity {
         this.nextdeadline = nextdeadline;
     }
 
+    public void updateNow(){
+        now=now+1;
+    }
+
+    public void updateNowWithData(float data){
+        now=data;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

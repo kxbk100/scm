@@ -180,6 +180,7 @@ public class MaterialController {
     @ResponseBody
     public String checkAdminMaterial(RecordModel model,int[] status){
         materialService.updateStatus(model.getRecordId(),model.getType(),status[0]);
+        materialService.updateContent(model.getType(),model.getRecordId());
         return "1";
     }
 

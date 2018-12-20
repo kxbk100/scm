@@ -18,4 +18,5 @@ public interface MaterialService {
     void saveRecord(int userId,int type,int recordId);
     void updateRecordDate(int id);
     void updateStatus(int id,int type,int status);
+    void updateContent(int type,int id);
 }
