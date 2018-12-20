@@ -169,41 +169,93 @@
                           <div class="form-group form-inline">
                             <label class="col-md-3 control-label" for="first">指标</label>
                             <div class="col-md-4">
-                              <select name="selfF" class="form-control" id="selF">
-                                <option value="0">请选择一级指标</option>
+                              <select name="category" class="form-control" id="category">
+                                <option value="-1">请选择指标类型</option>
+                                <option value="3">论文</option>
+                                <option value="2">团队/项目/专利/专著/教材/成果/竞赛/奖项</option>
+                                <option value="1">教师</option>
+                                <option value="0">其他</option>
                               </select>
-                              <select name="selfT" class="form-control" id="selT">
-                                <option value="0">请选择二级指标</option>
+                              <select name="type" class="form-control hidden" id="type">
+                                <option value="0">请选择具体类型</option>
+                                <option value="1">团队</option>
+                                <option value="2">科研创新平台</option>
+                                <option value="3">产学研平台</option>
+                                <option value="4">教学成果</option>
+                                <option value="5">精品课程、视频公开课</option>
+                                <option value="6">规划教材</option>
+                                <option value="7">学科竞赛</option>
+                                <option value="8">科研项目</option>
+                                <option value="9">出版著作</option>
+                                <option value="10">授权发明专利</option>
+                                <option value="11">成果奖励</option>
+                                <option value="12">横向课题项目</option>
+                                <option value="13">国际科研合作项目</option>
                               </select>
-                              <select name="selfC" class="form-control" id="selC">
+                              <select name="id" class="form-control hidden" id="id">
                                 <option value="0">请选择具体指标</option>
+                                <option value="1">本科读研率</option>
+                                <option value="2">研究生学位论文抽检优良率</option>
+                                <option value="3">师均科研经费</option>
+                                <option value="4">横向课题到款经费</option>
+                                <option value="5">科技成果转化收入</option>
+                                <option value="6">国务院学位中心学科评估排名</option>
+                                <option value="7">一级学科博士点或博士专业学位类别数</option>
+                                <option value="8">一级学科硕士点或硕士专业学位类别数</option>
+                                <option value="9">国家特色专业、国家专业综合改革试点</option>
+                                <option value="10">省优势、特色、新兴专业</option>
+                                <option value="11">一年及以上出国（境）研修教师占比</option>
+                                <option value="12">聘请外国专家人数</option>
+                                <option value="13">赴国（境）外联合培养（三个月以上）学生占比</option>
+                                <option value="14">外国学历留学生数</option>
+                                <option value="15">主办国际学术会议</option>
+                                <option value="16">参加国际学术会议人次</option>
                               </select>
                             </div>
                           </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label" for="now">现状值</label>
-                            <div class="col-md-4">
-                              <input type="number" id="now" name="now" class="form-control" required="required" />
-                            </div>
+                          <div class="">
+                              <div class="form-group">
+                                  <label class="col-md-3 control-label" for="title">论文名</label>
+                                  <div class="col-md-4">
+                                    <input type="text" id="title" name="title" class="form-control" required="required" />
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-3 control-label" for="member">作者</label>
+                                  <div class="col-md-4">
+                                    <input type="text" id="member" name="member" class="form-control" required="required" />
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-3 control-label" for="firstType">第一作者类型</label>
+                                  <div class="col-md-4">
+                                    <select class="form-control" name="firstType" id="firstType">
+                                      <option value="0">本科生</option>
+                                      <option value="1">研究生</option>
+                                      <option value="2">教师</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-md-3 control-label" for="paperType">论文类型</label>
+                                  <div class="col-md-9">
+                                      <select class="form-control" name="paperType" id="paperType">
+                                          <option value="0">核心期刊</option>
+                                          <option value="">在SCI、SSCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在一级期刊（浙大标准）发表论文数（篇）</option>
+                                      </select>
+                                      <select class="form-control" name="paperType" id="paperType">
+                                          <option value="0">核心期刊</option>
+                                          <option value="">在SCI、SSCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在一级期刊（浙大标准）发表论文数（篇）</option>
+                                      </select>
+                                  </div>
+                                </div>
                           </div>
                           <div class="form-group">
-                            <label class="col-md-3 control-label" for="example-text-input">基数</label>
-                            <div class="col-md-4">
-                              <input type="number" id="example-text-input" name="" class="form-control" required="required" />
+                              <label class="col-md-3 control-label" for="example-file-input">佐证材料</label>
+                              <div class="col-md-9">
+                                <input type="file" id="example-file-input" name="">
+                              </div>
                             </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label" for="example-text-input">出生年月</label>
-                            <div class="col-md-4">
-                              <input type="date" id="example-text-input" name="" class="form-control" required="required" />
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="col-md-3 control-label" for="example-file-input">佐证材料</label>
-                            <div class="col-md-9">
-                              <input type="file" id="example-file-input" name="">
-                            </div>
-                          </div>
                         </form>
                       </div>
                       <div class="modal-footer">
