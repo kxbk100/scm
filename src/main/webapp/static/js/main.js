@@ -39,16 +39,29 @@ function userTable() {
                         <a href="#modal-modify" data-toggle="modal" title="修改" id="modify" class="btn btn-effect-ripple btn-xs btn-info" onclick="modify(` + id + `)">
                           <i class="fa fa-pencil"></i>
                         </a>
-                        <a href="javascript:void(0)" data-toggle="tooltip" title="重置密码" id="reset" class="btn btn-effect-ripple btn-xs btn-warning" onclick="reset(` + id + `)">
+                        <a href="#modal-reset" data-toggle="modal" title="重置密码" id="reset" class="btn btn-effect-ripple btn-xs btn-warning">
                           <i class="fa fa-refresh"></i>
                         </a>
-                        <a href="javascript:void(0)" data-toggle="tooltip" title="删除" id="delete" class="btn btn-effect-ripple btn-xs btn-danger" onclick="del(` + id + `)">
+                        <a href="#modal-delete" data-toggle="modal" title="删除" id="delete" class="btn btn-effect-ripple btn-xs btn-danger">
                           <i class="fa fa-times"></i>
                         </a>
                     </td>
-                  </tr>
+                  </tr>                 
                   `
+                  var del_modal = `
+                    <button type="button" class="btn btn-effect-ripple btn-primary" onclick="del(` + id + `)" data-dismiss="modal">删除</button>
+                    <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
+                  `
+                  var mdf_modal = `
+                    <button type="button" class="btn btn-effect-ripple btn-primary" onclick="reset(` + id + `)" data-dismiss="modal">重置</button>
+                    <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
+                  `
+                
         $("#user").append(table);
+        $("#del_modal").html("");
+        $("#del_modal").append(del_modal);
+        $("#mdf_modal").html("");
+        $("#mdf_modal").append(mdf_modal);
       })
 
     },
