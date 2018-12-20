@@ -3,7 +3,7 @@ package com.scm.model;
 
 public class OtherModel {
     private int id;
-    private String value;
+    private float value;
     private int status;
     private String src;
 
@@ -18,11 +18,11 @@ public class OtherModel {
         this.id = id;
     }
 
-    public String getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(float value) {
         this.value = value;
     }
 
