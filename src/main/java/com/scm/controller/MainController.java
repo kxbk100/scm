@@ -98,9 +98,9 @@ public class MainController {
 
 //=============POST================
 
-    @RequestMapping(value = {"/scm/{part}","/scm/talents","/scm/science","/scm/subject","/scm/international"},method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/scm/{part}",method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public Integer postscmdata(List<ContentPostModel> contentPostModelList,@PathVariable String part) {
+    public Integer postscmdata(@RequestBody List<ContentPostModel> contentPostModelList,@PathVariable String part) {
         //更新数据库,按照得到的post数据
         Integer result = null;
         switch(part){

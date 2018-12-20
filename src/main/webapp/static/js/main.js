@@ -1,10 +1,17 @@
 $("#save").hide();
+
+// 初始化所有数据
+$(function () {
+  initial(url, parts);
+});
+
 // 用户表格信息
-function userTable(){
+function userTable() {
   $.ajax({
     url: ip + '/scm/users/show',
     type: "get",
     cache: false,
+    async: false,
     success: function (data) {
       console.log(data);
       $.each(data, function (i, item) {
@@ -58,32 +65,29 @@ function updateTable(type, n) {
       suffix = "/scm/teachers"
       break;
     case 1:
-      suffix = "scm/talents"
-      breakl;
-    case 1:
-      suffix = "scm/science"
+      suffix = "/scm/talents"
       break;
     case 2:
-      suffix = "scm/talents"
+      suffix = "/scm/science"
       break;
     case 3:
-      suffix = "scm/subject"
+      suffix = "/scm/subject"
       break;
     case 4:
-      suffix = "scm/international"
+      suffix = "/scm/international"
       break;
   }
   var table = $("#table" + n).tableToJSON({
     ignoreHiddenRows: false,
-    headings: ['id', 'goal', 'nextgoal', "deadline"],
-    onlyColumns: [0, 3, 4, 5]
+    headings: ['id', 'content', 'goal', 'nextgoal', "deadline"],
+    onlyColumns: [0, 1, 3, 4, 5]
   });
   table.shift();
-  // console.log(JSON.stringify(table));
   console.log(JSON.stringify(table));
   $.ajax({
     url: ip + suffix,
     type: "POST",
+    async: false,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -92,7 +96,7 @@ function updateTable(type, n) {
       console.log("success");
     },
     error: function (e) {
-      console.log("error");
+      console.log(e);
     }
   });
 }
@@ -173,7 +177,9 @@ function add(n) {
           </tr>
           `).children(':last').hide().fadeIn(300);
   $("#table" + n + "[name='number']").hide();
-  $("[name='stage']").hide();
+  if (nextdeadline == '') {
+    $("[name='stage']").hide();
+  }
 }
 
 // 点击取消触发事件
@@ -188,9 +194,102 @@ function cancel(n) {
   goal.hide();
 }
 
-// 点击设置阶段检查事件中的保存触发事件
-$("#setdeadline").on('click', function () {
-  $("#showdeadline").html("下一阶段截止时间：" + $("#deadline").val());
+// 页面数据初始化
+function initial(url, parts) {
+  $.ajax({
+    url: ip + '/scm/' + url,
+    type: 'GET',
+    cache: false,
+    async: false,
+    success: function (data) {
+      nextdeadline = data[0].nextdeadline ? data[0].nextdeadline : '';
+      console.log(data);
+      $.each(data, function (i, item) {
+        var targetid = item.targetId;
+        var pointsid = item.pointsId;
+        var secondid = item.secondId;
+        var content = item.content;
+        var now = item.now ? item.now : 0;
+        var goal = item.goal ? item.goal : 0;
+        var nextgoal = item.nextgoal ? item.nextgoal : 0;
+        var deadline = item.deadline ? item.deadline : '';
+        var percent = parseInt((now / goal * 100) ? (now / goal * 100) : 0);
+        var color;
+        if (percent < 20) {
+          color = "danger";
+        } else if (percent >= 20 && percent <= 50) {
+          color = "warning";
+        } else if (percent > 50) {
+          color = "primary";
+        }
+        if (percent > 100) {
+          percent = 100;
+        }
+        var table = `
+  <tr>
+    <td class="text-center hidden">` + pointsid + `</td>
+    <td class="text-center">
+      <strong>` + content + `</strong>
+    </td>
+    <td class="text-center">
+      <strong>
+        <span>` + now + `</span>
+      </strong>
+    </td>
+    <td class="text-center">
+      <input type="number" class="form-control input-sm" name="goal" placeholder="">
+      <strong>
+        <span name="number">` + goal + `</span>
+      </strong>
+    </td>
+    <td class="text-center" name="stage">
+      <input type="number" class="form-control input-sm" name="goal" placeholder="">
+      <strong>
+        <span name="number">` + nextgoal + `</span>
+      </strong>
+    </td>
+    <td class="text-center">
+      <input type="date" class="form-control input-sm" name="goal" placeholder="">
+      <strong>
+        <span name="number">` + deadline + `</span>
+      </strong>
+    </td>
+    <td class="text-center">
+      <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-` + color + `" role="progressbar" aria-valuenow="` + percent + `" aria-valuemin="0" aria-valuemax="100"
+          style="width: ` + percent + `%">` + percent + `%</div>
+      </div>
+    </td>
+  </tr>
+  `
+        for (var i = 0; i < parts.length; i++) {
+          if (item.second == parts[i]) {
+            $("#table" + i + " tbody").append(table);
+          }
+        }
+      })
+      $("[name='goal']").hide();
+
+      $("[name='stage']").hide();
+
+      if (nextdeadline != '') {
+        $("#shownextdeadline").html("下一阶段截止时间：" + nextdeadline);
+        $("[name='stage']").show();
+        $("#nextdeadline").val(nextdeadline);
+      }
+    },
+    error: function (e) {
+      console.log(e)
+    }
+  })
+
+}
+
+// 设置下一阶段截止时间
+$("#setnextdeadline").on('click', function () {
+  nextdeadline = $("#nextdeadline").val()
+  console.log(nextdeadline);
+  $("#shownextdeadline").html("下一阶段截止时间：" + nextdeadline);
   $('#modal').modal('hide');
   $("#set").hide();
   $("#save").show();
@@ -202,22 +301,20 @@ $("#setdeadline").on('click', function () {
   }
   number.hide();
   goal.show();
+  $.ajax({
+    url: ip + "/scm/" + url + "/nextdeadline",
+    type: "POST",
+    async: false,
+    cache: false,
+    data: {
+      nextdeadline: nextdeadline
+    },
+    success: function (msg) {
+      console.log(msg);
+    },
+    error: function (e) {
+      console.log(e);
+    }
+  });
 });
-
-// // 输入下一阶段目标值后触发事件
-// $("#save").on('click', function () {
-//   $("#save").hide();
-//   $("#set").show();
-//   var number = $("[name='stage'] [name='number']");
-//   var goal = $("[name='stage'] [name='goal']");
-//   for (var i = 0; i < goal.length; i++) {
-//     $(number[i]).html($(goal[i]).val());
-//   }
-//   goal.hide();
-//   number.show();
-//   for (i = 0; i < 6; i++) {
-//     updateTable(i);
-//     // 下一阶段
-//   }
-
 
