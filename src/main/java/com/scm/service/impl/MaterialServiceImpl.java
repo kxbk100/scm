@@ -216,9 +216,117 @@ public class MaterialServiceImpl implements MaterialService {
                     update(46);
                 }
                 break;
-            case 2:
+            case 2://item
+                ItemsEntity itemsEntity = itemDao.getById(id);
+                //省部级及以上创新团队数（个）
+                switch (itemsEntity.getType())
+                {
+                    case 1:
+                        if (itemsEntity.getRank() == 0||itemsEntity.getRank() == 1)
+                        {
+                            update(6);
+                        }
+                        break;
+                    case 2:
+                        if(itemsEntity.getRank() == 0)
+                        {
+                            update(8);
+                        }else if(itemsEntity.getRank() == 1){
+                            update(9);
+                        }
+                        break;
+                    case 3:
+                        update(37);
+                        break;
+                    case 4:
+                        if (itemsEntity.getRank() == 0){
+                            update(14);
+                        }else if(itemsEntity.getRank() == 1){
+                            update(15);
+                        }
+                        break;
+                    case 5:
+                        if(itemsEntity.getRank() == 0)
+                        {
+                            update(16);
+                        }
+                        break;
+                    case 6:
+                            if (itemsEntity.getRank() == 0)
+                            {
+                                update(17);
+                            }
+                        break;
+                    case 7:
+                            if(itemsEntity.getRank()==0||itemsEntity.getRank()==1)
+                            {
+                                update(18);
+                            }
+                        break;
+                    case 8:
+                            if(itemsEntity.getRank()==0){
+                                update(22);
+                            }else if(itemsEntity.getRank()== 1)
+                            {
+                                update(24);
+                            }else if(itemsEntity.getRank()==0&&itemsEntity.getIsImportant()==1)
+                            {
+                                update(23);
+                            }else if(itemsEntity.getRank()== 1 &&itemsEntity.getIsImportant()==1){
+                                update(25);
+                            }
+                            break;
+                    case 9:
+                            update(30);
+                        break;
+                    case 10:
+                            update(31);
+                        break;
+                    case 11:
+                            if(itemsEntity.getRank() == 0)
+                            {
+                                update(32);
+                            }else if(itemsEntity.getRank() == 1)
+                            {
+                                update(33);
+                            }
+                        break;
+                    case 12:
+                            update(36);
+                        break;
+                    case 13:
+                            update(52);
+                        break;
+
+                }
                 break;
-            case 3:
+            case 3://paper
+                PapersEntity papersEntity = paperDao.getById(id);
+                if(papersEntity.getFirstType() == 0&& papersEntity.getPaperType()==0)
+                {
+                    update(10);
+                }
+                if(papersEntity.getFirstType() == 1 ){
+                    if(papersEntity.getPaperType()==1||
+                    papersEntity.getPaperType()==2||
+                    papersEntity.getPaperType()==3)
+                    {
+                        update(12);
+                    }
+                }
+                if(papersEntity.getPaperType()==1||
+                        papersEntity.getPaperType()==2||
+                        papersEntity.getPaperType()==3)
+                {
+                    update(27);
+                }
+                if(papersEntity.getPaperType() ==1)
+                {
+                    update(28);
+                }else if(papersEntity.getPaperType() ==2)
+                {
+                    update(29);
+                }
                 break;
         }
     }
