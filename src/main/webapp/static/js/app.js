@@ -8,7 +8,7 @@
  *  sure to remove its initialization from uiInit().
  */
 
-var ip = "http://192.168.1.115:8088";
+var ip = "http://localhost:8080";
 
 if (localStorage.id == 1) {
     $("[id^=edit]").hide();
