@@ -1,447 +1,561 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zh-cn">
 
-  <head>
-    <meta charset="utf-8">
-    <title>一流学科建设监控系统</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/plugins.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/themes.css">
-    <script src="./js/vendor/modernizr-3.3.1.min.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>一流学科建设监控系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/plugins.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/themes.css">
+  <script src="./js/vendor/modernizr-3.3.1.min.js"></script>
+</head>
 
-  <body>
-    <div id="page-wrapper" class="page-loading">
-      <div class="preloader">
-        <div class="inner">
-          <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
-          <h3 class="text-primary visible-lt-ie10">
-            <strong>Loading..</strong>
-          </h3>
-        </div>
+<body>
+  <div id="page-wrapper" class="page-loading">
+    <div class="preloader">
+      <div class="inner">
+        <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+        <h3 class="text-primary visible-lt-ie10">
+          <strong>Loading..</strong>
+        </h3>
       </div>
+    </div>
 
-      <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-        <!-- Main Sidebar -->
-        <div id="sidebar">
-          <!-- Sidebar Brand -->
-          <div id="sidebar-brand" class="themed-background">
-            <a href="index.html" class="sidebar-title">
-              <i class="fa fa-cube"></i>
-              <span class="sidebar-nav-mini-hide">
-                <strong>学科建设监控系统</strong>
-              </span>
-            </a>
+    <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+      <!-- Main Sidebar -->
+      <div id="sidebar">
+        <!-- Sidebar Brand -->
+        <div id="sidebar-brand" class="themed-background">
+          <a href="index.html" class="sidebar-title">
+            <i class="fa fa-cube"></i>
+            <span class="sidebar-nav-mini-hide">
+              <strong>学科建设监控系统</strong>
+            </span>
+          </a>
+        </div>
+        <!-- END Sidebar Brand -->
+
+        <!-- Wrapper for scrolling functionality -->
+        <div id="sidebar-scroll">
+          <!-- Sidebar Content -->
+          <div class="sidebar-content">
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav">
+              <li>
+                <a href="teachers.html">
+                  <i class="gi gi-group sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">师资队伍建设</span>
+                </a>
+              </li>
+              <li>
+                <a href="talent.html">
+                  <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">人才培养</span>
+                </a>
+              </li>
+              <li>
+                <a href="science.html">
+                  <i class="gi gi-lightbulb sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">科学研究与社会服务水平</span>
+                </a>
+              </li>
+              <li>
+                <a href="subject.html">
+                  <i class="fa fa-line-chart sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">学科影响力</span>
+                </a>
+              </li>
+              <li>
+                <a href="international.html">
+                  <i class="fa fa-globe sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">国际合作与交流</span>
+                </a>
+              </li>
+              <li>
+                <a href="amaterial.html" id="ma" class="active">
+                  <i class="hi hi-list-alt sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">材料提交</span>
+                </a>
+              </li>
+              <li>
+                <a href="anotice.html" id="no">
+                  <i class="fa fa-bell sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide">公告通知</span>
+                </a>
+              </li>
+            </ul>
+            <!-- END Sidebar Navigation -->
           </div>
-          <!-- END Sidebar Brand -->
+          <!-- END Sidebar Content -->
+        </div>
+        <!-- END Wrapper for scrolling functionality -->
 
-          <!-- Wrapper for scrolling functionality -->
-          <div id="sidebar-scroll">
-            <!-- Sidebar Content -->
-            <div class="sidebar-content">
-              <!-- Sidebar Navigation -->
-              <ul class="sidebar-nav">
+        <!-- Sidebar Extra Info -->
+        <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+          <div class="text-center">
+            <small>Copyright &copy;
+              <a href="#" target="_blank">夜猫</a> 版权所有
+            </small>
+          </div>
+        </div>
+        <!-- END Sidebar Extra Info -->
+      </div>
+      <!-- END Main Sidebar -->
+
+      <!-- Main Container -->
+      <div id="main-container">
+        <header class="navbar navbar-inverse navbar-fixed-top">
+          <!-- Left Header Navigation -->
+          <ul class="nav navbar-nav-custom">
+            <!-- Main Sidebar Toggle Button -->
+            <li>
+              <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+              </a>
+            </li>
+            <!-- END Main Sidebar Toggle Button -->
+
+          </ul>
+          <!-- END Left Header Navigation -->
+
+          <!-- Right Header Navigation -->
+          <ul class="nav navbar-nav-custom pull-right">
+            <!-- User Dropdown -->
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
                 <li>
-                  <a href="teachers.html">
-                    <i class="gi gi-group sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">师资队伍建设</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="talent.html">
-                    <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">人才培养</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="science.html">
-                    <i class="gi gi-lightbulb sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">科学研究与社会服务水平</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="subject.html">
-                    <i class="fa fa-line-chart sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">学科影响力</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="international.html">
-                    <i class="fa fa-globe sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">国际合作与交流</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="amaterial.html" id="ma" class="active">
-                    <i class="hi hi-list-alt sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">材料提交</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="anotice.html" id="no">
-                    <i class="fa fa-bell sidebar-nav-icon"></i>
-                    <span class="sidebar-nav-mini-hide">公告通知</span>
+                  <a href="login.html">
+                    <i class="fa fa-power-off fa-fw pull-right"></i>
+                    注销
                   </a>
                 </li>
               </ul>
-              <!-- END Sidebar Navigation -->
-            </div>
-            <!-- END Sidebar Content -->
-          </div>
-          <!-- END Wrapper for scrolling functionality -->
+            </li>
+            <!-- END User Dropdown -->
+          </ul>
+          <!-- END Right Header Navigation -->
+        </header>
+        <!-- END Header -->
 
-          <!-- Sidebar Extra Info -->
-          <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
-            <div class="text-center">
-              <small>Copyright &copy;
-                <a href="#" target="_blank">夜猫</a> 版权所有
-              </small>
-            </div>
-          </div>
-          <!-- END Sidebar Extra Info -->
-        </div>
-        <!-- END Main Sidebar -->
-
-        <!-- Main Container -->
-        <div id="main-container">
-          <header class="navbar navbar-inverse navbar-fixed-top">
-            <!-- Left Header Navigation -->
-            <ul class="nav navbar-nav-custom">
-              <!-- Main Sidebar Toggle Button -->
-              <li>
-                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
-                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
-                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
-                </a>
-              </li>
-              <!-- END Main Sidebar Toggle Button -->
-
-            </ul>
-            <!-- END Left Header Navigation -->
-
-            <!-- Right Header Navigation -->
-            <ul class="nav navbar-nav-custom pull-right">
-              <!-- User Dropdown -->
-              <li class="dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li>
-                    <a href="login.html">
-                      <i class="fa fa-power-off fa-fw pull-right"></i>
-                      注销
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <!-- END User Dropdown -->
-            </ul>
-            <!-- END Right Header Navigation -->
-          </header>
-          <!-- END Header -->
-
-          <!-- Page content -->
-          <div id="page-content">
-            <!-- Blank Header -->
-            <div class="content-header">
-              <div class="row">
-                <div class="col-xs-6">
-                  <div class="header-section">
-                    <h1>师资队伍建设</h1>
-                  </div>
+        <!-- Page content -->
+        <div id="page-content">
+          <!-- Blank Header -->
+          <div class="content-header">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="header-section">
+                  <h1>师资队伍建设</h1>
                 </div>
-                <a href="#modal-large" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">材料提交</a>
-                <!-- Regular Modal -->
-                <div id="modal-large" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h3 class="modal-title">
-                          <strong>材料提交</strong>
-                        </h3>
-                      </div>
-                      <div class="modal-body">
-                        <form method="post" class="form-horizontal form-bordered">
-                          <div class="form-group form-inline">
-                            <label class="col-md-3 control-label" for="first">指标</label>
-                            <div class="col-md-4">
-                              <select name="category" class="form-control" id="category">
-                                <option value="-1">请选择指标类型</option>
-                                <option value="3">论文</option>
-                                <option value="2">团队/项目/专利/专著/教材/成果/竞赛/奖项</option>
-                                <option value="1">教师</option>
-                                <option value="0">其他</option>
-                              </select>
-                              <select name="type" class="form-control hidden" id="type">
-                                <option value="0">请选择具体类型</option>
-                                <option value="1">团队</option>
-                                <option value="2">科研创新平台</option>
-                                <option value="3">产学研平台</option>
-                                <option value="4">教学成果</option>
-                                <option value="5">精品课程、视频公开课</option>
-                                <option value="6">规划教材</option>
-                                <option value="7">学科竞赛</option>
-                                <option value="8">科研项目</option>
-                                <option value="9">出版著作</option>
-                                <option value="10">授权发明专利</option>
-                                <option value="11">成果奖励</option>
-                                <option value="12">横向课题项目</option>
-                                <option value="13">国际科研合作项目</option>
-                              </select>
-                              <select name="id" class="form-control hidden" id="id">
-                                <option value="0">请选择具体指标</option>
-                                <option value="1">本科读研率</option>
-                                <option value="2">研究生学位论文抽检优良率</option>
-                                <option value="3">师均科研经费</option>
-                                <option value="4">横向课题到款经费</option>
-                                <option value="5">科技成果转化收入</option>
-                                <option value="6">国务院学位中心学科评估排名</option>
-                                <option value="7">一级学科博士点或博士专业学位类别数</option>
-                                <option value="8">一级学科硕士点或硕士专业学位类别数</option>
-                                <option value="9">国家特色专业、国家专业综合改革试点</option>
-                                <option value="10">省优势、特色、新兴专业</option>
-                                <option value="11">一年及以上出国（境）研修教师占比</option>
-                                <option value="12">聘请外国专家人数</option>
-                                <option value="13">赴国（境）外联合培养（三个月以上）学生占比</option>
-                                <option value="14">外国学历留学生数</option>
-                                <option value="15">主办国际学术会议</option>
-                                <option value="16">参加国际学术会议人次</option>
-                              </select>
-                            </div>
+              </div>
+              <a href="#modal-large" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">材料提交</a>
+              <!-- Regular Modal -->
+              <div id="modal-large" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h3 class="modal-title">
+                        <strong>材料提交</strong>
+                      </h3>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" class="form-horizontal form-bordered">
+                        <div class="form-group form-inline">
+                          <label class="col-md-3 control-label" for="">指标</label>
+                          <div class="col-md-4">
+                            <select name="category" class="form-control" id="category">
+                              <option value="-1">请选择指标类型</option>
+                              <option value="3">论文</option>
+                              <option value="2">团队/项目/专利/专著/教材/成果/竞赛/奖项</option>
+                              <option value="1">教师</option>
+                              <option value="0">其他</option>
+                            </select>
+                            <span id="select"></span>
+
                           </div>
-                          <div class="">
-                              <div class="form-group">
-                                  <label class="col-md-3 control-label" for="title">论文名</label>
-                                  <div class="col-md-4">
-                                    <input type="text" id="title" name="title" class="form-control" required="required" />
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-md-3 control-label" for="member">作者</label>
-                                  <div class="col-md-4">
-                                    <input type="text" id="member" name="member" class="form-control" required="required" />
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-md-3 control-label" for="firstType">第一作者类型</label>
-                                  <div class="col-md-4">
-                                    <select class="form-control" name="firstType" id="firstType">
-                                      <option value="0">本科生</option>
-                                      <option value="1">研究生</option>
-                                      <option value="2">教师</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="form-group">
-                                  <label class="col-md-3 control-label" for="paperType">论文类型</label>
-                                  <div class="col-md-9">
-                                      <select class="form-control" name="paperType" id="paperType">
-                                          <option value="0">核心期刊</option>
-                                          <option value="">在SCI、SSCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在一级期刊（浙大标准）发表论文数（篇）</option>
-                                      </select>
-                                      <select class="form-control" name="paperType" id="paperType">
-                                          <option value="0">核心期刊</option>
-                                          <option value="">在SCI、SSCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在一级期刊（浙大标准）发表论文数（篇）</option>
-                                      </select>
-                                  </div>
-                                </div>
+                        </div>
+                        <div id="cententform">
+
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="example-file-input">佐证材料</label>
+                          <div class="col-md-9">
+                            <input type="file" id="example-file-input" name="">
                           </div>
-                          <div class="form-group">
-                              <label class="col-md-3 control-label" for="example-file-input">佐证材料</label>
-                              <div class="col-md-9">
-                                <input type="file" id="example-file-input" name="">
-                              </div>
-                            </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-effect-ripple btn-primary">保存</button>
-                        <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
-                      </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer" id="footerbutton">
+                      
                     </div>
                   </div>
                 </div>
-                <!-- END Regular Modal -->
               </div>
+              <!-- END Regular Modal -->
             </div>
-            <!-- END Blank Header -->
-
-            <!-- Get Started Block -->
-
-            <div class="block full">
-              <div class="block-title">
-                <h2>材料提交</h2>
-                <!-- <div class="btn-table">
-                  <button type="button" class="btn btn-effect-ripple btn-primary" name="number" id="edit">编辑</button>
-                  <button type="submit" class="btn btn-effect-ripple btn-primary" name="goal" id="save">保存</button>
-                  <button type="button" class="btn btn-effect-ripple btn-danger" name="goal" id="cancel">取消</button>
-                </div> -->
-              </div>
-              <div class="table-responsive">
-                <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
-                  <thead>
-                    <tr>
-                      <th class="text-center" style="width: 420px;">具体指标</th>
-                      <th class="text-center" style="width: 100px;">现状值</th>
-                      <th class="text-center">提交时间</th>
-                      <th class="text-center" style="width: 125px;">审核状态</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="text-center">
-                        <strong>专任教师人数（人）</strong>
-                      </td>
-                      <td class="text-center">
-                        <strong>
-                          <span name="number">24</span>
-                        </strong>
-                      </td>
-                      <td class="text-center">
-                        <strong>
-                          <span name="number">2018-06-22</span>
-                        </strong>
-                      </td>
-
-                      <td class="text-center">
-                        <a href="javascript:void(0)" class="label label-success">未通过</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center">
-                        <strong>国家级人才（人）</strong>
-                      </td>
-                      <td class="text-center">
-                        <strong>
-                          <span name="number">2</span>
-                        </strong>
-                      </td>
-                      <td class="text-center">
-                        <strong>
-                          <span name="number">2018-06-15</span>
-                        </strong>
-                      </td>
-
-                      <td class="text-center">
-                        <a href="javascript:void(0)" class="label label-info">审核中</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="text-center">
-                        <strong>省级人才（人）</strong>
-                      </td>
-                      <td class="text-center">
-                        <strong>
-                          <span name="number">6</span>
-                        </strong>
-                      </td>
-                      <td class="text-center">
-                        <strong>
-                          <span name="number">2018-06-03</span>
-                        </strong>
-                      </td>
-
-                      <td class="text-center">
-                        <a href="javascript:void(0)" class="label label-danger">未通过</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!-- END Datatables Block -->
-            <!-- END Get Started Content -->
           </div>
-          <!-- END Page Content -->
+          <!-- END Blank Header -->
+
+          <!-- Get Started Block -->
+
+          <div class="block full">
+            <div class="block-title">
+              <h2>材料提交</h2>
+            </div>
+            <div class="table-responsive">
+              <table id="example-datatable" class="table table-striped table-bordered table-vcenter">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width: 420px;">具体指标</th>
+                    <th class="text-center" style="width: 100px;">现状值</th>
+                    <th class="text-center">提交时间</th>
+                    <th class="text-center" style="width: 125px;">审核状态</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">
+                      <strong>专任教师人数（人）</strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>
+                        <span name="number">24</span>
+                      </strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>
+                        <span name="number">2018-06-22</span>
+                      </strong>
+                    </td>
+
+                    <td class="text-center">
+                      <a href="javascript:void(0)" class="label label-success">已通过</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">
+                      <strong>国家级人才（人）</strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>
+                        <span name="number">2</span>
+                      </strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>
+                        <span name="number">2018-06-15</span>
+                      </strong>
+                    </td>
+
+                    <td class="text-center">
+                      <a href="javascript:void(0)" class="label label-info">审核中</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">
+                      <strong>省级人才（人）</strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>
+                        <span name="number">6</span>
+                      </strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>
+                        <span name="number">2018-06-03</span>
+                      </strong>
+                    </td>
+
+                    <td class="text-center">
+                      <a href="javascript:void(0)" class="label label-danger">未通过</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END Datatables Block -->
+          <!-- END Get Started Content -->
         </div>
-        <!-- END Main Container -->
+        <!-- END Page Content -->
       </div>
-      <!-- END Page Container -->
+      <!-- END Main Container -->
     </div>
-    <!-- END Page Wrapper -->
+    <!-- END Page Container -->
+  </div>
+  <!-- END Page Wrapper -->
 
-    <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
-    <script src="./js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="./js/vendor/bootstrap.min.js"></script>
-    <script src="./js/plugins.js"></script>
-    <script src="./js/app.js"></script>
-    <script>
-      $(function () {
-        function objInit(obj) {
-          return $(obj).html('<option>请选择</option>');
-        }
-        var arrData = {
-          师资队伍建设:
-          {
-            专任教师人数: '专任教师人数,国家级人才,省级人才',
-            专任教师结构: '博士学位教师占比,45周岁以下青年教师占比',
-            团队: '省部级及以上创新团队数',
-            自设指标: ''
-          },
-          人才培养:
-          {
-            教学平台: '国家教学平台,省级教学平台',
-            本科生教育: '学生在核心以上期刊（浙大标准）发表论文数,本科生读研率',
-            研究生教育: '研究生以第一作者在SCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在国内一级期刊（浙大标准）发表论文数,研究生学位论文抽检优良率,研究生学位论文抽检优良率',
-            教学成果与奖励: '国家教学成果奖,省级教学成果奖,国家精品课程、视频公开课,国家级规划教材,省部级及以上学科竞赛奖励',
-            自设指标: ''
-          },
-          科学研究与社会服务:
-          {
-            科研平台: '国家级科研创新平台数,省部级科研创新平台数',
-            科研项目与经费: '主持国家级科研项目数,国家级重点、重大项目数,主持省部级科研项目数,省部级重点、重大项目数,师均科研经费',
-            科研成果: '在SCI、SSCI、EI、MEDLINE、A&HCI、CSCD、CSSCI收录期刊及在一级期刊（浙大标准）发表论文数,国内权威期刊论文数,SCI top收录期刊论文数,出版著作,授权发明专利',
-            成果奖励: '获国家级成果奖励,获省部级成果奖励,一等奖',
-            社会服务: '横向课题到款经费,横向课题项目个数,产学研平台,科技成果转化收入',
-            自设指标: ''
-          },
-          学科影响力:
-          {
-            学科排名: '国务院学位中心学科评估排名,ESI学科排名',
-            学位点建设: '一级学科博士点或博士专业学位类别数,一级学科硕士点或硕士专业学位类别数',
-            专业建设: '国家特色专业、国家专业综合改革试点,省优势、特色、新兴专业',
-            学术兼职: '在重要学术机构担任重要职务的人数',
-            自设指标: ''
-          },
-          国际合作与交流:
-          {
-            师资国际化: '一年及以上出国（境）研修教师占比,聘请外国专家人数',
-            人才培养国际化: '赴国（境）外联合培养（三个月以上）学生占比,外国学历留学生数',
-            国际交流: '国际科研合作项目数,主办国际学术会议,参加国际学术会议人次',
-            自设指标: ''
+  <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+  <script src="./js/vendor/jquery-2.2.4.min.js"></script>
+  <script src="./js/vendor/bootstrap.min.js"></script>
+  <script src="./js/plugins.js"></script>
+  <script src="./js/app.js"></script>
+  <script>
+    // 表单选择
+    $("#category").on("click", function () {
+      var category = $("#category").val();
+      var typeselect = `
+              <select name="type" class="form-control" id="type">
+                <option value="0">请选择具体类型</option>
+                <option value="1">团队</option>
+                <option value="2">科研创新平台</option>
+                <option value="3">产学研平台</option>
+                <option value="4">教学成果</option>
+                <option value="5">精品课程、视频公开课</option>
+                <option value="6">规划教材</option>
+                <option value="7">学科竞赛</option>
+                <option value="8">科研项目</option>
+                <option value="9">出版著作</option>
+                <option value="10">授权发明专利</option>
+                <option value="11">成果奖励</option>
+                <option value="12">横向课题项目</option>
+                <option value="13">国际科研合作项目</option>
+              </select>
+        `
+      var idselect = `
+              <select name="id" class="form-control" id="id">
+                <option value="0">请选择具体指标</option>
+                <option value="1">本科读研率(%)</option>
+                <option value="2">研究生学位论文抽检优良率(%)</option>
+                <option value="3">师均科研经费(万元)</option>
+                <option value="4">横向课题到款经费(万元)</option>
+                <option value="5">科技成果转化收入(万元)</option>
+                <option value="6">国务院学位中心学科评估排名</option>
+                <option value="7">一级学科博士点或博士专业学位类别数(个)</option>
+                <option value="8">一级学科硕士点或硕士专业学位类别数(个)</option>
+                <option value="9">国家特色专业、国家专业综合改革试点(个)</option>
+                <option value="10">省优势、特色、新兴专业(个)</option>
+                <option value="11">一年及以上出国（境）研修教师占比(%)</option>
+                <option value="12">聘请外国专家人数(个)</option>
+                <option value="13">赴国（境）外联合培养（三个月以上）学生占比(%)</option>
+                <option value="14">外国学历留学生数(个)</option>
+                <option value="15">主办国际学术会议(次)</option>
+                <option value="16">参加国际学术会议人次(个)</option>
+              </select>
+        `
+      var paper = `
+        <div class="form-group">
+                            <label class="col-md-3 control-label" for="title">论文名</label>
+                            <div class="col-md-4">
+                              <input type="text" id="title" name="title" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="member">作者</label>
+                            <div class="col-md-4">
+                              <input type="text" id="member" name="member" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="firstType">第一作者类型</label>
+                            <div class="col-md-4">
+                              <select class="form-control" name="firstType" id="firstType">
+                                <option value="0">本科生</option>
+                                <option value="1">研究生</option>
+                                <option value="2">教师</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="paperType">论文类型</label>
+                            <div class="col-md-4">
+                              <select class="form-control" name="paperType" id="paperType">
+                                <option value="0">核心期刊</option>
+                                <option value="1">国内权威期刊论文</option>
+                                <option value="2">SCI top收录期刊论文</option>
+                                <option value="3">其他</option>
+                              </select>
+                            </div>
+                          </div>
+        `
+      var teacher = `
+      <div class="form-group">
+                            <label class="col-md-3 control-label" for="username">工号</label>
+                            <div class="col-md-4">
+                              <input type="number" id="username" name="username" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">姓名</label>
+                            <div class="col-md-4">
+                              <input type="text" id="name" name="name" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="birthday">出生日期</label>
+                            <div class="col-md-4">
+                              <input type="date" id="birthday" name="birthday" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="edu">学历</label>
+                            <div class="col-md-4">
+                              <select class="form-control" name="edu" id="edu">
+                                <option value="0">博士</option>
+                                <option value="1">硕士</option>
+                                <option value="2">学士</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="title">职称</label>
+                            <div class="col-md-4">
+                              <input type="text" id="title" name="title" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="rank">人才等级</label>
+                            <div class="col-md-4">
+                              <select class="form-control" name="rank" id="rank">
+                                <option value="0">国家级</option>
+                                <option value="1">省部级</option>
+                                <option value="2">其他</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">是否在重要学术
+                              <br>机构担任重要职务</label>
+                            <div class="col-md-4">
+                              <label class="radio-inline" for="isImportant1">
+                                <input type="radio" id="isImportant1" name="isImportant" value="1"> 是
+                              </label>
+                              <label class="radio-inline" for="isImportant0">
+                                <input type="radio" id="isImportant0" name="isImportant" value="0"> 否
+                              </label>
+                            </div>
+                          </div>
+        `
+      var item = `
+        <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">名称</label>
+                            <div class="col-md-4">
+                              <input type="text" id="name" name="name" class="form-control" required="required" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-md-3 control-label" for="leader">负责人</label>
+                              <div class="col-md-4">
+                                <input type="text" id="leader" name="leader" class="form-control" required="required" />
+                              </div>
+                            </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="rank">等级</label>
+                            <div class="col-md-4">
+                              <select class="form-control" name="rank" id="rank">
+                                <option value="0">国家级</option>
+                                <option value="1">省部级</option>
+                                <option value="2">其他</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3 control-label">是否重点、重大<br>项目或一等奖</label>
+                            <div class="col-md-4">
+                              <label class="radio-inline" for="isImportant1">
+                                <input type="radio" id="isImportant1" name="isImportant" value="1"> 是
+                              </label>
+                              <label class="radio-inline" for="isImportant0">
+                                <input type="radio" id="isImportant0" name="isImportant" value="0"> 否
+                              </label>
+                            </div>
+                          </div>
+        `
+      var other = `
+        <div class="form-group">
+                            <label class="col-md-3 control-label" for="value">数值</label>
+                            <div class="col-md-4">
+                              <input type="number" id="value" name="value" class="form-control" required="required" />
+                            </div>
+                          </div>
+        `
+      var footer0 = `
+      <button type="button" class="btn btn-effect-ripple btn-primary" id="submit0">提交</button>
+                      <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
+      `
+      var footer1 = `
+      <button type="button" class="btn btn-effect-ripple btn-primary" id="submit1">提交</button>
+                      <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
+      `
+      var footer2 = `
+      <button type="button" class="btn btn-effect-ripple btn-primary" id="submit2">提交</button>
+                      <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
+      `
+      var footer3 = `
+      <button type="button" class="btn btn-effect-ripple btn-primary" id="submit3">提交</button>
+                      <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
+      `
+      if (category == 3) {
+        $("#select").html("");
+        $("#cententform").html("");
+        $("#cententform").append(paper);
+        $("#footerbutton").html("");
+        $("#footerbutton").append(footer3);
+      }
+      else if (category == 2) {
+        $("#cententform").html("");
+        $("#cententform").append(item);
+        $("#select").html("");
+        $("#select").append(typeselect);
+        $("#footerbutton").html("");
+        $("#footerbutton").append(footer2);
+      }
+      else if (category == 1) {
+        $("#select").html("");
+        $("#cententform").html("");
+        $("#cententform").append(teacher);
+        $("#footerbutton").html("");
+        $("#footerbutton").append(footer1);
+      }
+      else if (category == 0) {
+        $("#cententform").html("");
+        $("#cententform").append(other);
+        $("#select").html("");
+        $("#select").append(idselect);
+        $("#footerbutton").html("");
+        $("#footerbutton").append(footer0);
+      }
+      else {
+        $("#select").html("");
+        $("#cententform").html("");
+      }
+    })
+    // 材料提交
+    $("#submit0").on("click", function () {
+      var value = $("#value").val();
+      $.ajax({
+        url: ip + '/scm/upload/0',
+        type: 'POST',
+        // headers: {
+        //   'Content-Type': 'application/json'
+        // },
+        cache: false,
+        // dataType:JSON,
+        data: {
+          value: value
+        },
+        success: function (data) {
+          console.log(data)
+          if (data == 1) {
+            alert("修改成功");
+          } else if (data == 0) {
+            alert("修改失败")
           }
-        };
-        $.each(arrData, function (pF) {
-          $('#selF').append('<option>' + pF + '</option>');
-        });
-        $('#selF').change(function () {
-          objInit('#selT');
-          objInit('#selC');
-          $.each(arrData, function (pF, pS) {
-            if ($('#selF option:selected').text() == pF) {
-              $.each(pS, function (pT, pC) {
-                $('#selT').append('<option>' + pT + '</option>');
-              });
-              $('#selT').change(function () {
-                objInit('#selC');
-                $.each(pS, function (pT, pC) {
-                  if ($('#selT option:selected').text() == pT) {
-                    $.each(pC.split(","), function () {
-                      $('#selC').append('<option>' + this + '</option>');
-                    })
-                  }
-                })
-
-              });
-            }
-          })
-        });
+          // $("#user").html("");
+          // userTable();
+        },
+        error: function (data) {
+          console.log(data)
+        }
       });
-    </script>
-  </body>
+    })
+  </script>
+</body>
 
 </html>
