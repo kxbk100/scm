@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -157,16 +158,20 @@ public class MainController {
      */
     @RequestMapping(value = "/scm",method = RequestMethod.POST)
     @ResponseBody
-    public String login(UserModel user, HttpSession session){
+    public HashMap<String,String> login(UserModel user, HttpSession session){
+        HashMap<String,String> map=new HashMap<>();
         UserModel queryUser=userService.findUserByUserName(user.getUsername());
         if (queryUser==null){
-            return "-1";
+            map.put("error","-1");
+            return map;
         }
         if(queryUser.getPassword().equals(MD5Util.MD5Encode(user.getPassword(),"utf-8"))){
             session.setAttribute("user",queryUser);
-            return queryUser.getName();
+            map.put(String.valueOf(queryUser.getType()),queryUser.getName());
+            return map;
         }else {
-            return "0";
+            map.put("error","0");
+            return map;
         }
     }
 }

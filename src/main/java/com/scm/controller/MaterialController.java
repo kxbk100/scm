@@ -76,15 +76,23 @@ public class MaterialController {
     public String uploadOtherMaterial(HttpSession session,RecordModel recordModel,
                                       OtherModel otherModel, MultipartFile file) throws IOException {
         UserModel userModel=(UserModel) session.getAttribute("user");
+        if(userModel==null){
+            return "-1";
+        }
         String basePath = "src/main/webapp/resources/others/";
-        String src=uploadFile(basePath,file);
-        otherModel.setSrc(src);
-        otherModel.setStatus(0);
-        int id=materialService.saveOther(otherModel);
-        if(recordModel.getId()!=0){
-            materialService.updateRecordDate(recordModel.getId());
-        }else{
-            materialService.saveRecord(userModel.getId(),0,id);
+        try {
+            String src=uploadFile(basePath,file);
+            otherModel.setSrc(src);
+            otherModel.setStatus(0);
+            int id=materialService.saveOther(otherModel);
+            if(recordModel.getId()!=0){
+                materialService.updateRecordDate(recordModel.getId());
+            }else{
+                materialService.saveRecord(userModel.getId(),0,id);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "0";
         }
         return "1";
     }
@@ -103,15 +111,23 @@ public class MaterialController {
     public String uploadTeacherMaterial(HttpSession session,RecordModel recordModel,
                                         TeacherModel teacherModel,MultipartFile file) throws IOException {
         UserModel userModel=(UserModel) session.getAttribute("user");
+        if(userModel==null){
+            return "-1";
+        }
         String basePath = "src/main/webapp/resources/teachers/";
-        String src=uploadFile(basePath,file);
-        teacherModel.setSrc(src);
-        teacherModel.setStatus(0);
-        int id=materialService.saveTeacher(teacherModel);
-        if(recordModel.getId()!=0){
-            materialService.updateRecordDate(recordModel.getId());
-        }else{
-            materialService.saveRecord(userModel.getId(),0,id);
+        try {
+            String src=uploadFile(basePath,file);
+            teacherModel.setSrc(src);
+            teacherModel.setStatus(0);
+            int id=materialService.saveTeacher(teacherModel);
+            if(recordModel.getId()!=0){
+                materialService.updateRecordDate(recordModel.getId());
+            }else{
+                materialService.saveRecord(userModel.getId(),0,id);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "0";
         }
         return "1";
     }
@@ -130,15 +146,23 @@ public class MaterialController {
     public String uploadItemMaterial(HttpSession session,RecordModel recordModel,
                                      ItemModel itemModel,MultipartFile file) throws IOException {
         UserModel userModel=(UserModel) session.getAttribute("user");
+        if(userModel==null){
+            return "-1";
+        }
         String basePath = "src/main/webapp/resources/items/";
-        String src=uploadFile(basePath,file);
-        itemModel.setSrc(src);
-        itemModel.setStatus(0);
-        int id=materialService.saveItem(itemModel);
-        if(recordModel.getId()!=0){
-            materialService.updateRecordDate(recordModel.getId());
-        }else{
-            materialService.saveRecord(userModel.getId(),0,id);
+        try {
+            String src=uploadFile(basePath,file);
+            itemModel.setSrc(src);
+            itemModel.setStatus(0);
+            int id=materialService.saveItem(itemModel);
+            if(recordModel.getId()!=0){
+                materialService.updateRecordDate(recordModel.getId());
+            }else{
+                materialService.saveRecord(userModel.getId(),0,id);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "0";
         }
         return "1";
     }
@@ -157,15 +181,23 @@ public class MaterialController {
     public String uploadPaperMaterial(HttpSession session,RecordModel recordModel,
                                       PaperModel paperModel,MultipartFile file) throws IOException {
         UserModel userModel=(UserModel) session.getAttribute("user");
+        if(userModel==null){
+            return "-1";
+        }
         String basePath = "src/main/webapp/resources/papers/";
-        String src=uploadFile(basePath,file);
-        paperModel.setSrc(src);
-        paperModel.setStatus(0);
-        int id=materialService.savePaper(paperModel);
-        if(recordModel.getId()!=0){
-            materialService.updateRecordDate(recordModel.getId());
-        }else{
-            materialService.saveRecord(userModel.getId(),0,id);
+        try {
+            String src=uploadFile(basePath,file);
+            paperModel.setSrc(src);
+            paperModel.setStatus(0);
+            int id=materialService.savePaper(paperModel);
+            if(recordModel.getId()!=0){
+                materialService.updateRecordDate(recordModel.getId());
+            }else{
+                materialService.saveRecord(userModel.getId(),0,id);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "0";
         }
         return "1";
     }
@@ -179,8 +211,13 @@ public class MaterialController {
     @RequestMapping(value = "admin/check",method = RequestMethod.POST)
     @ResponseBody
     public String checkAdminMaterial(RecordModel model,int[] status){
-        materialService.updateStatus(model.getRecordId(),model.getType(),status[0]);
-        materialService.updateContent(model.getType(),model.getRecordId());
+        try {
+            materialService.updateStatus(model.getRecordId(),model.getType(),status[0]);
+            materialService.updateContent(model.getType(),model.getRecordId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "0";
+        }
         return "1";
     }
 
