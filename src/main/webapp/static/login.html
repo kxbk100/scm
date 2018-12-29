@@ -110,6 +110,12 @@
           cache: false,
           async: false,
           dataType: 'text',
+          
+          // xhrFields:{
+          //   withCredentials: true
+          // },
+          
+          // crossDomain:true,
           data: {
             username: username,
             password: password
@@ -123,6 +129,7 @@
             } else {
               sessionStorage.name = data.name;
               sessionStorage.type = data.type;
+              sessionStorage.id = data.id;
               window.location.href = "index.html";
             }
           },
