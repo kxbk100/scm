@@ -24,9 +24,8 @@ public class UserWebInitializer extends AbstractAnnotationConfigDispatcherServle
         return new String[]{"/"};
     }
 
-    //临时存储路径配置
-//    @Override
-//    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-//        registration.setMultipartConfig(new MultipartConfigElement("/tmp/scm/uploads"));
-//    }
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement("D:\\IdeaProjects\\scm\\"));
+    }
 }

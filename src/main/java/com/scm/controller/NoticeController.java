@@ -11,14 +11,12 @@ import com.scm.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "/scm/notices/",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class NoticeController {
     @Autowired
@@ -31,8 +29,7 @@ public class NoticeController {
     @RequestMapping(value = "show",method = RequestMethod.GET)
     @ResponseBody
     public List<NoticeModel> showNotice(){
-        List<NoticeModel> noticeModels=noticeService.getAllNotice();
-        return noticeModels;
+        return noticeService.getAllNotice();
     }
 
     /**

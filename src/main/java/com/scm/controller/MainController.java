@@ -37,10 +37,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
-import javax.servlet.http.HttpServletRequest;
+
+import javax.json.Json;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
 @RequestMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -158,7 +162,9 @@ public class MainController {
      */
     @RequestMapping(value = "/scm",method = RequestMethod.POST)
     @ResponseBody
-    public HashMap<String,String> login(UserModel user, HttpServletRequest request){
+
+    public Map<String, String> login(UserModel user, HttpSession session){
+
         HashMap<String,String> map=new HashMap<>();
         UserModel queryUser=userService.findUserByUserName(user.getUsername());
         if (queryUser==null){
@@ -166,9 +172,11 @@ public class MainController {
             return map;
         }
         if(queryUser.getPassword().equals(MD5Util.MD5Encode(user.getPassword(),"utf-8"))){
-            request.getSession().setAttribute("user",queryUser);
-            System.out.println(request.getSession().getId());
-            map.put(String.valueOf(queryUser.getType()),queryUser.getName());
+            session.setAttribute("user",queryUser);
+            map.put("name",queryUser.getName());
+            map.put("type",String.valueOf(queryUser.getType()));
+            map.put("id",String.valueOf(queryUser.getId()));
+
             return map;
         }else {
             map.put("error","0");
