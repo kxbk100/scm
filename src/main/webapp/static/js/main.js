@@ -331,3 +331,131 @@ $("#setnextdeadline").on('click', function () {
   });
 });
 
+// 材料提交表格显示
+function tableshow() {
+  $.ajax({
+    url: ip + '/scm/material/teacher/show?id=' + sessionStorage.id,
+    type: "get",
+    cache: false,
+    async: false,
+    success: function (data) {
+      console.log(data);
+      $.each(data, function (i, item) {
+        var name = item.name;
+        var date = item.date;
+        var status = item.status;
+        var table = `
+              <tr>
+                <td class="text-center">
+                  <strong>`+ name +`</strong>
+                </td>
+                
+                <td class="text-center">
+                  <strong>
+                    <span name="number">`+ date +`</span>
+                  </strong>
+                </td>
+
+                <td class="text-center">
+                  <a href="javascript:void(0)" class="label label-success" id="status">已通过</a>
+                </td>
+                <td class="text-center">
+                      <span name="number">
+                        <a href="#modal-reset" data-toggle="modal" title="查看" id="`+ name +`" class="btn btn-effect-ripple btn-xs btn-info">
+                        <i class="fa fa-eye"></i>
+                        </a>
+                      </span>
+                </td>  
+              </tr>                            
+              `
+        $("#table").append(table);
+        // if(status==1){
+        //   $("$(#status)").addClass("label-success");
+        //   $("$(#status)").text("");
+        // }
+      })
+
+    },
+    error: function (e) {
+    }
+  })
+}
+
+// 材料审核表格显示
+function adminshow() {
+  $.ajax({
+    url: ip + '/scm/material/admin/show',
+    type: "get",
+    cache: false,
+    async: false,
+    success: function (data) {
+      console.log(data);
+      $.each(data, function (i, item) {
+        var realname = item.realName;
+        var name = item.name;
+        var date = item.date;
+        var status = item.status;
+        var table = `
+              <tr>
+                <td class="text-center">
+                  <strong>`+ name +`</strong>
+                </td>
+                
+                <td class="text-center">
+                  <strong>
+                    <span name="number">`+ realname +`</span>
+                  </strong>
+                </td>
+                <td class="text-center">
+                  <strong>
+                    <span name="number">`+ date +`</span>
+                  </strong>
+                </td>
+                <td class="text-center">
+                  <a href="javascript:void(0)" class="label label-success" id="status">已通过</a>
+                </td>
+                <td class="text-center">
+                  <a href="#modal" class="btn btn-effect-ripple btn-primary" data-toggle="modal">查看</a>
+                </td>  
+              </tr>                            
+              `
+        $("#table").append(table);
+      })
+
+    },
+    error: function (e) {
+    }
+  })
+}
+
+// 修改密码
+$("#modifypwd").on("click",function(){
+  var id = sessionStorage.id;
+  var pwd = $("#pwd").val();
+  var newpwd = $("#newpwd").val();
+  var repwd = $("#repwd").val();
+  if (newpwd != repwd) {
+    alert("密码不一致");
+  }
+  $.ajax({
+    url: ip + '/scm/users/password',
+    type: 'POST',
+    cache: false,
+    data: {
+      userId:id,
+      OldPassword: pwd,
+      NewPassword: repwd        
+    },
+    success: function (data) {
+      console.log(data)
+      if (data == 1) {
+        alert("修改成功");
+      } else if (data == 0) {
+        alert("修改失败")
+      }
+    },
+    error: function (data) {
+      console.log(data)
+    }
+  });
+})
