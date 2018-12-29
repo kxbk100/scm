@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,7 +19,7 @@ public class NoticeServiceImpl implements NoticeService {
     @Override
     public List<NoticeModel> getAllNotice() {
         List<NoticeModel> models=new ArrayList<>();
-        List<NoticesEntity> entities=noticeDao.findAllByOrderByDate();
+        List<NoticesEntity> entities=noticeDao.findAllByOrderByDateDesc();
         for (NoticesEntity entity:entities){
             NoticeModel model=new NoticeModel();
             BeanUtils.copyProperties(entity,model);
@@ -31,6 +32,7 @@ public class NoticeServiceImpl implements NoticeService {
     public void save(NoticeModel model) {
         NoticesEntity entity=new NoticesEntity();
         BeanUtils.copyProperties(model,entity);
+        entity.setDate(new Date(System.currentTimeMillis()));
         noticeDao.save(entity);
     }
 

@@ -36,9 +36,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.json.Json;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
@@ -158,7 +160,7 @@ public class MainController {
      */
     @RequestMapping(value = "/scm",method = RequestMethod.POST)
     @ResponseBody
-    public HashMap<String,String> login(UserModel user, HttpSession session){
+    public Map<String, String> login(UserModel user, HttpSession session){
         HashMap<String,String> map=new HashMap<>();
         UserModel queryUser=userService.findUserByUserName(user.getUsername());
         if (queryUser==null){
@@ -167,7 +169,9 @@ public class MainController {
         }
         if(queryUser.getPassword().equals(MD5Util.MD5Encode(user.getPassword(),"utf-8"))){
             session.setAttribute("user",queryUser);
-            map.put(String.valueOf(queryUser.getType()),queryUser.getName());
+            map.put("name",queryUser.getName());
+            map.put("type",String.valueOf(queryUser.getType()));
+            map.put("id",String.valueOf(queryUser.getId()));
             return map;
         }else {
             map.put("error","0");

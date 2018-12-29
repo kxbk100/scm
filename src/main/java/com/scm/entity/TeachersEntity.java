@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "static/resources/teachers")
+@Table(name = "teachers")
 public class TeachersEntity {
     private int id;
     private String name;

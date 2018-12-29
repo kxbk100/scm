@@ -13,6 +13,7 @@ public class RecordModel {
     private String realName;
     private int recordId;
     private String name;
+    private int status;
 
     public int getId() {
         return id;
@@ -60,5 +61,13 @@ public class RecordModel {
 
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

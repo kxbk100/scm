@@ -11,22 +11,20 @@ package com.scm.controller;
 import com.scm.model.*;
 import com.scm.service.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.util.Pair;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
 
 @Controller
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping(value = "/scm/material/",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 public class MaterialController {
 
@@ -40,55 +38,91 @@ public class MaterialController {
      */
     @RequestMapping(value = "admin/show",method = RequestMethod.GET)
     @ResponseBody
-    public List<Pair<RecordModel,?>> showAdminMaterial(){
-        List<Pair<RecordModel,?>> pairs=new ArrayList<>();
+    public List<RecordModel> showAdminMaterial(){
         List<RecordModel> recordModels=materialService.findAllRecord();
-        preparePairList(recordModels,pairs);
-        return pairs;
+        setName(recordModels);
+        return recordModels;
     }
 
     /**
      *
-     * @param session 从session中拿当前User
      * @return 一组Pair{first:RecordModel,second:OtherModel/TeacherModel/ItemModel/PaperModel}
      */
     @RequestMapping(value = "teacher/show",method = RequestMethod.GET)
     @ResponseBody
-    public List<Pair<RecordModel,?>> showTeacherMaterial(HttpSession session){
-        List<Pair<RecordModel,?>> pairs=new ArrayList<>();
-        UserModel userModel=(UserModel) session.getAttribute("user");
-        List<RecordModel> recordModels=materialService.findByUserId(userModel.getId());
-        preparePairList(recordModels,pairs);
-        return pairs;
+    public List<RecordModel> showTeacherMaterial(@RequestParam int id){
+        List<RecordModel> recordModels=materialService.findByUserId(id);
+        setName(recordModels);
+        return recordModels;
+    }
+
+    private void setName(List<RecordModel> list) {
+        for(RecordModel model:list){
+            switch (model.getType()){
+                case 0:
+                    OtherModel otherModel=materialService.findOtherById(model.getRecordId());
+                    model.setName(otherModel.getPointModel().getContent());
+                    model.setStatus(otherModel.getStatus());
+                    break;
+                case 1:
+                    TeacherModel teacherModel=materialService.findTeacherById(model.getRecordId());
+                    model.setName(teacherModel.getName());
+                    break;
+                case 2:
+                    ItemModel itemModel=materialService.findItemById(model.getRecordId());
+                    model.setName(itemModel.getName());
+                    model.setStatus(itemModel.getStatus());
+                    break;
+                case 3:
+                    PaperModel paperModel=materialService.findPaperById(model.getRecordId());
+                    model.setName(paperModel.getTitle());
+                    model.setStatus(paperModel.getStatus());
+                    break;
+                default:
+                    model.setName("unknown");
+            }
+        }
+    }
+
+    @RequestMapping(value = "specific/show",method = RequestMethod.GET)
+    @ResponseBody
+    public Object showSpecificMaterial(RecordModel model){
+        switch (model.getType()){
+            case 0:
+                return materialService.findOtherById(model.getRecordId());
+            case 1:
+                return materialService.findTeacherById(model.getRecordId());
+            case 2:
+                return materialService.findItemById(model.getRecordId());
+            case 3:
+                return materialService.findPaperById(model.getRecordId());
+            default:
+                return "error:wrong type";
+        }
     }
 
     /**
      *上传或修改Other表单数据
-     * @param session 用来获取userId
      * @param recordModel 如果是修改则会有id
      * @param otherModel 表单数据
      * @param file 上传文件
      * @return 成功返回1
      * @throws IOException
      */
-    @RequestMapping(value = "teacher/upload/0",method = RequestMethod.POST)
+    @RequestMapping(value = "teacher/upload/0/{userId}",method = RequestMethod.POST)
     @ResponseBody
-    public String uploadOtherMaterial(HttpSession session,RecordModel recordModel,
+    public String uploadOtherMaterial(@PathVariable int userId, RecordModel recordModel,
                                       OtherModel otherModel, MultipartFile file) throws IOException {
-        UserModel userModel=(UserModel) session.getAttribute("user");
-        if(userModel==null){
-            return "-1";
-        }
-        String basePath = "src/main/webapp/resources/others/";
+        String basePath = "src/main/webapp/static/resources/others/";
         try {
             String src=uploadFile(basePath,file);
             otherModel.setSrc(src);
             otherModel.setStatus(0);
-            int id=materialService.saveOther(otherModel);
+            int otherId=materialService.saveOther(otherModel);
             if(recordModel.getId()!=0){
                 materialService.updateRecordDate(recordModel.getId());
             }else{
-                materialService.saveRecord(userModel.getId(),0,id);
+                materialService.saveRecord(userId,0,otherId);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -99,31 +133,26 @@ public class MaterialController {
 
     /**
      *上传或修改Teacher表单数据
-     * @param session 用来获取userId
      * @param recordModel 如果是修改则会有id
      * @param teacherModel 表单数据
      * @param file 上传文件
      * @return 成功返回1
      * @throws IOException
      */
-    @RequestMapping(value = "teacher/upload/1",method = RequestMethod.POST)
+    @RequestMapping(value = "teacher/upload/1/{userId}",method = RequestMethod.POST)
     @ResponseBody
-    public String uploadTeacherMaterial(HttpSession session,RecordModel recordModel,
+    public String uploadTeacherMaterial(@PathVariable int userId,RecordModel recordModel,
                                         TeacherModel teacherModel,MultipartFile file) throws IOException {
-        UserModel userModel=(UserModel) session.getAttribute("user");
-        if(userModel==null){
-            return "-1";
-        }
         String basePath = "src/main/webapp/resources/teachers/";
         try {
             String src=uploadFile(basePath,file);
             teacherModel.setSrc(src);
             teacherModel.setStatus(0);
-            int id=materialService.saveTeacher(teacherModel);
+            int teacherId=materialService.saveTeacher(teacherModel);
             if(recordModel.getId()!=0){
                 materialService.updateRecordDate(recordModel.getId());
             }else{
-                materialService.saveRecord(userModel.getId(),0,id);
+                materialService.saveRecord(userId,0,teacherId);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -134,31 +163,26 @@ public class MaterialController {
 
     /**
      *上传或修改Item表单数据
-     * @param session 用来获取userId
      * @param recordModel 如果是修改则会有id
      * @param itemModel 表单数据
      * @param file 上传文件
      * @return 成功返回1
      * @throws IOException
      */
-    @RequestMapping(value = "teacher/upload/2",method = RequestMethod.POST)
+    @RequestMapping(value = "teacher/upload/2/{userId}",method = RequestMethod.POST)
     @ResponseBody
-    public String uploadItemMaterial(HttpSession session,RecordModel recordModel,
+    public String uploadItemMaterial(@PathVariable int userId,RecordModel recordModel,
                                      ItemModel itemModel,MultipartFile file) throws IOException {
-        UserModel userModel=(UserModel) session.getAttribute("user");
-        if(userModel==null){
-            return "-1";
-        }
         String basePath = "src/main/webapp/resources/items/";
         try {
             String src=uploadFile(basePath,file);
             itemModel.setSrc(src);
             itemModel.setStatus(0);
-            int id=materialService.saveItem(itemModel);
+            int itemId=materialService.saveItem(itemModel);
             if(recordModel.getId()!=0){
                 materialService.updateRecordDate(recordModel.getId());
             }else{
-                materialService.saveRecord(userModel.getId(),0,id);
+                materialService.saveRecord(userId,0,itemId);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -169,31 +193,26 @@ public class MaterialController {
 
     /**
      *上传或修改Paper表单数据
-     * @param session 用来获取userId
      * @param recordModel 如果是修改则会有id
      * @param paperModel 表单数据
      * @param file 上传文件
      * @return 成功返回1
      * @throws IOException
      */
-    @RequestMapping(value = "teacher/upload/3",method = RequestMethod.POST)
+    @RequestMapping(value = "teacher/upload/3/{userId}",method = RequestMethod.POST)
     @ResponseBody
-    public String uploadPaperMaterial(HttpSession session,RecordModel recordModel,
+    public String uploadPaperMaterial(@PathVariable int userId,RecordModel recordModel,
                                       PaperModel paperModel,MultipartFile file) throws IOException {
-        UserModel userModel=(UserModel) session.getAttribute("user");
-        if(userModel==null){
-            return "-1";
-        }
         String basePath = "src/main/webapp/resources/papers/";
         try {
             String src=uploadFile(basePath,file);
             paperModel.setSrc(src);
             paperModel.setStatus(0);
-            int id=materialService.savePaper(paperModel);
+            int paperId=materialService.savePaper(paperModel);
             if(recordModel.getId()!=0){
                 materialService.updateRecordDate(recordModel.getId());
             }else{
-                materialService.saveRecord(userModel.getId(),0,id);
+                materialService.saveRecord(userId,0,paperId);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -230,6 +249,7 @@ public class MaterialController {
      */
     private String uploadFile(String basePath,MultipartFile file) throws IOException {
         Calendar calendar = Calendar.getInstance();
+        String abs="D:\\IdeaProjects\\scm\\";
         String year = calendar.get(Calendar.YEAR) + "";
         String month = calendar.get(Calendar.MONTH) + "";
         String uploadTargetPath = basePath + year + month + "/";
@@ -238,50 +258,11 @@ public class MaterialController {
         String fileType = originalFileName.substring(originalFileName.indexOf(".") + 1);
         String newFileName = UUID.randomUUID().toString() + "." + fileType;
         File targetFile = new File(uploadTargetPath, newFileName);
-
-        if(!targetFile.exists()) {
-            new File(uploadTargetPath).mkdirs();
+        File parent=new File(abs+targetFile.getParent());
+        if(!parent.exists()) {
+            parent.mkdirs();
         }
         file.transferTo(targetFile);
         return uploadTargetPath.substring(uploadTargetPath.indexOf("resources"))+newFileName;
     }
-
-    /**
-     * 将提交记录和对应的表单数据组成Pair对，添加进列表中返回
-     * @param recordModels
-     * @param pairs
-     */
-    private void preparePairList(List<RecordModel> recordModels, List<Pair<RecordModel, ?>> pairs) {
-        for(RecordModel model:recordModels){
-            Pair<RecordModel,?> pair;
-            switch (model.getType()){
-                case 0:
-                    OtherModel otherModel=materialService.findOtherById(model.getRecordId());
-                    model.setName(otherModel.getPointModel().getContent());
-                    pair=Pair.of(model,otherModel);
-                    break;
-                case 1:
-                    TeacherModel teacherModel=materialService.findTeacherById(model.getRecordId());
-                    model.setName(teacherModel.getName());
-                    pair=Pair.of(model,teacherModel);
-                    break;
-                case 2:
-                    ItemModel itemModel=materialService.findItemById(model.getRecordId());
-                    model.setName(itemModel.getName());
-                    pair=Pair.of(model,itemModel);
-                    break;
-                case 3:
-                    PaperModel paperModel=materialService.findPaperById(model.getRecordId());
-                    model.setName(paperModel.getTitle());
-                    pair=Pair.of(model,paperModel);
-                    break;
-                default:
-                    pair=Pair.of(model,"error");
-            }
-            pairs.add(pair);
-        }
-    }
-
-
-
 }

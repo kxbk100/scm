@@ -51,4 +51,14 @@ public class OtherModel {
         this.pointModel = pointModel;
     }
 
+    @Override
+    public String toString() {
+        return "OtherModel{" +
+                "id=" + id +
+                ", value=" + value +
+                ", status=" + status +
+                ", src='" + src + '\'' +
+                ", pointModel=" + pointModel.getId() +
+                '}';
+    }
 }
