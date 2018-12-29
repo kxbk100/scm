@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @Controller
@@ -59,13 +58,12 @@ public class UserController {
 
     @RequestMapping(value = "/scm/users/password",method = RequestMethod.POST)
     @ResponseBody
-    public Integer PostChangePassword(@RequestParam String OldPassword, @RequestParam String NewPassword, HttpSession session)
+    public Integer PostChangePassword(@RequestParam String OldPassword, @RequestParam String NewPassword, @RequestParam Integer userId)
     {
-        if(session.getAttribute("user")!=null){
-            UsersEntity usersEntity = (UsersEntity) session.getAttribute("user");
-            return userService.UserPasswordModify(usersEntity.getId(),OldPassword,NewPassword);
-        }else{
-            return 1;
+        try {
+            return userService.UserPasswordModify(userId,OldPassword,NewPassword);
+        }catch (Exception e){
+            return 0;
         }
     }
 
