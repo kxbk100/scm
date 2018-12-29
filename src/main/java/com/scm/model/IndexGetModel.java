@@ -20,17 +20,7 @@ nextdeadline:?],
 
  */
 public class IndexGetModel {
-    private String username;//从哪里来的
     private List<ContentGetModel> contentGetModelList;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public List<ContentGetModel> getContentGetModelList() {
         return contentGetModelList;
     }

@@ -155,7 +155,46 @@
           <!-- END Right Header Navigation -->
         </header>
         <!-- END Header -->
-
+        <!-- 密码修改Modal -->
+        <div id="modal-pwd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">
+                  <strong>密码修改</strong>
+                </h3>
+              </div>
+              <div class="modal-body">
+                <form method="post" class="form-horizontal form-bordered">
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="pwd">旧密码</label>
+                    <div class="col-md-4">
+                      <input type="password" id="pwd" name="pwd" class="form-control" required="required" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="newpwd">新密码</label>
+                    <div class="col-md-4">
+                      <input type="password" id="newpwd" name="newpwd" class="form-control" required="required" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="repwd">确认密码</label>
+                    <div class="col-md-4">
+                      <input type="password" id="repwd" name="repwd" class="form-control" required="required" />
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" id="modifypwd" data-dismiss="modal">确定</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END 密码修改 Modal -->
         <!-- Page content -->
         <div id="page-content">
           <!-- Blank Header -->
@@ -321,7 +360,7 @@
     </div>
   </div>
   <!-- END 密码修改 Modal -->
-<!-- 确认操作 modal-->  
+  <!-- 确认操作 modal-->
   <div id="modal-delete" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -344,29 +383,28 @@
       </div>
     </div>
   </div>
-<div id="modal-reset" class="modal fade" tabindex="-1" role="dialog"
-     aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3 class="modal-title">
-          <strong>确认操作</strong>
-        </h3>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <div class="col-xs-6">
-            <span>确定重置密码？</span>
+  <div id="modal-reset" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title">
+            <strong>确认操作</strong>
+          </h3>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="col-xs-6">
+              <span>确定重置密码？</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer" id="mdf_modal">
+        <div class="modal-footer" id="mdf_modal">
 
+        </div>
       </div>
     </div>
   </div>
-</div>
   <!-- END 确认操作 Modal -->
 
   <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
@@ -389,7 +427,7 @@
   <script>
     userTable();
     // 新增用户
-    $("#useradd").on("click",function(){
+    $("#useradd").on("click", function () {
       var username = $("#username").val();
       var name = $("#name").val();
       $.ajax({
