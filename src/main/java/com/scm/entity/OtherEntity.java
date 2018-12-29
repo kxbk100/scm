@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "other")
 public class OtherEntity {
     private int id;
-    private String value;
+    private float value;
     private int status;
     private String src;
     private PointsEntity pointsEntity;
@@ -34,11 +34,11 @@ public class OtherEntity {
 
     @Basic
     @Column(name = "value")
-    public String getValue() {
+    public float getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(float value) {
         this.value = value;
     }
 
@@ -60,31 +60,6 @@ public class OtherEntity {
 
     public void setSrc(String src) {
         this.src = src;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        OtherEntity that = (OtherEntity) o;
-
-        if (id != that.id) return false;
-        if (status != that.status) return false;
-        if (value != null ? !value.equals(that.value) : that.value != null) return false;
-        if (src != null ? !src.equals(that.src) : that.src != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (value != null ? value.hashCode() : 0);
-        result = 31 * result + status;
-        result = 31 * result + (src != null ? src.hashCode() : 0);
-        return result;
     }
 
     @Override

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,6 +28,8 @@ public class MaterialServiceImpl implements MaterialService {
     TeacherRepo teacherDao;
     @Autowired
     ItemRepo itemDao;
+    @Autowired
+    PointsRepo pointDao;
 
     @Override
     public List<RecordModel> findAllRecord() {
@@ -165,6 +169,191 @@ public class MaterialServiceImpl implements MaterialService {
                 papersEntity.setStatus(status);
                 paperDao.save(papersEntity);
                 break;
+        }
+    }
+
+    /**
+     * 更新观测点
+     * 对应的对象的类型Other 0，Teacher 1，Item 2，Paper 3
+     * @param type
+     */
+    @Override
+    public void updateContent(int type,int id) {
+        switch (type){
+            case 0:
+                OtherEntity otherEntity=otherDao.getById(id);
+                update(otherEntity.getPointsEntity().getId(),otherEntity.getValue());
+                break;
+            case 1:
+                TeachersEntity teachersEntity=teacherDao.getById(id);
+                int teacherCount=teacherDao.countAll();
+
+                //教师总人数
+                update(1);
+
+                //博士占比
+                float eduPc=((float) teacherDao.countByEdu(0))/teacherCount;
+                update(4,eduPc);
+
+                //35周岁以下占比
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                try {
+                    Date date=format.parse("1983-1-1");
+                    float birthPc=((float)teacherDao.countByAge(date))/teacherCount;
+                    update(5,birthPc);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                //国家级
+                if(teachersEntity.getRank()==0){
+                    update(2);
+                    //省级
+                } else if(teachersEntity.getRank()==1){
+                    update(3);
+                }
+                //重要学术机构担任职位人数
+                if(teachersEntity.getIsImportant()==1){
+                    update(46);
+                }
+                break;
+            case 2://item
+                ItemsEntity itemsEntity = itemDao.getById(id);
+                //省部级及以上创新团队数（个）
+                switch (itemsEntity.getType())
+                {
+                    case 1:
+                        if (itemsEntity.getRank() == 0||itemsEntity.getRank() == 1)
+                        {
+                            update(6);
+                        }
+                        break;
+                    case 2:
+                        if(itemsEntity.getRank() == 0)
+                        {
+                            update(8);
+                        }else if(itemsEntity.getRank() == 1){
+                            update(9);
+                        }
+                        break;
+                    case 3:
+                        update(37);
+                        break;
+                    case 4:
+                        if (itemsEntity.getRank() == 0){
+                            update(14);
+                        }else if(itemsEntity.getRank() == 1){
+                            update(15);
+                        }
+                        break;
+                    case 5:
+                        if(itemsEntity.getRank() == 0)
+                        {
+                            update(16);
+                        }
+                        break;
+                    case 6:
+                            if (itemsEntity.getRank() == 0)
+                            {
+                                update(17);
+                            }
+                        break;
+                    case 7:
+                            if(itemsEntity.getRank()==0||itemsEntity.getRank()==1)
+                            {
+                                update(18);
+                            }
+                        break;
+                    case 8:
+                            if(itemsEntity.getRank()==0){
+                                update(22);
+                            }else if(itemsEntity.getRank()== 1)
+                            {
+                                update(24);
+                            }else if(itemsEntity.getRank()==0&&itemsEntity.getIsImportant()==1)
+                            {
+                                update(23);
+                            }else if(itemsEntity.getRank()== 1 &&itemsEntity.getIsImportant()==1){
+                                update(25);
+                            }
+                            break;
+                    case 9:
+                            update(30);
+                        break;
+                    case 10:
+                            update(31);
+                        break;
+                    case 11:
+                            if(itemsEntity.getRank() == 0)
+                            {
+                                update(32);
+                            }else if(itemsEntity.getRank() == 1)
+                            {
+                                update(33);
+                            }
+                        break;
+                    case 12:
+                            update(36);
+                        break;
+                    case 13:
+                            update(52);
+                        break;
+
+                }
+                break;
+            case 3://paper
+                PapersEntity papersEntity = paperDao.getById(id);
+                if(papersEntity.getFirstType() == 0&& papersEntity.getPaperType()==0)
+                {
+                    update(10);
+                }
+                if(papersEntity.getFirstType() == 1 ){
+                    if(papersEntity.getPaperType()==1||
+                    papersEntity.getPaperType()==2||
+                    papersEntity.getPaperType()==3)
+                    {
+                        update(12);
+                    }
+                }
+                if(papersEntity.getPaperType()==1||
+                        papersEntity.getPaperType()==2||
+                        papersEntity.getPaperType()==3)
+                {
+                    update(27);
+                }
+                if(papersEntity.getPaperType() ==1)
+                {
+                    update(28);
+                }else if(papersEntity.getPaperType() ==2)
+                {
+                    update(29);
+                }
+                break;
+        }
+    }
+
+    /**
+     * 只需+1的数据更新方法
+     * @param id
+     */
+    private void update(int id){
+        update(id,-1);
+    }
+
+    /**
+     * 直接更新数据的更新方法
+     * @param id
+     * @param data
+     */
+    private void update(int id,float data){
+        PointsEntity pointsEntity;
+        if(data==-1){
+            pointsEntity=pointDao.getById(id);
+            pointsEntity.updateNow();
+            pointDao.saveAndFlush(pointsEntity);
+        }else {
+            pointsEntity=pointDao.getById(id);
+            pointsEntity.updateNowWithData(data);
+            pointDao.saveAndFlush(pointsEntity);
         }
     }
 }

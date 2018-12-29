@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class NoticeController {
      * @return
      */
     @RequestMapping(value = "show",method = RequestMethod.GET)
+    @ResponseBody
     public List<NoticeModel> showNotice(){
         List<NoticeModel> noticeModels=noticeService.getAllNotice();
         return noticeModels;
@@ -38,8 +40,15 @@ public class NoticeController {
      * @param model
      */
     @RequestMapping(value = "post",method = RequestMethod.POST)
-    public void postNotice(NoticeModel model){
-        noticeService.save(model);
+    @ResponseBody
+    public String postNotice(NoticeModel model){
+        try {
+            noticeService.save(model);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "0";
+        }
+        return "1";
     }
 
     @RequestMapping(value = "delete/{id}",method = RequestMethod.GET)
