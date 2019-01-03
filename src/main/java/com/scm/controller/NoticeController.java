@@ -48,8 +48,15 @@ public class NoticeController {
         return "1";
     }
 
-    @RequestMapping(value = "delete/{id}",method = RequestMethod.GET)
-    public void deleteNotice(@PathVariable int id){
-        noticeService.deleteById(id);
+    @RequestMapping(value = "delete/{id}",method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteNotice(@PathVariable int id){
+        try{
+            noticeService.deleteById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "0";
+        }
+        return "1";
     }
 }
