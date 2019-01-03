@@ -9,6 +9,7 @@ import java.util.Date;
 @Table(name = "teachers")
 public class TeachersEntity {
     private int id;
+    private String username;
     private String name;
     private Date birthday;
     private Integer edu;
@@ -27,6 +28,16 @@ public class TeachersEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "username")
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Basic

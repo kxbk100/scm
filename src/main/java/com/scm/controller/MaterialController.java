@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
@@ -34,7 +35,7 @@ public class MaterialController {
 
     /**
      *
-     * @return 一组Pair{first:RecordModel,second:OtherModel/TeacherModel/ItemModel/PaperModel}
+     * @return
      */
     @RequestMapping(value = "admin/show",method = RequestMethod.GET)
     @ResponseBody
@@ -46,7 +47,7 @@ public class MaterialController {
 
     /**
      *
-     * @return 一组Pair{first:RecordModel,second:OtherModel/TeacherModel/ItemModel/PaperModel}
+     * @return
      */
     @RequestMapping(value = "teacher/show",method = RequestMethod.GET)
     @ResponseBody
@@ -55,6 +56,8 @@ public class MaterialController {
         setName(recordModels);
         return recordModels;
     }
+
+
 
     private void setName(List<RecordModel> list) {
         for(RecordModel model:list){
@@ -84,20 +87,25 @@ public class MaterialController {
         }
     }
 
-    @RequestMapping(value = "specific/show",method = RequestMethod.GET)
+    @RequestMapping(value = "specific/show/{type}/{id}",method = RequestMethod.GET)
     @ResponseBody
-    public Object showSpecificMaterial(RecordModel model){
-        switch (model.getType()){
-            case 0:
-                return materialService.findOtherById(model.getRecordId());
-            case 1:
-                return materialService.findTeacherById(model.getRecordId());
-            case 2:
-                return materialService.findItemById(model.getRecordId());
-            case 3:
-                return materialService.findPaperById(model.getRecordId());
-            default:
-                return "error:wrong type";
+    public Object showSpecificMaterial(@PathVariable int type,@PathVariable int id){
+        try {
+            switch (type){
+                case 0:
+                    return materialService.findOtherById(id);
+                case 1:
+                    return materialService.findTeacherById(id);
+                case 2:
+                    return materialService.findItemById(id);
+                case 3:
+                    return materialService.findPaperById(id);
+                default:
+                    return "error:wrong type";
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return "0";
         }
     }
 
@@ -112,8 +120,8 @@ public class MaterialController {
     @RequestMapping(value = "teacher/upload/0/{userId}",method = RequestMethod.POST)
     @ResponseBody
     public String uploadOtherMaterial(@PathVariable int userId, RecordModel recordModel,
-                                      OtherModel otherModel, MultipartFile file) throws IOException {
-        String basePath = "src/main/webapp/static/resources/others/";
+                                      OtherModel otherModel, MultipartFile file, HttpServletRequest request) throws IOException {
+        String basePath = request.getSession().getServletContext().getRealPath("/") + "others/";
         try {
             String src=uploadFile(basePath,file);
             otherModel.setSrc(src);
@@ -142,8 +150,8 @@ public class MaterialController {
     @RequestMapping(value = "teacher/upload/1/{userId}",method = RequestMethod.POST)
     @ResponseBody
     public String uploadTeacherMaterial(@PathVariable int userId,RecordModel recordModel,
-                                        TeacherModel teacherModel,MultipartFile file) throws IOException {
-        String basePath = "src/main/webapp/resources/teachers/";
+                                        TeacherModel teacherModel,MultipartFile file,HttpServletRequest request) throws IOException {
+        String basePath = request.getSession().getServletContext().getRealPath("/") + "teachers/";
         try {
             String src=uploadFile(basePath,file);
             teacherModel.setSrc(src);
@@ -152,7 +160,7 @@ public class MaterialController {
             if(recordModel.getId()!=0){
                 materialService.updateRecordDate(recordModel.getId());
             }else{
-                materialService.saveRecord(userId,0,teacherId);
+                materialService.saveRecord(userId,1,teacherId);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -172,8 +180,8 @@ public class MaterialController {
     @RequestMapping(value = "teacher/upload/2/{userId}",method = RequestMethod.POST)
     @ResponseBody
     public String uploadItemMaterial(@PathVariable int userId,RecordModel recordModel,
-                                     ItemModel itemModel,MultipartFile file) throws IOException {
-        String basePath = "src/main/webapp/resources/items/";
+                                     ItemModel itemModel,MultipartFile file,HttpServletRequest request) throws IOException {
+        String basePath = request.getSession().getServletContext().getRealPath("/") + "items/";
         try {
             String src=uploadFile(basePath,file);
             itemModel.setSrc(src);
@@ -182,7 +190,7 @@ public class MaterialController {
             if(recordModel.getId()!=0){
                 materialService.updateRecordDate(recordModel.getId());
             }else{
-                materialService.saveRecord(userId,0,itemId);
+                materialService.saveRecord(userId,2,itemId);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -202,8 +210,8 @@ public class MaterialController {
     @RequestMapping(value = "teacher/upload/3/{userId}",method = RequestMethod.POST)
     @ResponseBody
     public String uploadPaperMaterial(@PathVariable int userId,RecordModel recordModel,
-                                      PaperModel paperModel,MultipartFile file) throws IOException {
-        String basePath = "src/main/webapp/resources/papers/";
+                                      PaperModel paperModel,MultipartFile file,HttpServletRequest request) throws IOException {
+        String basePath = request.getSession().getServletContext().getRealPath("/") + "papers/";
         try {
             String src=uploadFile(basePath,file);
             paperModel.setSrc(src);
@@ -212,7 +220,7 @@ public class MaterialController {
             if(recordModel.getId()!=0){
                 materialService.updateRecordDate(recordModel.getId());
             }else{
-                materialService.saveRecord(userId,0,paperId);
+                materialService.saveRecord(userId,3,paperId);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -223,16 +231,17 @@ public class MaterialController {
 
     /**
      * 管理员审核提交
-     * @param model
      * @param status
      * @return 成功返回1
      */
-    @RequestMapping(value = "admin/check",method = RequestMethod.POST)
+    @RequestMapping(value = "admin/check",method = RequestMethod.GET)
     @ResponseBody
-    public String checkAdminMaterial(RecordModel model,int[] status){
+    public String checkAdminMaterial(@RequestParam int recordId,@RequestParam int type,@RequestParam int status){
         try {
-            materialService.updateStatus(model.getRecordId(),model.getType(),status[0]);
-            materialService.updateContent(model.getType(),model.getRecordId());
+            materialService.updateStatus(recordId,type,status);
+            if(status==1){
+                materialService.updateContent(type,recordId);
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return "0";
@@ -249,7 +258,6 @@ public class MaterialController {
      */
     private String uploadFile(String basePath,MultipartFile file) throws IOException {
         Calendar calendar = Calendar.getInstance();
-        String abs="D:\\IdeaProjects\\scm\\";
         String year = calendar.get(Calendar.YEAR) + "";
         String month = calendar.get(Calendar.MONTH) + "";
         String uploadTargetPath = basePath + year + month + "/";
@@ -258,11 +266,11 @@ public class MaterialController {
         String fileType = originalFileName.substring(originalFileName.indexOf(".") + 1);
         String newFileName = UUID.randomUUID().toString() + "." + fileType;
         File targetFile = new File(uploadTargetPath, newFileName);
-        File parent=new File(abs+targetFile.getParent());
+        File parent=new File(targetFile.getParent());
         if(!parent.exists()) {
             parent.mkdirs();
         }
         file.transferTo(targetFile);
-        return uploadTargetPath.substring(uploadTargetPath.indexOf("resources"))+newFileName;
+        return targetFile.getAbsolutePath();
     }
 }
