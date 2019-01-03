@@ -1,801 +1,846 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zh-cn">
 
-  <head>
-    <meta charset="utf-8">
-    <title>一流学科建设监控系统</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/plugins.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/themes.css">
-    <script src="./js/vendor/modernizr-3.3.1.min.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>一流学科建设监控系统</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/plugins.css">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/themes.css">
+  <script src="./js/vendor/modernizr-3.3.1.min.js"></script>
+</head>
 
-  <body>
-    <div id="page-wrapper" class="page-loading">
-      <div class="preloader">
-        <div class="inner">
-          <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
-          <h3 class="text-primary visible-lt-ie10">
-            <strong>Loading..</strong>
-          </h3>
-        </div>
+<body>
+  <div id="page-wrapper" class="page-loading">
+    <div class="preloader">
+      <div class="inner">
+        <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+        <h3 class="text-primary visible-lt-ie10">
+          <strong>Loading..</strong>
+        </h3>
       </div>
+    </div>
 
-      <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-        <!-- Main Sidebar -->
-        <div id="sidebar">
-          <!-- Sidebar Brand -->
-          <div id="sidebar-brand" class="themed-background">
-            <a href="index.html" class="sidebar-title">
+    <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+      <!-- Main Sidebar -->
+      <div id="sidebar">
+        <!-- Sidebar Brand -->
+        <div id="sidebar-brand" class="themed-background">
+          <a href="index.html" class="sidebar-title">
             <i class="fa fa-cube"></i>
             <span class="sidebar-nav-mini-hide">
               <strong>学科建设监控系统</strong>
             </span>
           </a>
-          </div>
-          <!-- END Sidebar Brand -->
+        </div>
+        <!-- END Sidebar Brand -->
 
-          <!-- Wrapper for scrolling functionality -->
-          <div id="sidebar-scroll">
-            <!-- Sidebar Content -->
-            <div class="sidebar-content">
-              <!-- Sidebar Navigation -->
-              <ul class="sidebar-nav">
-                <li>
-                  <a href="./teachers.html">
+        <!-- Wrapper for scrolling functionality -->
+        <div id="sidebar-scroll">
+          <!-- Sidebar Content -->
+          <div class="sidebar-content">
+            <!-- Sidebar Navigation -->
+            <ul class="sidebar-nav">
+              <li>
+                <a href="./teachers.html">
                   <i class="gi gi-group sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">师资队伍建设</span>
                 </a>
-                </li>
-                <li>
-                  <a href="./talent.html">
+              </li>
+              <li>
+                <a href="./talent.html">
                   <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">人才培养</span>
                 </a>
-                </li>
-                <li>
-                  <a href="./science.html">
+              </li>
+              <li>
+                <a href="./science.html">
                   <i class="gi gi-lightbulb sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">科学研究与社会服务水平</span>
                 </a>
-                </li>
-                <li>
-                  <a href="./subject.html">
+              </li>
+              <li>
+                <a href="./subject.html">
                   <i class="fa fa-line-chart sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">学科影响力</span>
                 </a>
-                </li>
-                <li>
-                  <a href="international.html">
+              </li>
+              <li>
+                <a href="international.html">
                   <i class="fa fa-globe sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">国际合作与交流</span>
                 </a>
-                </li>
-                <li>
-                  <a href="amaterial.html" id="ma">
+              </li>
+              <li>
+                <a href="amaterial.html" id="ma">
                   <i class="hi hi-list-alt sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">材料审核</span>
                 </a>
-                </li>
-                <li>
-                  <a href="anotice.html" id="no">
+              </li>
+              <li>
+                <a href="anotice.html" id="no">
                   <i class="fa fa-bell sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">公告通知</span>
                 </a>
-                </li>
-                <li>
-                  <a href="users.html" id="us">
+              </li>
+              <li>
+                <a href="users.html" id="us">
                   <i class="fa fa-user sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">用户管理</span>
                 </a>
-                </li>
-              </ul>
-              <!-- END Sidebar Navigation -->
-            </div>
-            <!-- END Sidebar Content -->
+              </li>
+            </ul>
+            <!-- END Sidebar Navigation -->
           </div>
-          <!-- END Wrapper for scrolling functionality -->
-
-          <!-- Sidebar Extra Info -->
-          <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
-            <div class="text-center">
-              <small>Copyright &copy;
-                <a href="#" target="_blank">夜猫</a> 版权所有
-              </small>
-            </div>
-          </div>
-          <!-- END Sidebar Extra Info -->
+          <!-- END Sidebar Content -->
         </div>
-        <!-- END Main Sidebar -->
+        <!-- END Wrapper for scrolling functionality -->
 
-        <!-- Main Container -->
-        <div id="main-container">
-          <header class="navbar navbar-inverse navbar-fixed-top">
-            <!-- Left Header Navigation -->
-            <ul class="nav navbar-nav-custom">
-              <!-- Main Sidebar Toggle Button -->
-              <li>
-                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+        <!-- Sidebar Extra Info -->
+        <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+          <div class="text-center">
+            <small>Copyright &copy;
+              <a href="#" target="_blank">夜猫</a> 版权所有
+            </small>
+          </div>
+        </div>
+        <!-- END Sidebar Extra Info -->
+      </div>
+      <!-- END Main Sidebar -->
+
+      <!-- Main Container -->
+      <div id="main-container">
+        <header class="navbar navbar-inverse navbar-fixed-top">
+          <!-- Left Header Navigation -->
+          <ul class="nav navbar-nav-custom">
+            <!-- Main Sidebar Toggle Button -->
+            <li>
+              <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
                 <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
                 <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
               </a>
-              </li>
-              <!-- END Main Sidebar Toggle Button -->
+            </li>
+            <!-- END Main Sidebar Toggle Button -->
 
-              <!-- Header Link -->
-              <li class="hidden-xs animation-fadeInQuick">
-                <a href="">
+            <!-- Header Link -->
+            <li class="hidden-xs animation-fadeInQuick">
+              <a href="">
                 <strong>WELCOME</strong>
               </a>
-              </li>
-              <!-- END Header Link -->
-            </ul>
-            <!-- END Left Header Navigation -->
+            </li>
+            <!-- END Header Link -->
+          </ul>
+          <!-- END Left Header Navigation -->
 
-            <!-- Right Header Navigation -->
-            <ul class="nav navbar-nav-custom pull-right">
-              <!-- User Dropdown -->
-              <li class="dropdown">
-                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+          <!-- Right Header Navigation -->
+          <ul class="nav navbar-nav-custom pull-right">
+            <!-- User Dropdown -->
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
               </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li>
-                    <a href="login.html">
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <a href="#modal-pwd" data-toggle="modal">
+                    <i class="fa fa-pencil-square fa-fw pull-right"></i>
+                    修改密码
+                  </a>
+                </li>
+                <li>
+                  <a href="login.html">
                     <i class="fa fa-power-off fa-fw pull-right"></i>
                     注销
                   </a>
-                  </li>
-                </ul>
-              </li>
-              <!-- END User Dropdown -->
-            </ul>
-            <!-- END Right Header Navigation -->
-          </header>
-          <!-- END Header -->
-
-          <!-- Page content -->
-          <div id="page-content">
-            <!-- Blank Header -->
-            <div class="content-header">
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="header-section">
-                    <h1>欢迎使用！</h1>
+                </li>
+              </ul>
+            </li>
+            <!-- END User Dropdown -->
+          </ul>
+          <!-- END Right Header Navigation -->
+        </header>
+        <!-- END Header -->
+        <!-- 密码修改Modal -->
+        <div id="modal-pwd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">
+                  <strong>密码修改</strong>
+                </h3>
+              </div>
+              <div class="modal-body">
+                <form method="post" class="form-horizontal form-bordered">
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="pwd">旧密码</label>
+                    <div class="col-md-4">
+                      <input type="password" id="pwd" name="pwd" class="form-control" required="required" />
+                    </div>
                   </div>
-                </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="newpwd">新密码</label>
+                    <div class="col-md-4">
+                      <input type="password" id="newpwd" name="newpwd" class="form-control" required="required" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="repwd">确认密码</label>
+                    <div class="col-md-4">
+                      <input type="password" id="repwd" name="repwd" class="form-control" required="required" />
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-effect-ripple btn-primary" id="modifypwd" data-dismiss="modal">确定</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
               </div>
             </div>
-            <!-- END Blank Header -->
-
-            <!-- Get Started Block -->
-            <!-- Get Started Content -->
-            <!-- Classic and Stacked Chart -->
-            <div class="row">
-              <div class="col-sm-12">
-                <!-- Classic Chart Block -->
-                <div class="block full">
-                  <!-- Classic Chart Title -->
-                  <div class="block-title">
-                    <h2>学科建设进度</h2>
-                  </div>
-                  <!-- END Classic Chart Title -->
-
-                  <!-- Classic Chart Content -->
-                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
-                  <div id="chart0" style="height: 380px;"></div>
-                  <!-- END Classic Chart Content -->
-                </div>
-                <!-- END Classic Chart Block -->
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <!-- Classic Chart Block -->
-                <div class="block full">
-                  <!-- Classic Chart Title -->
-                  <div class="block-title">
-                    <h2>师资队伍建设</h2>
-                  </div>
-                  <!-- END Classic Chart Title -->
-
-                  <!-- Classic Chart Content -->
-                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
-                  <div id="chart1" style="height: 380px;"></div>
-                  <!-- END Classic Chart Content -->
-                </div>
-                <!-- END Classic Chart Block -->
-              </div>
-              <div class="col-sm-6">
-                <!-- Classic Chart Block -->
-                <div class="block full">
-                  <!-- Classic Chart Title -->
-                  <div class="block-title">
-                    <h2>人才培养</h2>
-                  </div>
-                  <!-- END Classic Chart Title -->
-
-                  <!-- Classic Chart Content -->
-                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
-                  <div id="chart2" style="height: 380px;"></div>
-                  <!-- END Classic Chart Content -->
-                </div>
-                <!-- END Classic Chart Block -->
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <!-- Classic Chart Block -->
-                <div class="block full">
-                  <!-- Classic Chart Title -->
-                  <div class="block-title">
-                    <h2>科学研究与社会服务</h2>
-                  </div>
-                  <!-- END Classic Chart Title -->
-
-                  <!-- Classic Chart Content -->
-                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
-                  <div id="chart3" style="height: 380px;"></div>
-                  <!-- END Classic Chart Content -->
-                </div>
-                <!-- END Classic Chart Block -->
-              </div>
-              <div class="col-sm-6">
-                <!-- Classic Chart Block -->
-                <div class="block full">
-                  <!-- Classic Chart Title -->
-                  <div class="block-title">
-                    <h2>学科影响力</h2>
-                  </div>
-                  <!-- END Classic Chart Title -->
-
-                  <!-- Classic Chart Content -->
-                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
-                  <div id="chart4" style="height: 380px;"></div>
-                  <!-- END Classic Chart Content -->
-                </div>
-                <!-- END Classic Chart Block -->
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6">
-                <!-- Classic Chart Block -->
-                <div class="block full">
-                  <!-- Classic Chart Title -->
-                  <div class="block-title">
-                    <h2>国际合作与交流</h2>
-                  </div>
-                  <!-- END Classic Chart Title -->
-
-                  <!-- Classic Chart Content -->
-                  <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
-                  <div id="chart5" style="height: 380px;"></div>
-                  <!-- END Classic Chart Content -->
-                </div>
-                <!-- END Classic Chart Block -->
-              </div>
-            </div>
-            <!-- END Classic and Stacked Chart -->
-            <!-- END Get Started Content -->
-
-            <!-- END Get Started Block -->
           </div>
-          <!-- END Page Content -->
         </div>
-        <!-- END Main Container -->
-      </div>
-      <!-- END Page Container -->
-    </div>
-    <!-- END Page Wrapper -->
+        <!-- END 密码修改 Modal -->
+        <!-- Page content -->
+        <div id="page-content">
+          <!-- Blank Header -->
+          <div class="content-header">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="header-section">
+                  <h1>欢迎使用！</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END Blank Header -->
 
-    <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
-    <script src="./js/vendor/jquery-2.2.4.min.js"></script>
-    <script src="./js/vendor/bootstrap.min.js"></script>
-    <script src="./js/plugins.js"></script>
-    <script src="./js/app.js"></script>
-    <script src="./js/echarts.min.js"></script>
-    <!-- 总进度 -->
-    <script>
-      function calculate(second) {
-        var sum = 0;
-        var k = 0;
-        $.ajax({
-          url: ip + '/scm/' + second,
-          type: 'GET',
-          cache: false,
-          async: false,
-          success: function (data) {
-            console.log(data);
-            $.each(data, function (i, item) {
-              var now = item.now ? item.now : 0;
-              var goal = item.goal ? item.goal : 0;
-              sum = sum + ((now / goal * 100) ? (now / goal * 100) : 0);
-              k++;
-            })
+          <!-- Get Started Block -->
+          <!-- Get Started Content -->
+          <!-- Classic and Stacked Chart -->
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>学科建设进度</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart0" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>师资队伍建设</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart1" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+            <div class="col-sm-6">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>人才培养</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart2" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>科学研究与社会服务</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart3" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+            <div class="col-sm-6">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>学科影响力</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart4" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <!-- Classic Chart Block -->
+              <div class="block full">
+                <!-- Classic Chart Title -->
+                <div class="block-title">
+                  <h2>国际合作与交流</h2>
+                </div>
+                <!-- END Classic Chart Title -->
+
+                <!-- Classic Chart Content -->
+                <!-- Flot Charts (initialized in js/pages/compCharts.js), for more examples you can check out http://www.flotcharts.org/ -->
+                <div id="chart5" style="height: 380px;"></div>
+                <!-- END Classic Chart Content -->
+              </div>
+              <!-- END Classic Chart Block -->
+            </div>
+          </div>
+          <!-- END Classic and Stacked Chart -->
+          <!-- END Get Started Content -->
+
+          <!-- END Get Started Block -->
+        </div>
+        <!-- END Page Content -->
+      </div>
+      <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+  </div>
+  <!-- END Page Wrapper -->
+
+  <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+  <script src="./js/vendor/jquery-2.2.4.min.js"></script>
+  <script src="./js/vendor/bootstrap.min.js"></script>
+  <script src="./js/plugins.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/echarts.min.js"></script>
+  <!-- 总进度 -->
+  <script>
+    function calculate(second) {
+      var sum = 0;
+      var k = 0;
+      $.ajax({
+        url: ip + '/scm/' + second,
+        type: 'GET',
+        cache: false,
+        async: false,
+        success: function (data) {
+          console.log(data);
+          $.each(data, function (i, item) {
+            var now = item.now ? item.now : 0;
+            var goal = item.goal ? item.goal : 0;
+            sum = sum + ((now / goal * 100) ? (now / goal * 100) : 0);
+            k++;
+          })
+        }
+      })
+      return sum / k;
+    }
+
+    var teachers = calculate("teachers");
+    var talent = calculate("talents");
+    var science = calculate("science");
+    var subject = calculate("subject");
+    var international = calculate("international");
+
+    var dom = document.getElementById("chart0");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
+
+    option = {
+      xAxis: {
+        type: 'category',
+        data: ['师资队伍建设', '人才培养', '科学研究与社会服务水平', '学科影响力', '国际合作与交流']
+      },
+      yAxis: {
+        type: 'value',
+        axisLabel: {
+          show: true,
+          interval: 'auto',
+          formatter: '{value} %'
+        },
+        show: true
+      },
+      series: [{
+        data: [teachers, talent, science, subject, international],
+        type: 'bar'
+      }]
+    };
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>
+  <!-- teachers -->
+  <script>
+    var target1 = 0, target2 = 0, target3 = 0, target4 = 0;
+    var k = 0;
+    $.ajax({
+      url: ip + '/scm/teachers',
+      type: 'GET',
+      cache: false,
+      async: false,
+      success: function (data) {
+        console.log(data);
+        $.each(data, function (i, item) {
+          var now = item.now ? item.now : 0;
+          var goal = item.goal ? item.goal : 0;
+          if (item.targetId == 1) {
+            target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 2) {
+            target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 3) {
+            target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 4) {
+            target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
+            k++;
           }
         })
-        return sum / k;
       }
+    })
 
-      var teachers = calculate("teachers");
-      var talent = calculate("talents");
-      var science = calculate("science");
-      var subject = calculate("subject");
-      var international = calculate("international");
+    target1 = parseInt(target1 / 3);
+    target2 = parseInt(target2 / 2);
+    target3 = parseInt(target3 / 1);
+    target4 = parseInt(target4 / k);
 
-      var dom = document.getElementById("chart0");
-      var myChart = echarts.init(dom, 'light');
-      var app = {};
-      option = null;
+    var dom = document.getElementById("chart1");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
 
-      option = {
-        xAxis: {
-          type: 'category',
-          data: ['师资队伍建设', '人才培养', '科学研究与社会服务水平', '学科影响力', '国际合作与交流']
-        },
-        yAxis: {
-          type: 'value',
-          axisLabel: {
-            show: true,
-            interval: 'auto',
-            formatter: '{value} %'
-          },
-          show: true
-        },
-        series: [{
-          data: [teachers, talent, science, subject, international],
-          type: 'bar'
-        }]
-      };
-
-      if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-      }
-    </script>
-    <!-- teachers -->
-    <script>
-      var target1 = 0, target2 = 0, target3 = 0, target4 = 0;
-      var k = 0;
-      $.ajax({
-        url: ip + '/scm/teachers',
-        type: 'GET',
-        cache: false,
-        async: false,
-        success: function (data) {
-          console.log(data);
-          $.each(data, function (i, item) {
-            var now = item.now ? item.now : 0;
-            var goal = item.goal ? item.goal : 0;
-            if (item.targetId == 1) {
-              target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 2) {
-              target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 3) {
-              target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 4) {
-              target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
-              k++;
-            }
-          })
+    option = {
+      title: {
+        text: '师资队伍建设进度',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
         }
-      })
-
-      target1 = parseInt(target1 / 3);
-      target2 = parseInt(target2 / 2);
-      target3 = parseInt(target3 / 1);
-      target4 = parseInt(target4 / k);
-
-      var dom = document.getElementById("chart1");
-      var myChart = echarts.init(dom, 'light');
-      var app = {};
-      option = null;
-
-      option = {
-        title: {
-          text: '师资队伍建设进度',
+      },
+      legend: {
+        data: []
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        axisLabel: {
+          show: true,
+          interval: 'auto',
+          formatter: '{value} %'
         },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        legend: {
-          data: []
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          axisLabel: {
-            show: true,
-            interval: 'auto',
-            formatter: '{value} %'
-          },
-          show: true
-        },
-        yAxis: {
-          type: 'category',
-          data: ['自设指标(%)', '团队(%)', '专任教师结构(%)', '专任教师人数)(%)',]
-        },
-        series: [
-          {
-            type: 'bar',
-            data: [target4, target3, target2, target1]
-          }
-        ]
-      };
-
-      if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-      }
-    </script>
-    <!-- talents -->
-    <script>
-      var target1 = 0, target2 = 0, target3 = 0, target4 = 0, target5 = 0;
-      var k = 0;
-      $.ajax({
-        url: ip + '/scm/talents',
-        type: 'GET',
-        cache: false,
-        async: false,
-        success: function (data) {
-          console.log(data);
-          $.each(data, function (i, item) {
-            var now = item.now ? item.now : 0;
-            var goal = item.goal ? item.goal : 0;
-            if (item.targetId == 5) {
-              target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 6) {
-              target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 7) {
-              target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 8) {
-              target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 9) {
-              target5 = target5 + ((now / goal * 100) ? (now / goal * 100) : 0);
-              k++;
-            }
-          })
+        show: true
+      },
+      yAxis: {
+        type: 'category',
+        data: ['自设指标(%)', '团队(%)', '专任教师结构(%)', '专任教师人数)(%)',]
+      },
+      series: [
+        {
+          type: 'bar',
+          data: [target4, target3, target2, target1]
         }
-      })
+      ]
+    };
 
-      target1 = parseInt(target1 / 2);
-      target2 = parseInt(target2 / 2);
-      target3 = parseInt(target3 / 2);
-      target4 = parseInt(target4 / 5);
-      target5 = parseInt(target5 / k);
-
-
-      var dom = document.getElementById("chart2");
-      var myChart = echarts.init(dom, 'light');
-      var app = {};
-      option = null;
-
-      option = {
-        title: {
-          text: '人才培养进度',
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>
+  <!-- talents -->
+  <script>
+    var target1 = 0, target2 = 0, target3 = 0, target4 = 0, target5 = 0;
+    var k = 0;
+    $.ajax({
+      url: ip + '/scm/talents',
+      type: 'GET',
+      cache: false,
+      async: false,
+      success: function (data) {
+        console.log(data);
+        $.each(data, function (i, item) {
+          var now = item.now ? item.now : 0;
+          var goal = item.goal ? item.goal : 0;
+          if (item.targetId == 5) {
+            target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
           }
-        },
-        legend: {
-          data: []
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          axisLabel: {
-            show: true,
-            interval: 'auto',
-            formatter: '{value} %'
-          },
-          show: true
-        },
-        yAxis: {
-          type: 'category',
-          data: ['自设指标(%)', '教学成果与奖励(%)', '研究生教育(%)', '本科生教育(%)', '教学平台(%)']
-        },
-        series: [
-          {
-            type: 'bar',
-            data: [target5, target4, target3, target2, target1]
+          if (item.targetId == 6) {
+            target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
           }
-        ]
-      };
-
-      if (option && typeof option === "object") {
-        myChart.setOption(option, true);
+          if (item.targetId == 7) {
+            target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 8) {
+            target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 9) {
+            target5 = target5 + ((now / goal * 100) ? (now / goal * 100) : 0);
+            k++;
+          }
+        })
       }
-    </script>
-    <!-- science -->
-    <script>
-      var target1 = 0, target2 = 0, target3 = 0, target4 = 0, target5 = 0, target6 = 0;
-      var k = 0;
-      $.ajax({
-        url: ip + '/scm/science',
-        type: 'GET',
-        cache: false,
-        async: false,
-        success: function (data) {
-          console.log(data);
-          $.each(data, function (i, item) {
-            var now = item.now ? item.now : 0;
-            var goal = item.goal ? item.goal : 0;
-            if (item.targetId == 10) {
-              target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 11) {
-              target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 12) {
-              target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 13) {
-              target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 14) {
-              target5 = target5 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 15) {
-              target6 = target6 + ((now / goal * 100) ? (now / goal * 100) : 0);
-              k++;
-            }
-          })
+    })
+
+    target1 = parseInt(target1 / 2);
+    target2 = parseInt(target2 / 2);
+    target3 = parseInt(target3 / 2);
+    target4 = parseInt(target4 / 5);
+    target5 = parseInt(target5 / k);
+
+
+    var dom = document.getElementById("chart2");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
+
+    option = {
+      title: {
+        text: '人才培养进度',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
         }
-      })
-
-      target1 = parseInt(target1 / 2);
-      target2 = parseInt(target2 / 5);
-      target3 = parseInt(target3 / 5);
-      target4 = parseInt(target4 / 3);
-      target5 = parseInt(target5 / 4);
-      target6 = parseInt(target6 / k);
-
-      var dom = document.getElementById("chart3");
-      var myChart = echarts.init(dom, 'light');
-      var app = {};
-      option = null;
-
-      option = {
-        title: {
-          text: '科学研究与社会服务进度',
+      },
+      legend: {
+        data: []
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        axisLabel: {
+          show: true,
+          interval: 'auto',
+          formatter: '{value} %'
         },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        legend: {
-          data: []
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          axisLabel: {
-            show: true,
-            interval: 'auto',
-            formatter: '{value} %'
-          },
-          show: true
-        },
-        yAxis: {
-          type: 'category',
-          data: ['自设指标(%)', '社会服务(%)', '成果奖励(%)', '科研成果(%)', '科研项目与经费(%)', '科研平台(%)']
-        },
-        series: [
-          {
-            type: 'bar',
-            data: [target6, target5, target4, target3, target2, target1]
-          }
-        ]
-      };
-
-      if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-      }
-    </script>
-    <!-- subject -->
-    <script>
-      var target1 = 0, target2 = 0, target3 = 0, target4 = 0, target5 = 0;
-      var k = 0;
-      $.ajax({
-        url: ip + '/scm/subject',
-        type: 'GET',
-        cache: false,
-        async: false,
-        success: function (data) {
-          console.log(data);
-          $.each(data, function (i, item) {
-            var now = item.now ? item.now : 0;
-            var goal = item.goal ? item.goal : 0;
-            if (item.targetId == 16) {
-              target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 17) {
-              target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 18) {
-              target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 19) {
-              target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 20) {
-              target5 = target5 + ((now / goal * 100) ? (now / goal * 100) : 0);
-              k++;
-            }
-          })
+        show: true
+      },
+      yAxis: {
+        type: 'category',
+        data: ['自设指标(%)', '教学成果与奖励(%)', '研究生教育(%)', '本科生教育(%)', '教学平台(%)']
+      },
+      series: [
+        {
+          type: 'bar',
+          data: [target5, target4, target3, target2, target1]
         }
-      })
+      ]
+    };
 
-      target1 = parseInt(target1 / 2);
-      target2 = parseInt(target2 / 2);
-      target3 = parseInt(target3 / 2);
-      target4 = parseInt(target4 / 1);
-      target5 = parseInt(target5 / k);
-
-
-      var dom = document.getElementById("chart4");
-      var myChart = echarts.init(dom, 'light');
-      var app = {};
-      option = null;
-
-      option = {
-        title: {
-          text: '学科影响力进度',
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>
+  <!-- science -->
+  <script>
+    var target1 = 0, target2 = 0, target3 = 0, target4 = 0, target5 = 0, target6 = 0;
+    var k = 0;
+    $.ajax({
+      url: ip + '/scm/science',
+      type: 'GET',
+      cache: false,
+      async: false,
+      success: function (data) {
+        console.log(data);
+        $.each(data, function (i, item) {
+          var now = item.now ? item.now : 0;
+          var goal = item.goal ? item.goal : 0;
+          if (item.targetId == 10) {
+            target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
           }
-        },
-        legend: {
-          data: []
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          axisLabel: {
-            show: true,
-            interval: 'auto',
-            formatter: '{value} %'
-          },
-          show: true
-        },
-        yAxis: {
-          type: 'category',
-          data: ['自设指标(%)', '学术兼职(%)', '专业建设(%)', '学位点建设(%)', '学科排名(%)',]
-        },
-        series: [
-          {
-            type: 'bar',
-            data: [target5, target4, target3, target2, target1]
+          if (item.targetId == 11) {
+            target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
           }
-        ]
-      };
-
-      if (option && typeof option === "object") {
-        myChart.setOption(option, true);
+          if (item.targetId == 12) {
+            target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 13) {
+            target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 14) {
+            target5 = target5 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 15) {
+            target6 = target6 + ((now / goal * 100) ? (now / goal * 100) : 0);
+            k++;
+          }
+        })
       }
-    </script>
-    <!-- international -->
-    <script>
-      var target1 = 0, target2 = 0, target3 = 0, target4 = 0;
-      var k = 0;
-      $.ajax({
-        url: ip + '/scm/international',
-        type: 'GET',
-        cache: false,
-        async: false,
-        success: function (data) {
-          console.log(data);
-          $.each(data, function (i, item) {
-            var now = item.now ? item.now : 0;
-            var goal = item.goal ? item.goal : 0;
-            if (item.targetId == 21) {
-              target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 22) {
-              target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 23) {
-              target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
-            }
-            if (item.targetId == 24) {
-              target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
-              k++;
-            }
-          })
+    })
+
+    target1 = parseInt(target1 / 2);
+    target2 = parseInt(target2 / 5);
+    target3 = parseInt(target3 / 5);
+    target4 = parseInt(target4 / 3);
+    target5 = parseInt(target5 / 4);
+    target6 = parseInt(target6 / k);
+
+    var dom = document.getElementById("chart3");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
+
+    option = {
+      title: {
+        text: '科学研究与社会服务进度',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
         }
-      })
-
-      target1 = parseInt(target1 / 2);
-      target2 = parseInt(target2 / 2);
-      target3 = parseInt(target3 / 3);
-      target4 = parseInt(target4 / k);
-
-
-      var dom = document.getElementById("chart5");
-      var myChart = echarts.init(dom, 'light');
-      var app = {};
-      option = null;
-
-      option = {
-        title: {
-          text: '国际合作与交流进度',
+      },
+      legend: {
+        data: []
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        axisLabel: {
+          show: true,
+          interval: 'auto',
+          formatter: '{value} %'
         },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
+        show: true
+      },
+      yAxis: {
+        type: 'category',
+        data: ['自设指标(%)', '社会服务(%)', '成果奖励(%)', '科研成果(%)', '科研项目与经费(%)', '科研平台(%)']
+      },
+      series: [
+        {
+          type: 'bar',
+          data: [target6, target5, target4, target3, target2, target1]
+        }
+      ]
+    };
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>
+  <!-- subject -->
+  <script>
+    var target1 = 0, target2 = 0, target3 = 0, target4 = 0, target5 = 0;
+    var k = 0;
+    $.ajax({
+      url: ip + '/scm/subject',
+      type: 'GET',
+      cache: false,
+      async: false,
+      success: function (data) {
+        console.log(data);
+        $.each(data, function (i, item) {
+          var now = item.now ? item.now : 0;
+          var goal = item.goal ? item.goal : 0;
+          if (item.targetId == 16) {
+            target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
           }
-        },
-        legend: {
-          data: []
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          axisLabel: {
-            show: true,
-            interval: 'auto',
-            formatter: '{value} %'
-          },
-          show: true
-        },
-        yAxis: {
-          type: 'category',
-          data: ['自设指标(%)', '国际交流(%)', '人才培养国际化(%)', '师资国际化(%)']
-        },
-        series: [
-          {
-            type: 'bar',
-            data: [target5, target4, target3, target2, target1]
+          if (item.targetId == 17) {
+            target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
           }
-        ]
-      };
-
-      if (option && typeof option === "object") {
-        myChart.setOption(option, true);
+          if (item.targetId == 18) {
+            target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 19) {
+            target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 20) {
+            target5 = target5 + ((now / goal * 100) ? (now / goal * 100) : 0);
+            k++;
+          }
+        })
       }
-    </script>
-    <script>
+    })
+
+    target1 = parseInt(target1 / 2);
+    target2 = parseInt(target2 / 2);
+    target3 = parseInt(target3 / 2);
+    target4 = parseInt(target4 / 1);
+    target5 = parseInt(target5 / k);
+
+
+    var dom = document.getElementById("chart4");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
+
+    option = {
+      title: {
+        text: '学科影响力进度',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: []
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        axisLabel: {
+          show: true,
+          interval: 'auto',
+          formatter: '{value} %'
+        },
+        show: true
+      },
+      yAxis: {
+        type: 'category',
+        data: ['自设指标(%)', '学术兼职(%)', '专业建设(%)', '学位点建设(%)', '学科排名(%)',]
+      },
+      series: [
+        {
+          type: 'bar',
+          data: [target5, target4, target3, target2, target1]
+        }
+      ]
+    };
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>
+  <!-- international -->
+  <script>
+    var target1 = 0, target2 = 0, target3 = 0, target4 = 0;
+    var k = 0;
+    $.ajax({
+      url: ip + '/scm/international',
+      type: 'GET',
+      cache: false,
+      async: false,
+      success: function (data) {
+        console.log(data);
+        $.each(data, function (i, item) {
+          var now = item.now ? item.now : 0;
+          var goal = item.goal ? item.goal : 0;
+          if (item.targetId == 21) {
+            target1 = target1 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 22) {
+            target2 = target2 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 23) {
+            target3 = target3 + ((now / goal * 100) ? (now / goal * 100) : 0);
+          }
+          if (item.targetId == 24) {
+            target4 = target4 + ((now / goal * 100) ? (now / goal * 100) : 0);
+            k++;
+          }
+        })
+      }
+    })
+
+    target1 = parseInt(target1 / 2);
+    target2 = parseInt(target2 / 2);
+    target3 = parseInt(target3 / 3);
+    target4 = parseInt(target4 / k);
+
+
+    var dom = document.getElementById("chart5");
+    var myChart = echarts.init(dom, 'light');
+    var app = {};
+    option = null;
+
+    option = {
+      title: {
+        text: '国际合作与交流进度',
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow'
+        }
+      },
+      legend: {
+        data: []
+      },
+      grid: {
+        left: '3%',
+        right: '4%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'value',
+        axisLabel: {
+          show: true,
+          interval: 'auto',
+          formatter: '{value} %'
+        },
+        show: true
+      },
+      yAxis: {
+        type: 'category',
+        data: ['自设指标(%)', '国际交流(%)', '人才培养国际化(%)', '师资国际化(%)']
+      },
+      series: [
+        {
+          type: 'bar',
+          data: [target5, target4, target3, target2, target1]
+        }
+      ]
+    };
+
+    if (option && typeof option === "object") {
+      myChart.setOption(option, true);
+    }
+  </script>
+  <!-- <script>
       alert(sessionStorage.name)
-    </script>
-  </body>
+    </script> -->
+</body>
 
 </html>

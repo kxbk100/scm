@@ -341,6 +341,8 @@ function tableshow() {
     success: function (data) {
       console.log(data);
       $.each(data, function (i, item) {
+        var recordId = item.recordId;
+        var type = item.type;
         var name = item.name;
         var date = item.date;
         var status = item.status;
@@ -360,19 +362,13 @@ function tableshow() {
                   <a href="javascript:void(0)" class="label label-success" id="status">已通过</a>
                 </td>
                 <td class="text-center">
-                      <span name="number">
-                        <a href="#modal-reset" data-toggle="modal" title="查看" id="`+ name +`" class="btn btn-effect-ripple btn-xs btn-info">
+                        <a href="#modal_check" data-toggle="modal" title="查看" id="check" class="btn btn-effect-ripple btn-xs btn-info" onclick="check(`+ type +`,`+ recordId +`)">
                         <i class="fa fa-eye"></i>
                         </a>
-                      </span>
                 </td>  
               </tr>                            
               `
         $("#table").append(table);
-        // if(status==1){
-        //   $("$(#status)").addClass("label-success");
-        //   $("$(#status)").text("");
-        // }
       })
 
     },
@@ -391,6 +387,8 @@ function adminshow() {
     success: function (data) {
       console.log(data);
       $.each(data, function (i, item) {
+        var recordId = item.recordId;
+        var type = item.type;
         var realname = item.realName;
         var name = item.name;
         var date = item.date;
@@ -415,7 +413,9 @@ function adminshow() {
                   <a href="javascript:void(0)" class="label label-success" id="status">已通过</a>
                 </td>
                 <td class="text-center">
-                  <a href="#modal" class="btn btn-effect-ripple btn-primary" data-toggle="modal">查看</a>
+                <a href="#modal_check" data-toggle="modal" title="查看" id="check" class="btn btn-effect-ripple btn-xs btn-info" onclick="check(`+ type +`,`+ recordId +`)">
+                <i class="fa fa-eye"></i>
+                </a>
                 </td>  
               </tr>                            
               `
