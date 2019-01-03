@@ -165,46 +165,27 @@
                   <h1>材料审核</h1>
                 </div>
               </div>
-              <!-- Regular Modal -->
-              <div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3 class="modal-title">
-                        <strong>材料详情</strong>
-                      </h3>
-                    </div>
-                    <div class="modal-body">
-                      <form method="post" class="form-horizontal form-bordered">
-
-                        <div class="form-group form-inline">
-                          <label class="col-md-3 control-label" for="example-text-input">具体指标:</label>
-                          <div class="col-md-4 material-admin offset-col-md-2">
-                            <span>专任教师人数（人）</span>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-md-3 control-label" for="example-text-input">现状值:</label>
-                          <div class="col-md-4 material-admin">
-                            <span>24</span>
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="col-md-3 control-label" for="example-file-input">佐证材料:</label>
-                          <div class="col-md-4">
-                            <button type="button" class="btn btn-effect-ripple btn-primary">下载材料</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                  </div>
-                </div>
+              <!-- 详情查看 Modal -->
+        <div id="modal_check" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">
+                  <strong>材料详情</strong>
+                </h3>
               </div>
-              <!-- END Regular Modal -->
+              <div class="modal-body">
+                <form class="form-horizontal form-bordered" id="checkform">
+                </form>
+              </div>
+              <div class="modal-footer" id="footer">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END 详情查看 Modal -->
               <!-- 密码修改Modal -->
               <div id="modal-pwd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog ">
@@ -245,48 +226,6 @@
                 </div>
               </div>
               <!-- END 密码修改 Modal -->
-              <!-- Regular Modal -->
-              <div id="modal1" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3 class="modal-title">
-                        <strong>材料详情</strong>
-                      </h3>
-                    </div>
-                    <div class="modal-body">
-                      <form method="post" class="form-horizontal form-bordered">
-
-                        <div class="form-group form-inline">
-                          <label class="col-md-3 control-label" for="example-text-input">具体指标:</label>
-                          <div class="col-md-4 material-admin offset-col-md-2">
-                            <span>国家级人才（人）</span>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label class="col-md-3 control-label" for="example-text-input">现状值:</label>
-                          <div class="col-md-4 material-admin">
-                            <span>2</span>
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                          <label class="col-md-3 control-label" for="example-file-input">佐证材料:</label>
-                          <div class="col-md-4">
-                            <button type="button" class="btn btn-effect-ripple btn-primary">下载材料</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-effect-ripple btn-primary">接受</button>
-                      <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">拒绝</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- END Regular Modal -->
             </div>
           </div>
           <!-- END Blank Header -->
@@ -335,5 +274,200 @@
 </body>
 <script>
   adminshow();
+  // 查看记录详细信息
+  function check(type,recordId){
+      $.ajax({
+        url: ip + '/scm/material/specific/show/' + type + '/' + recordId,
+        type: 'GET',
+        cache: false,
+
+        success: function (data) {
+          // console.log(data.pointModel.content)
+            var footer = `
+            <button type="button" class="btn btn-effect-ripple btn-primary" data-dismiss="modal" onclick="handle(` + recordId + `,` + type + `,1)">接受</button>
+                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal" onclick="handle(` + recordId + `,` + type + `,-1)">拒绝</button>
+            `
+            if(type == 0){
+              var form = `
+              <div class="form-group form-inline">
+                    <label class="col-md-3 control-label" for="">`+ data.pointModel.content +`</label>
+                    <div class="col-md-4 material-admin offset-col-md-2">
+                      <span>`+ data.value +`</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">佐证材料:</label>
+                    <div class="col-md-4">
+                      <a href="` + data.src + `" class="btn btn-effect-ripple btn-primary">下载材料</a>
+                    </div>
+                  </div>
+            `
+            $("#checkform").html("");
+            $("#checkform").append(form);
+            $("#footer").html("");
+            $("#footer").append(footer);
+            }
+            else if(type == 1){
+              var form = `
+              <div class="form-group">
+                    <label class="col-md-3 control-label" for="">工号</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.username + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">姓名</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.name + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">出生日期</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.birthday + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">学历</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.edu + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">职称</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.title + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">人才等级</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.rank + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">是否在重要学术机构担任重要职务</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.isImportant + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">佐证材料:</label>
+                    <div class="col-md-4">
+                      <a href="` + data.src + `" class="btn btn-effect-ripple btn-primary">下载材料</a>
+                    </div>
+                  </div>
+              `
+              $("#checkform").html("");
+              $("#checkform").append(form);
+              $("#footer").html("");
+              $("#footer").append(footer);
+            }
+            else if(type == 2){
+              var form = `
+              <div class="form-group">
+                    <label class="col-md-3 control-label" for="">类型</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.type + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">名称</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.name + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">负责人</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.leader + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">等级</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.rank + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">是否重点、重大项目或一等奖</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.isImportant + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">佐证材料:</label>
+                    <div class="col-md-4">
+                      <a href="` + data.src + `" class="btn btn-effect-ripple btn-primary">下载材料</a>
+                    </div>
+                  </div>
+              `
+              $("#checkform").html("");
+              $("#checkform").append(form);
+              $("#footer").html("");
+              $("#footer").append(footer);
+            }
+            else if(type == 3){
+              var form = `
+              <div class="form-group">
+                    <label class="col-md-3 control-label" for="">论文名</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.title + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">作者</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.member + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">第一作者类型</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.firstType + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">论文类型</label>
+                    <div class="col-md-4 material-admin">
+                      <span>` + data.paperType + `</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="">佐证材料:</label>
+                    <div class="col-md-4">
+                      <a href="` + data.src + `" class="btn btn-effect-ripple btn-primary">下载材料</a>
+                    </div>
+                  </div>
+              `
+              $("#checkform").html("");
+              $("#checkform").append(form);
+              $("#footer").html("");
+              $("#footer").append(footer);
+            }
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+    }
+    function handle(recordId,type,status){
+      $.ajax({
+        url: ip + '/scm/material/admin/check?recordId=' + recordId + '&type=' + type + '&status=' + status,
+        type: 'GET',
+        cache: false,
+        success: function (data) {
+          console.log(data)
+          if (data == 1) {
+            alert("操作成功");
+          } else if (data == 0) {
+            alert("操作失败")
+          }
+        },
+        error: function (data) {
+          console.log(data)
+        }
+      });
+    }
 </script>
 </html>
