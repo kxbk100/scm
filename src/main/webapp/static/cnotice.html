@@ -165,43 +165,13 @@
 
             <!-- Notice Center Content -->
             <div class="block overflow-hidden">
-              <!-- Message List -->
-              <div id="message-list">
-                <!-- Title -->
-                <div class="block-title clearfix">
-                  <div class="block-options pull-right">
-                    <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default">
-                      <i class="fa fa-arrow-left"></i> 上一页</a>
-                    <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default">下一页
-                    <i class="fa fa-arrow-right"></i>
-                  </a>
-                  </div>
-                  <div class="block-options pull-left">
-                    <h3>公告列表</h3>
-                  </div>
-                </div>
-                <!-- END Title -->
-
-                <!-- Messages -->
-                <div class="block-content-full">
-                  <table class="table table-borderless table-striped table-vcenter remove-margin notice">
-                    <tbody id="noticelist">
-                      <!-- Use the first row as a prototype for your column widths -->
-
-                    </tbody>
-                  </table>
-                </div>
-                <!-- END Messages -->
-              </div>
-              <!-- END Message List -->
-
               <!-- Message View -->
-              <div id="message-view" class="block-section display-none">
+              <div id="message-view" class="block-section">
                 <!-- Title -->
                 <div class="block-title clearfix">
 
                   <div class="block-options pull-left">
-                    <a href="javascript:void(0)" class="btn btn-effect-ripple btn-default" id="message-view-back">
+                    <a href="javascript:history.back()" class="btn btn-effect-ripple btn-default" id="message-view-back">
                       <i class="fa fa-chevron-left"></i> 返回列表</a>
                   </div>
                 </div>
@@ -209,64 +179,22 @@
 
                 <!-- Header -->
                 <h3>
-                  <strong>关于学院招聘辅导员（劳务派遣）的通告 </strong><br>
+                  <strong id="title">关于学院招聘辅导员（劳务派遣）的通告 </strong><br>
                   <small>
-                    <em>2018-06-22</em>
+                    <em id="date">2018-06-22</em>
                   </small>
                 </h3>
                 <p>
-                  <a href="javascript:void(1)">
-                    <strong>管理员</strong>
+                  <a>
+                    <strong id="author">管理员</strong>
                   </a>
                 </p>
                 <!-- END Header -->
 
                 <!-- Message Body -->
                 <hr>
-                <p>因工作需要，经学校人事处批准，现向校内外公开招聘辅导员（劳务派遣）1名，具体内容如下：</p>
-
-                <p>一、招聘条件：</p>
-
-                <p>1. 中共党员（含中共预备党员）；</p>
-
-                <p>2. 全日制普通高校毕业，并要求第一学历为全日制本科，需在2018年6月30日前取得学历、学位证书，或国外学历、学位认证书；</p>
-
-                <p>3. 曾担任过校、院（系）主要学生干部或班长或党、团支部书记职务等；</p>
-
-                <p>4. 工作期间能按要求入住学生公寓；</p>
-
-                <p>5. 30周岁及以下（1988年6月30日后出生）。</p>
-                <p>二、待遇：面议。</p>
-
-                <p>三、岗位职责及工作任务与目标: </p>
-
-                <p>1.协助做好团委、学生会、社团有关工作。</p>
-
-                <p>2.学生党支部书记。</p>
-
-                <p>3.校友工作。</p>
-
-                <p>4.文明寝室建设。</p>
-
-                <p>心理健康教育。</p>
-
-                <p>6.有关年级学生教育管理。</p>
-
-                <p>7.完成学院交办的其他任务。</p>
-
-                <p>四、报名时间及所需材料：</p>
-
-                <p>报名时间：2018年6月19日—2018年6月22日</p>
-
-                <p>提供下列材料：</p>
-
-                <p>1.个人简历；</p>
-
-                <p>2.相关证明材料（学历、学位、职称、获奖和成果等证书）复印件。</p>
-
-                <p>五、面试时间另行通知。</p>
-
-                <p>六、联系人：唐步明，联系电话：85070303。电子邮箱：tangbuming@zust.edu.cn。</p>
+                <div id="content">
+                </div>
                 <hr>
                 <!-- END Message Body -->
 
@@ -294,7 +222,12 @@
     <script src="./js/app.js"></script>
     <script src="./js/pages/appEmail.js"></script>
     <script>
-      $(function () { AppEmail.init(); });
+
+      function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  // 匹配目标参数
+        if (r != null) return unescape(r[2]); return null; // 返回参数值
+      }
 
       $.ajax({
         url: ip + '/scm/notices/show',
@@ -302,28 +235,16 @@
         cache: false,
         async: false,
         success: function (data) {
+          var id = getUrlParam('id');
           console.log(data);
+          console.log(id);
           $.each(data, function (i, item) {
-            var table = `
-                      <tr>
-                        <td>
-                          <h4>
-                            <span id="add">
-                              <a href="cnotice.html?id=` + item.id + `" class="text-dark">
-                                <strong>` + item.title + `</strong>
-                              </a>
-                            </span>
-                          </h4>
-                          <span class="text-muted text_overflow">` + item.content + `</span>
-                        </td>
-                        <td class="hidden-xs text-center" style="width: 80px;">` + item.author + `</td>
-                        <td class="hidden-xs text-right text-muted" style="width: 120px;">
-                          <em>` + item.date.substr(0,11) + `</em>
-                        </td>
-                      </tr>              
-                  `
-
-            $("#noticelist").append(table);
+            if(item.id == id) {
+              $("#title").html(item.title);
+              $("#date").html(item.date);
+              $("#author").html(item.author);
+              $("#content").html(item.content);
+            }
           })
 
         },
