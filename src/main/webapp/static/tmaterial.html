@@ -1,320 +1,332 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zh-cn">
 
-<head>
-  <meta charset="utf-8">
-  <title>一流学科建设监控系统</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/plugins.css">
-  <link rel="stylesheet" href="./css/main.css">
-  <link rel="stylesheet" href="./css/themes.css">
-  <script src="./js/vendor/modernizr-3.3.1.min.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <title>一流学科建设监控系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/plugins.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/themes.css">
+    <script src="./js/vendor/modernizr-3.3.1.min.js"></script>
+  </head>
 
-<body>
-  <div id="page-wrapper" class="page-loading">
-    <div class="preloader">
-      <div class="inner">
-        <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
-        <h3 class="text-primary visible-lt-ie10">
-          <strong>Loading..</strong>
-        </h3>
+  <body>
+    <div id="page-wrapper" class="page-loading">
+      <div class="preloader">
+        <div class="inner">
+          <div class="preloader-spinner themed-background hidden-lt-ie10"></div>
+          <h3 class="text-primary visible-lt-ie10">
+            <strong>Loading..</strong>
+          </h3>
+        </div>
       </div>
-    </div>
 
-    <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
-      <!-- Main Sidebar -->
-      <div id="sidebar">
-        <!-- Sidebar Brand -->
-        <div id="sidebar-brand" class="themed-background">
-          <a href="index.html" class="sidebar-title">
+      <div id="page-container" class="header-fixed-top sidebar-visible-lg-full">
+        <!-- Main Sidebar -->
+        <div id="sidebar">
+          <!-- Sidebar Brand -->
+          <div id="sidebar-brand" class="themed-background">
+            <a href="index.html" class="sidebar-title">
             <i class="fa fa-cube"></i>
             <span class="sidebar-nav-mini-hide">
               <strong>学科建设监控系统</strong>
             </span>
           </a>
-        </div>
-        <!-- END Sidebar Brand -->
+          </div>
+          <!-- END Sidebar Brand -->
 
-        <!-- Wrapper for scrolling functionality -->
-        <div id="sidebar-scroll">
-          <!-- Sidebar Content -->
-          <div class="sidebar-content">
-            <!-- Sidebar Navigation -->
-            <ul class="sidebar-nav">
-              <li>
-                <a href="teachers.html">
+          <!-- Wrapper for scrolling functionality -->
+          <div id="sidebar-scroll">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+              <!-- Sidebar Navigation -->
+              <ul class="sidebar-nav">
+                <li>
+                  <a href="teachers.html">
                   <i class="gi gi-group sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">师资队伍建设</span>
                 </a>
-              </li>
-              <li>
-                <a href="talent.html">
+                </li>
+                <li>
+                  <a href="talent.html">
                   <i class="fa fa-graduation-cap sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">人才培养</span>
                 </a>
-              </li>
-              <li>
-                <a href="science.html">
+                </li>
+                <li>
+                  <a href="science.html">
                   <i class="gi gi-lightbulb sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">科学研究与社会服务水平</span>
                 </a>
-              </li>
-              <li>
-                <a href="subject.html">
+                </li>
+                <li>
+                  <a href="subject.html">
                   <i class="fa fa-line-chart sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">学科影响力</span>
                 </a>
-              </li>
-              <li>
-                <a href="international.html">
+                </li>
+                <li>
+                  <a href="international.html">
                   <i class="fa fa-globe sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">国际合作与交流</span>
                 </a>
-              </li>
-              <li>
-                <a href="amaterial.html" id="ma" class="active">
+                </li>
+                <li>
+                  <a href="amaterial.html" id="ma" class="active">
                   <i class="hi hi-list-alt sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">材料提交</span>
                 </a>
-              </li>
-              <li>
-                <a href="anotice.html" id="no">
+                </li>
+                <li>
+                  <a href="anotice.html" id="no">
                   <i class="fa fa-bell sidebar-nav-icon"></i>
                   <span class="sidebar-nav-mini-hide">公告通知</span>
                 </a>
-              </li>
-            </ul>
-            <!-- END Sidebar Navigation -->
-          </div>
-          <!-- END Sidebar Content -->
-        </div>
-        <!-- END Wrapper for scrolling functionality -->
-
-        <!-- Sidebar Extra Info -->
-        <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
-          <div class="text-center">
-            <small>Copyright &copy;
-              <a href="#" target="_blank">夜猫</a> 版权所有
-            </small>
-          </div>
-        </div>
-        <!-- END Sidebar Extra Info -->
-      </div>
-      <!-- END Main Sidebar -->
-
-      <!-- Main Container -->
-      <div id="main-container">
-        <header class="navbar navbar-inverse navbar-fixed-top">
-          <!-- Left Header Navigation -->
-          <ul class="nav navbar-nav-custom">
-            <!-- Main Sidebar Toggle Button -->
-            <li>
-              <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
-                <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
-                <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
-              </a>
-            </li>
-            <!-- END Main Sidebar Toggle Button -->
-
-          </ul>
-          <!-- END Left Header Navigation -->
-
-          <!-- Right Header Navigation -->
-          <ul class="nav navbar-nav-custom pull-right">
-            <!-- User Dropdown -->
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
-              </a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li>
-                  <a href="#modal-pwd" data-toggle="modal">
-                    <i class="fa fa-pencil-square fa-fw pull-right"></i>
-                    修改密码
-                  </a>
-                </li>
-                <li>
-                  <a href="login.html">
-                    <i class="fa fa-power-off fa-fw pull-right"></i>
-                    注销
-                  </a>
                 </li>
               </ul>
-            </li>
-            <!-- END User Dropdown -->
-          </ul>
-          <!-- END Right Header Navigation -->
-        </header>
-        <!-- END Header -->
-        <!-- 密码修改Modal -->
-        <div id="modal-pwd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog ">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title">
-                  <strong>密码修改</strong>
-                </h3>
-              </div>
-              <div class="modal-body">
-                <form method="post" class="form-horizontal form-bordered">
-                  <div class="form-group">
-                    <label class="col-md-3 control-label" for="pwd">旧密码</label>
-                    <div class="col-md-4">
-                      <input type="password" id="pwd" name="pwd" class="form-control" required="required" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label" for="newpwd">新密码</label>
-                    <div class="col-md-4">
-                      <input type="password" id="newpwd" name="newpwd" class="form-control" required="required" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label" for="repwd">确认密码</label>
-                    <div class="col-md-4">
-                      <input type="password" id="repwd" name="repwd" class="form-control" required="required" />
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-effect-ripple btn-primary" id="modifypwd" data-dismiss="modal">确定</button>
-                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
-              </div>
+              <!-- END Sidebar Navigation -->
             </div>
+            <!-- END Sidebar Content -->
           </div>
-        </div>
-        <!-- END 密码修改 Modal -->
-        <!-- 详情查看 Modal -->
-        <div id="modal_check" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h3 class="modal-title">
-                  <strong>材料详情</strong>
-                </h3>
-              </div>
-              <div class="modal-body">
-                <form class="form-horizontal form-bordered" id="checkform">
+          <!-- END Wrapper for scrolling functionality -->
 
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
-              </div>
+          <!-- Sidebar Extra Info -->
+          <div id="sidebar-extra-info" class="sidebar-content sidebar-nav-mini-hide">
+            <div class="text-center">
+              <small>Copyright &copy;
+                <a href="#" target="_blank">夜猫</a> 版权所有
+              </small>
             </div>
           </div>
+          <!-- END Sidebar Extra Info -->
         </div>
-        <!-- END 详情查看 Modal -->
-        <!-- Page content -->
-        <div id="page-content">
-          <!-- Blank Header -->
-          <div class="content-header">
-            <div class="row">
-              <div class="col-xs-6">
-                <div class="header-section">
-                  <h1>师资队伍建设</h1>
+        <!-- END Main Sidebar -->
+
+        <!-- Main Container -->
+        <div id="main-container">
+          <header class="navbar navbar-inverse navbar-fixed-top">
+            <!-- Left Header Navigation -->
+            <ul class="nav navbar-nav-custom">
+              <!-- Main Sidebar Toggle Button -->
+              <li>
+                <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
+                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                </a>
+              </li>
+              <!-- END Main Sidebar Toggle Button -->
+
+              <!-- Header Link -->
+              <li class="hidden-xs animation-fadeInQuick">
+                <a href="">
+                  <strong>WELCOME</strong>
+                </a>
+              </li>
+              <!-- END Header Link -->
+            </ul>
+            <!-- END Left Header Navigation -->
+
+            <!-- Right Header Navigation -->
+            <ul class="nav navbar-nav-custom pull-right">
+              <li class="hidden-xs animation-fadeInQuick">
+                <a href="">
+                      <strong id="realname"></strong>
+                    </a>
+              </li>
+              <!-- User Dropdown -->
+              <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li>
+                    <a href="#modal-pwd" data-toggle="modal">
+                      <i class="fa fa-pencil-square fa-fw pull-right"></i>
+                      修改密码
+                    </a>
+                  </li>
+                  <li>
+                    <a href="login.html">
+                      <i class="fa fa-power-off fa-fw pull-right"></i>
+                      注销
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- END User Dropdown -->
+            </ul>
+            <!-- END Right Header Navigation -->
+          </header>
+          <!-- END Header -->
+          <!-- 密码修改Modal -->
+          <div id="modal-pwd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title">
+                    <strong>密码修改</strong>
+                  </h3>
+                </div>
+                <div class="modal-body">
+                  <form method="post" class="form-horizontal form-bordered">
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="pwd">旧密码</label>
+                      <div class="col-md-4">
+                        <input type="password" id="pwd" name="pwd" class="form-control" required="required" />
+                    </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-3 control-label" for="newpwd">新密码</label>
+                        <div class="col-md-4">
+                          <input type="password" id="newpwd" name="newpwd" class="form-control" required="required" />
+                    </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="repwd">确认密码</label>
+                          <div class="col-md-4">
+                            <input type="password" id="repwd" name="repwd" class="form-control" required="required" />
+                    </div>
+                          </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-effect-ripple btn-primary" id="modifypwd" data-dismiss="modal">确定</button>
+                  <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
                 </div>
               </div>
-              <a href="#modal-large" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">材料提交</a>
-              <!-- 材料提交 Modal -->
-              <div id="modal-large" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h3 class="modal-title">
-                        <strong>材料提交</strong>
-                      </h3>
-                    </div>
-                    <div class="modal-body">
-                      <form method="post" class="form-horizontal form-bordered" enctype="multipart/form-data" id="material">
-                        <div class="form-group form-inline">
-                          <label class="col-md-3 control-label" for="">指标</label>
-                          <div class="col-md-4">
-                            <select name="category" class="form-control" id="category">
+            </div>
+          </div>
+          <!-- END 密码修改 Modal -->
+          <!-- 详情查看 Modal -->
+          <div id="modal_check" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title">
+                    <strong>材料详情</strong>
+                  </h3>
+                </div>
+                <div class="modal-body">
+                  <form class="form-horizontal form-bordered" id="checkform">
+
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END 详情查看 Modal -->
+          <!-- Page content -->
+          <div id="page-content">
+            <!-- Blank Header -->
+            <div class="content-header">
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="header-section">
+                    <h1>师资队伍建设</h1>
+                  </div>
+                </div>
+                <a href="#modal-large" class="btn btn-effect-ripple btn-primary btn-title" data-toggle="modal">材料提交</a>
+                <!-- 材料提交 Modal -->
+                <div id="modal-large" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title">
+                          <strong>材料提交</strong>
+                        </h3>
+                      </div>
+                      <div class="modal-body">
+                        <form method="post" class="form-horizontal form-bordered" enctype="multipart/form-data" id="material">
+                          <div class="form-group form-inline">
+                            <label class="col-md-3 control-label" for="">指标</label>
+                            <div class="col-md-4">
+                              <select name="category" class="form-control" id="category">
                               <option value="-1">请选择指标类型</option>
                               <option value="3">论文</option>
                               <option value="2">团队/项目/专利/专著/教材/成果/竞赛/奖项</option>
                               <option value="1">教师</option>
                               <option value="0">其他</option>
                             </select>
-                            <span id="select"></span>
+                              <span id="select"></span>
+
+                            </div>
+                          </div>
+                          <div id="cententform">
 
                           </div>
-                        </div>
-                        <div id="cententform">
-
-                        </div>
-                        <div class="form-group">
-                          <label class="col-md-3 control-label" for="example-file-input">佐证材料</label>
-                          <div class="col-md-9">
-                            <input type="file" id="file" name="file">
+                          <div class="form-group">
+                            <label class="col-md-3 control-label" for="example-file-input">佐证材料</label>
+                            <div class="col-md-9">
+                              <input type="file" id="file" name="file">
                           </div>
-                        </div>
+                            </div>
 
-                    </div>
-                    <div class="modal-footer" id="footerbutton">
+                          </div>
+                          <div class="modal-footer" id="footerbutton">
 
+                          </div>
+                        </form>
+                      </div>
                     </div>
-                    </form>
                   </div>
+                  <!-- END 材料提交 Modal -->
                 </div>
               </div>
-              <!-- END 材料提交 Modal -->
+              <!-- END Blank Header -->
+
+              <!-- Get Started Block -->
+
+              <div class="block full">
+                <div class="block-title">
+                  <h2>材料提交</h2>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-vcenter">
+                    <thead>
+                      <tr>
+                        <th class="text-center" style="width: 420px;">名称</th>
+                        <th class="text-center">提交时间</th>
+                        <th class="text-center" style="width: 125px;">审核状态</th>
+                        <th class="text-center">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table">
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- END Datatables Block -->
+              <!-- END Get Started Content -->
             </div>
+            <!-- END Page Content -->
           </div>
-          <!-- END Blank Header -->
-
-          <!-- Get Started Block -->
-
-          <div class="block full">
-            <div class="block-title">
-              <h2>材料提交</h2>
-            </div>
-            <div class="table-responsive">
-              <table class="table table-striped table-bordered table-vcenter">
-                <thead>
-                  <tr>
-                    <th class="text-center" style="width: 420px;">名称</th>
-                    <th class="text-center">提交时间</th>
-                    <th class="text-center" style="width: 125px;">审核状态</th>
-                    <th class="text-center">操作</th>
-                  </tr>
-                </thead>
-                <tbody id="table">
-
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- END Datatables Block -->
-          <!-- END Get Started Content -->
+          <!-- END Main Container -->
         </div>
-        <!-- END Page Content -->
+        <!-- END Page Container -->
       </div>
-      <!-- END Main Container -->
-    </div>
-    <!-- END Page Container -->
-  </div>
-  <!-- END Page Wrapper -->
+      <!-- END Page Wrapper -->
 
-  <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
-  <script src="./js/vendor/jquery-2.2.4.min.js"></script>
-  <script src="./js/vendor/bootstrap.min.js"></script>
-  <script src="./js/plugins.js"></script>
-  <script src="./js/app.js"></script>
-  <script src="./js/main.js"></script>
-  <script>
-    tableshow();
-    // 表单选择
-    $("#category").on("click", function () {
-      var category = $("#category").val();
-      var typeselect = `
+      <!-- jQuery, Bootstrap, jQuery plugins and Custom JS code -->
+      <script src="./js/vendor/jquery-2.2.4.min.js"></script>
+      <script src="./js/vendor/bootstrap.min.js"></script>
+      <script src="./js/plugins.js"></script>
+      <script src="./js/app.js"></script>
+      <script src="./js/main.js"></script>
+      <script>
+        tableshow();
+        // 表单选择
+        $("#category").on("click", function () {
+          var category = $("#category").val();
+          var typeselect = `
               <select name="type" class="form-control" id="type">
                 <option value="0">请选择具体类型</option>
                 <option value="1">团队</option>
@@ -332,7 +344,7 @@
                 <option value="13">国际科研合作项目</option>
               </select>
         `
-      var idselect = `
+          var idselect = `
               <select name="PointModel.id" class="form-control" id="id">
                 <option value="0">请选择具体指标</option>
                 <option value="11">本科读研率(%)</option>
@@ -353,7 +365,7 @@
                 <option value="54">参加国际学术会议人次(个)</option>
               </select>
         `
-      var paper = `
+          var paper = `
         <div class="form-group">
                             <label class="col-md-3 control-label" for="title">论文名</label>
                             <div class="col-md-4">
@@ -388,7 +400,7 @@
                             </div>
                           </div>
         `
-      var teacher = `
+          var teacher = `
       <div class="form-group">
                             <label class="col-md-3 control-label" for="username">工号</label>
                             <div class="col-md-4">
@@ -446,7 +458,7 @@
                             </div>
                           </div>
         `
-      var item = `
+          var item = `
         <div class="form-group">
                             <label class="col-md-3 control-label" for="name">名称</label>
                             <div class="col-md-4">
@@ -481,7 +493,7 @@
                             </div>
                           </div>
         `
-      var other = `
+          var other = `
         <div class="form-group">
                             <label class="col-md-3 control-label" for="value">数值</label>
                             <div class="col-md-4">
@@ -489,175 +501,175 @@
                             </div>
                           </div>
         `
-      var footer0 = `
+          var footer0 = `
       <button type="button" class="btn btn-effect-ripple btn-primary" id="submit0" data-dismiss="modal" onclick="sub0()">提交</button>
                       <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
       `
-      var footer1 = `
+          var footer1 = `
       <button type="button" class="btn btn-effect-ripple btn-primary" id="submit1" data-dismiss="modal" onclick="sub1()">提交</button>
                       <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
       `
-      var footer2 = `
+          var footer2 = `
       <button type="button" class="btn btn-effect-ripple btn-primary" id="submit2" data-dismiss="modal" onclick="sub2()">提交</button>
                       <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
       `
-      var footer3 = `
+          var footer3 = `
       <button type="button" class="btn btn-effect-ripple btn-primary" id="submit3" data-dismiss="modal" onclick="sub3()">提交</button>
                       <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">关闭</button>
       `
-      if (category == 3) {
-        $("#select").html("");
-        $("#cententform").html("");
-        $("#cententform").append(paper);
-        $("#footerbutton").html("");
-        $("#footerbutton").append(footer3);
-      }
-      else if (category == 2) {
-        $("#cententform").html("");
-        $("#cententform").append(item);
-        $("#select").html("");
-        $("#select").append(typeselect);
-        $("#footerbutton").html("");
-        $("#footerbutton").append(footer2);
-      }
-      else if (category == 1) {
-        $("#select").html("");
-        $("#cententform").html("");
-        $("#cententform").append(teacher);
-        $("#footerbutton").html("");
-        $("#footerbutton").append(footer1);
-      }
-      else if (category == 0) {
-        $("#cententform").html("");
-        $("#cententform").append(other);
-        $("#select").html("");
-        $("#select").append(idselect);
-        $("#footerbutton").html("");
-        $("#footerbutton").append(footer0);
-      }
-      else {
-        $("#select").html("");
-        $("#cententform").html("");
-        $("#footerbutton").html("");
-      }
-    })
+          if (category == 3) {
+            $("#select").html("");
+            $("#cententform").html("");
+            $("#cententform").append(paper);
+            $("#footerbutton").html("");
+            $("#footerbutton").append(footer3);
+          }
+          else if (category == 2) {
+            $("#cententform").html("");
+            $("#cententform").append(item);
+            $("#select").html("");
+            $("#select").append(typeselect);
+            $("#footerbutton").html("");
+            $("#footerbutton").append(footer2);
+          }
+          else if (category == 1) {
+            $("#select").html("");
+            $("#cententform").html("");
+            $("#cententform").append(teacher);
+            $("#footerbutton").html("");
+            $("#footerbutton").append(footer1);
+          }
+          else if (category == 0) {
+            $("#cententform").html("");
+            $("#cententform").append(other);
+            $("#select").html("");
+            $("#select").append(idselect);
+            $("#footerbutton").html("");
+            $("#footerbutton").append(footer0);
+          }
+          else {
+            $("#select").html("");
+            $("#cententform").html("");
+            $("#footerbutton").html("");
+          }
+        })
 
-    // 材料提交
-    // other
-    function sub0() {
-      var form = new FormData($('#material')[0]);
-      $.ajax({
-        url: ip + '/scm/material/teacher/upload/0/' + sessionStorage.id,
-        type: 'POST',
-        data: form,
-        processData: false,
-        contentType: false,
-        success: function (data) {
-          console.log(data)
-          if (data == 1) {
-            alert("提交成功");
-          } else if (data == 0) {
-            alert("提交失败")
-          }
-          $("#table").html("");
-          tableshow();
-        },
-        error: function (e) {
-          console.log(form);
-        }
-      })
-      return false;
-    };
-    // teacher
-    function sub1() {
-      var form = new FormData($('#material')[0]);
-      $.ajax({
-        url: ip + '/scm/material/teacher/upload/1/' + sessionStorage.id,
-        type: 'POST',
-        data: form,
-        processData: false,
-        contentType: false,
-        success: function (data) {
-          console.log(data)
-          if (data == 1) {
-            alert("提交成功");
-          } else if (data == 0) {
-            alert("提交失败")
-          }
-          $("#table").html("");
-          tableshow();
-        },
-        error: function (e) {
-          console.log(form);
-        }
-      })
-      return false;
-    };
-    // item
-    function sub2() {
-      var form = new FormData($('#material')[0]);
-      $.ajax({
-        url: ip + '/scm/material/teacher/upload/2/' + sessionStorage.id,
-        type: 'POST',
-        data: form,
-        processData: false,
-        contentType: false,
-        success: function (data) {
-          console.log(data)
-          if (data == 1) {
-            alert("提交成功");
-          } else if (data == 0) {
-            alert("提交失败")
-          }
-          $("#table").html("");
-          tableshow();
-        },
-        error: function (e) {
-          console.log(form);
-        }
-      })
-      return false;
-    };
-    // paper
-    function sub3() {
-      var form = new FormData($('#material')[0]);
-      $.ajax({
-        url: ip + '/scm/material/teacher/upload/3/' + sessionStorage.id,
-        type: 'POST',
-        data: form,
-        processData: false,
-        contentType: false,
-        success: function (data) {
-          console.log(data)
-          if (data == 1) {
-            alert("提交成功");
-          } else if (data == 0) {
-            alert("提交失败")
-          }
-          $("#table").html("");
-          tableshow();
-        },
-        error: function (e) {
-          console.log(form);
-        }
-      })
-      return false;
-    };
-    // 查看记录详细信息
-    function check(type,recordId){
-      $.ajax({
-        url: ip + '/scm/material/specific/show/' + type + '/' + recordId,
-        type: 'GET',
-        cache: false,
+        // 材料提交
+        // other
+        function sub0() {
+          var form = new FormData($('#material')[0]);
+          $.ajax({
+            url: ip + '/scm/material/teacher/upload/0/' + sessionStorage.id,
+            type: 'POST',
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+              console.log(data)
+              if (data == 1) {
+                alert("提交成功");
+              } else if (data == 0) {
+                alert("提交失败")
+              }
+              $("#table").html("");
+              tableshow();
+            },
+            error: function (e) {
+              console.log(form);
+            }
+          })
+          return false;
+        };
+        // teacher
+        function sub1() {
+          var form = new FormData($('#material')[0]);
+          $.ajax({
+            url: ip + '/scm/material/teacher/upload/1/' + sessionStorage.id,
+            type: 'POST',
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+              console.log(data)
+              if (data == 1) {
+                alert("提交成功");
+              } else if (data == 0) {
+                alert("提交失败")
+              }
+              $("#table").html("");
+              tableshow();
+            },
+            error: function (e) {
+              console.log(form);
+            }
+          })
+          return false;
+        };
+        // item
+        function sub2() {
+          var form = new FormData($('#material')[0]);
+          $.ajax({
+            url: ip + '/scm/material/teacher/upload/2/' + sessionStorage.id,
+            type: 'POST',
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+              console.log(data)
+              if (data == 1) {
+                alert("提交成功");
+              } else if (data == 0) {
+                alert("提交失败")
+              }
+              $("#table").html("");
+              tableshow();
+            },
+            error: function (e) {
+              console.log(form);
+            }
+          })
+          return false;
+        };
+        // paper
+        function sub3() {
+          var form = new FormData($('#material')[0]);
+          $.ajax({
+            url: ip + '/scm/material/teacher/upload/3/' + sessionStorage.id,
+            type: 'POST',
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+              console.log(data)
+              if (data == 1) {
+                alert("提交成功");
+              } else if (data == 0) {
+                alert("提交失败")
+              }
+              $("#table").html("");
+              tableshow();
+            },
+            error: function (e) {
+              console.log(form);
+            }
+          })
+          return false;
+        };
+        // 查看记录详细信息
+        function check(type, recordId) {
+          $.ajax({
+            url: ip + '/scm/material/specific/show/' + type + '/' + recordId,
+            type: 'GET',
+            cache: false,
 
-        success: function (data) {
-          // console.log(data.pointModel.content)
-            if(type == 0){
-              var form = `
+            success: function (data) {
+              // console.log(data.pointModel.content)
+              if (type == 0) {
+                var form = `
               <div class="form-group form-inline">
-                    <label class="col-md-3 control-label" for="">`+ data.pointModel.content +`</label>
+                    <label class="col-md-3 control-label" for="">`+ data.pointModel.content + `</label>
                     <div class="col-md-4 material-admin offset-col-md-2">
-                      <span>`+ data.value +`</span>
+                      <span>`+ data.value + `</span>
                     </div>
                   </div>
                   <div class="form-group">
@@ -667,11 +679,11 @@
                     </div>
                   </div>
             `
-            $("#checkform").html("");
-            $("#checkform").append(form);
-            }
-            else if(type == 1){
-              var form = `
+                $("#checkform").html("");
+                $("#checkform").append(form);
+              }
+              else if (type == 1) {
+                var form = `
               <div class="form-group">
                     <label class="col-md-3 control-label" for="">工号</label>
                     <div class="col-md-4 material-admin">
@@ -721,11 +733,11 @@
                     </div>
                   </div>
               `
-              $("#checkform").html("");
-              $("#checkform").append(form);
-            }
-            else if(type == 2){
-              var form = `
+                $("#checkform").html("");
+                $("#checkform").append(form);
+              }
+              else if (type == 2) {
+                var form = `
               <div class="form-group">
                     <label class="col-md-3 control-label" for="">类型</label>
                     <div class="col-md-4 material-admin">
@@ -763,11 +775,11 @@
                     </div>
                   </div>
               `
-              $("#checkform").html("");
-              $("#checkform").append(form);
-            }
-            else if(type == 3){
-              var form = `
+                $("#checkform").html("");
+                $("#checkform").append(form);
+              }
+              else if (type == 3) {
+                var form = `
               <div class="form-group">
                     <label class="col-md-3 control-label" for="">论文名</label>
                     <div class="col-md-4 material-admin">
@@ -799,17 +811,17 @@
                     </div>
                   </div>
               `
-              $("#checkform").html("");
-              $("#checkform").append(form);
+                $("#checkform").html("");
+                $("#checkform").append(form);
+              }
+            },
+            error: function (data) {
+              console.log(data)
             }
-        },
-        error: function (data) {
-          console.log(data)
-        }
 
-      });
-    }
-  </script>
-</body>
+          });
+        }
+      </script>
+  </body>
 
 </html>

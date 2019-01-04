@@ -112,31 +112,46 @@
               <!-- Main Sidebar Toggle Button -->
               <li>
                 <a href="javascript:void(0)" onclick="App.sidebar('toggle-sidebar');this.blur();">
-                  <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
-                  <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
-                </a>
+                    <i class="fa fa-ellipsis-v fa-fw animation-fadeInRight" id="sidebar-toggle-mini"></i>
+                    <i class="fa fa-bars fa-fw animation-fadeInRight" id="sidebar-toggle-full"></i>
+                  </a>
               </li>
               <!-- END Main Sidebar Toggle Button -->
 
               <!-- Header Link -->
-
+              <li class="hidden-xs animation-fadeInQuick">
+                <a href="">
+                    <strong>WELCOME</strong>
+                  </a>
+              </li>
               <!-- END Header Link -->
             </ul>
             <!-- END Left Header Navigation -->
 
             <!-- Right Header Navigation -->
             <ul class="nav navbar-nav-custom pull-right">
+              <li class="hidden-xs animation-fadeInQuick">
+                <a href="">
+                        <strong id="realname"></strong>
+                      </a>
+              </li>
               <!-- User Dropdown -->
               <li class="dropdown">
                 <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
-              </a>
+                    <img src="./img/placeholders/avatars/user.jpg" alt="avatar">
+                  </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li>
+                    <a href="#modal-pwd" data-toggle="modal">
+                        <i class="fa fa-pencil-square fa-fw pull-right"></i>
+                        修改密码
+                      </a>
+                  </li>
+                  <li>
                     <a href="login.html">
-                      <i class="fa fa-power-off fa-fw pull-right"></i>
-                      注销
-                    </a>
+                        <i class="fa fa-power-off fa-fw pull-right"></i>
+                        注销
+                      </a>
                   </li>
                 </ul>
               </li>
@@ -145,7 +160,45 @@
             <!-- END Right Header Navigation -->
           </header>
           <!-- END Header -->
-
+          <!-- 密码修改Modal -->
+          <div id="modal-pwd" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title">
+                    <strong>密码修改</strong>
+                  </h3>
+                </div>
+                <div class="modal-body">
+                  <form method="post" class="form-horizontal form-bordered">
+                    <div class="form-group">
+                      <label class="col-md-3 control-label" for="pwd">旧密码</label>
+                      <div class="col-md-4">
+                        <input type="password" id="pwd" name="pwd" class="form-control" required="required" />
+              </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-md-3 control-label" for="newpwd">新密码</label>
+                        <div class="col-md-4">
+                          <input type="password" id="newpwd" name="newpwd" class="form-control" required="required" />
+              </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label" for="repwd">确认密码</label>
+                          <div class="col-md-4">
+                            <input type="password" id="repwd" name="repwd" class="form-control" required="required" />
+              </div>
+                          </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-effect-ripple btn-primary" id="modifypwd" data-dismiss="modal">确定</button>
+                  <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- Page content -->
           <div id="page-content">
             <!-- Blank Header -->
@@ -221,6 +274,7 @@
     <script src="./js/plugins.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/pages/appEmail.js"></script>
+    <script src="./js/main.js"></script>
     <script>
 
       function getUrlParam(name) {
@@ -239,7 +293,7 @@
           console.log(data);
           console.log(id);
           $.each(data, function (i, item) {
-            if(item.id == id) {
+            if (item.id == id) {
               $("#title").html(item.title);
               $("#date").html(item.date);
               $("#author").html(item.author);

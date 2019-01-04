@@ -1,4 +1,7 @@
 $("#save").hide();
+if (sessionStorage.name) {
+  $("#realname").html("欢迎您，" + sessionStorage.name);
+}
 
 // 初始化所有数据
 $(function () {
@@ -48,15 +51,15 @@ function userTable() {
                     </td>
                   </tr>                 
                   `
-                  var del_modal = `
+        var del_modal = `
                     <button type="button" class="btn btn-effect-ripple btn-primary" onclick="del(` + id + `)" data-dismiss="modal">删除</button>
                     <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
                   `
-                  var mdf_modal = `
+        var mdf_modal = `
                     <button type="button" class="btn btn-effect-ripple btn-primary" onclick="reset(` + id + `)" data-dismiss="modal">重置</button>
                     <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">取消</button>
                   `
-                
+
         $("#user").append(table);
         $("#del_modal").html("");
         $("#del_modal").append(del_modal);
@@ -346,23 +349,33 @@ function tableshow() {
         var name = item.name;
         var date = item.date;
         var status = item.status;
+        var colorClass;
+        if (status == 0) {
+          colorClass = "label-info";
+        }
+        if (status == 1) {
+          colorClass = "label-success";
+        }
+        if (status == -1) {
+          colorClass = "label-danger";
+        }
         var table = `
               <tr>
                 <td class="text-center">
-                  <strong>`+ name +`</strong>
+                  <strong>`+ name + `</strong>
                 </td>
                 
                 <td class="text-center">
                   <strong>
-                    <span name="number">`+ date +`</span>
+                    <span name="number">`+ date + `</span>
                   </strong>
                 </td>
 
                 <td class="text-center">
-                  <a href="javascript:void(0)" class="label label-success" id="status">已通过</a>
+                  <a href="javascript:void(0)" class="label ` + colorClass + `" id="status">` + status + `</a>
                 </td>
                 <td class="text-center">
-                        <a href="#modal_check" data-toggle="modal" title="查看" id="check" class="btn btn-effect-ripple btn-xs btn-info" onclick="check(`+ type +`,`+ recordId +`)">
+                        <a href="#modal_check" data-toggle="modal" title="查看" id="check" class="btn btn-effect-ripple btn-xs btn-info" onclick="check(`+ type + `,` + recordId + `)">
                         <i class="fa fa-eye"></i>
                         </a>
                 </td>  
@@ -393,32 +406,44 @@ function adminshow() {
         var name = item.name;
         var date = item.date;
         var status = item.status;
+        var colorClass;
+        if (status == 0) {
+          colorClass = "label-info";
+        }
+        if (status == 1) {
+          colorClass = "label-success";
+        }
+        if (status == -1) {
+          colorClass = "label-danger";
+        }
         var table = `
               <tr>
                 <td class="text-center">
-                  <strong>`+ name +`</strong>
+                  <strong>`+ name + `</strong>
                 </td>
                 
                 <td class="text-center">
                   <strong>
-                    <span name="number">`+ realname +`</span>
+                    <span name="number">`+ realname + `</span>
                   </strong>
                 </td>
                 <td class="text-center">
                   <strong>
-                    <span name="number">`+ date +`</span>
+                    <span name="number">`+ date + `</span>
                   </strong>
                 </td>
                 <td class="text-center">
-                  <a href="javascript:void(0)" class="label label-success" id="status">已通过</a>
+                  <a href="javascript:void(0)" class="label ` + colorClass + `" id="status">` + status + `</a>
                 </td>
                 <td class="text-center">
-                <a href="#modal_check" data-toggle="modal" title="查看" id="check" class="btn btn-effect-ripple btn-xs btn-info" onclick="check(`+ type +`,`+ recordId +`)">
+                <a href="#modal_check" data-toggle="modal" title="查看" id="check" class="btn btn-effect-ripple btn-xs btn-info" onclick="check(`+ type + `,` + recordId + `)">
                 <i class="fa fa-eye"></i>
                 </a>
                 </td>  
               </tr>                            
               `
+
+
         $("#table").append(table);
       })
 
@@ -426,10 +451,11 @@ function adminshow() {
     error: function (e) {
     }
   })
+
 }
 
 // 修改密码
-$("#modifypwd").on("click",function(){
+$("#modifypwd").on("click", function () {
   var id = sessionStorage.id;
   var pwd = $("#pwd").val();
   var newpwd = $("#newpwd").val();
@@ -442,9 +468,9 @@ $("#modifypwd").on("click",function(){
     type: 'POST',
     cache: false,
     data: {
-      userId:id,
+      userId: id,
       OldPassword: pwd,
-      NewPassword: repwd        
+      NewPassword: repwd
     },
     success: function (data) {
       console.log(data)
