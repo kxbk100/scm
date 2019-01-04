@@ -471,6 +471,7 @@
         }
       });
     }
+    // 处理请求
     function handle(recordId, type, status) {
       $.ajax({
         url: ip + '/scm/material/admin/check?recordId=' + recordId + '&type=' + type + '&status=' + status,
@@ -483,6 +484,8 @@
           } else if (data == 0) {
             alert("操作失败")
           }
+          $("#table").html("");
+          adminshow();
         },
         error: function (data) {
           console.log(data)
