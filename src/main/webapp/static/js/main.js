@@ -350,13 +350,13 @@ function tableshow() {
         var date = item.date;
         var status = item.status;
         var colorClass;
-        if (status == 0) {
+        if (status == "待审核") {
           colorClass = "label-info";
         }
-        if (status == 1) {
+        if (status == "已通过") {
           colorClass = "label-success";
         }
-        if (status == -1) {
+        if (status == "未通过") {
           colorClass = "label-danger";
         }
         var table = `
@@ -407,13 +407,13 @@ function adminshow() {
         var date = item.date;
         var status = item.status;
         var colorClass;
-        if (status == 0) {
+        if (status == "待审核") {
           colorClass = "label-info";
         }
-        if (status == 1) {
+        if (status == "已通过") {
           colorClass = "label-success";
         }
-        if (status == -1) {
+        if (status == "未通过") {
           colorClass = "label-danger";
         }
         var table = `

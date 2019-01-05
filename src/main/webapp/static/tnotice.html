@@ -367,7 +367,7 @@
                               </a>
                             </span>
                           </h4>
-                          <span class="text-muted text_overflow">` + item.content + `</span>
+                          <span class="text-muted text_overflow">` + item.content.replace(/<[^>]*>|/g,"") + `</span>
                         </td>
                         <td class="hidden-xs text-center" style="width: 80px;">` + item.author + `</td>
                         <td class="hidden-xs text-right text-muted" style="width: 120px;">
