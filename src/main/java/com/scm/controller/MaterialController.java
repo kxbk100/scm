@@ -1,13 +1,6 @@
 package com.scm.controller;
 
 
-/*
-管理员查看材料提交  /scm/material/admin/show
-管理员审核材料提交 /scm/material/admin/check
-教师材料的提交上传或修改 /scm/material/teachers/upload/{}
-教师材料提交记录的查看 /scm/material/teachers/show
- */
-
 import com.scm.model.*;
 import com.scm.pageModel.ItemPageModel;
 import com.scm.pageModel.PaperPageModel;
@@ -16,14 +9,19 @@ import com.scm.pageModel.TeacherPageModel;
 import com.scm.service.MaterialService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
         import java.io.File;
-        import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
         import java.util.List;
@@ -228,6 +226,19 @@ public class MaterialController {
     }
 
     /**
+     * 文件下载
+     * @param type 材料类型
+     * @param id 材料id
+     * @return 带状态的ResponseEntity<byte[]>
+     * @throws IOException
+     */
+    @GetMapping("/download/{type}/{id}")
+    public ResponseEntity<byte[]> download(@PathVariable int type,@PathVariable int id) throws IOException {
+        File file = materialService.buildXlsFileById(type,id);
+        return buildResponseEntity(file);
+    }
+
+    /**
      * 将上传的文件保存在本地
      * @param basePath
      * @param file
@@ -268,16 +279,16 @@ public class MaterialController {
         }
         switch (paperModel.getPaperType()){
             case 0:
-                paperPageModel.setPaperType("核心期刊（浙大标准）");
+                paperPageModel.setFirstType("核心期刊（浙大标准）");
                 break;
             case 1:
-                paperPageModel.setPaperType("国内权威期刊论文数");
+                paperPageModel.setFirstType("国内权威期刊论文数");
                 break;
             case 2:
-                paperPageModel.setPaperType("SCI top收录期刊论文");
+                paperPageModel.setFirstType("SCI top收录期刊论文");
                 break;
             case 3:
-                paperPageModel.setPaperType("其他");
+                paperPageModel.setFirstType("其他");
                 break;
         }
         return paperPageModel;
@@ -389,7 +400,7 @@ public class MaterialController {
         List<RecordPageModel> pageModels=new ArrayList<>();
         for(RecordModel model:recordModels){
             RecordPageModel pageModel=new RecordPageModel();
-            BeanUtils.copyProperties(recordModels,pageModel);
+            BeanUtils.copyProperties(model,pageModel);
             switch (model.getStatus()){
                 case 0:
                     pageModel.setStatus("待审核");
@@ -432,5 +443,26 @@ public class MaterialController {
                     model.setName("unknown");
             }
         }
+    }
+
+    private static ResponseEntity<byte[]> buildResponseEntity(File file) throws IOException {
+        byte[] body = null;
+        HttpStatus statusCode;
+        HttpHeaders headers = new HttpHeaders();
+        //设置Http状态码
+        if(file!=null){
+            statusCode = HttpStatus.OK;
+        }else {
+            statusCode=HttpStatus.NOT_FOUND;
+            return new ResponseEntity<byte[]>(null,headers,statusCode);
+        }
+        //获取文件
+        InputStream is = new FileInputStream(file);
+        body = new byte[is.available()];
+        is.read(body);
+        //设置文件类型
+        headers.add("Content-Disposition", "attchement;filename=" + file.getName());
+        //返回数据
+        return new ResponseEntity<>(body, headers, statusCode);
     }
 }

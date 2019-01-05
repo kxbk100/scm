@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -329,6 +330,26 @@ public class MaterialServiceImpl implements MaterialService {
                 }
                 break;
         }
+    }
+
+    @Override
+    public File buildXlsFileById(int type,int id) {
+        String path;
+        switch (type){
+            case 0:
+                path=findOtherById(id).getSrc();
+                return new File(path);
+            case 1:
+                path=findTeacherById(id).getSrc();
+                return new File(path);
+            case 2:
+                path=findItemById(id).getSrc();
+                return new File(path);
+            case 3:
+                path=findPaperById(id).getSrc();
+                return new File(path);
+        }
+        return null;
     }
 
     /**

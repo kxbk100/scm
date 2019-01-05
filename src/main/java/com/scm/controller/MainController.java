@@ -176,7 +176,6 @@ public class MainController {
             map.put("name",queryUser.getName());
             map.put("type",String.valueOf(queryUser.getType()));
             map.put("id",String.valueOf(queryUser.getId()));
-
             return map;
         }else {
             map.put("error","0");

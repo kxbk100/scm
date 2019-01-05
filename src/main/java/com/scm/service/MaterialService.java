@@ -2,6 +2,7 @@ package com.scm.service;
 
 import com.scm.model.*;
 
+import java.io.File;
 import java.util.List;
 
 public interface MaterialService {
@@ -19,4 +20,5 @@ public interface MaterialService {
     void updateRecordDate(int id);
     void updateStatus(int id,int type,int status);
     void updateContent(int type,int id);
+    File buildXlsFileById(int type,int id);
 }
