@@ -214,6 +214,7 @@
               </div>
             </div>
           </div>
+
           <!-- Page content -->
           <div id="page-content">
             <!-- Blank Header -->
@@ -409,9 +410,11 @@
     <script src="./js/plugins.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/pages/appEmail.js"></script>
-    <script src="./js/main.js"></script>
     <script>
       $(function () { AppEmail.init(); });
+      if (sessionStorage.name) {
+        $("#realname").html("欢迎您，" + sessionStorage.name);
+      }
     </script>
     <!--富文本编辑器的脚本-->
     <script>
@@ -709,7 +712,7 @@
                                 <strong>` + item.title + `</strong>
                               </a>
                           </h4>
-                          <span class="text-muted text_overflow">`+ item.content + `</span>
+                          <span class="text-muted text_overflow">`+ item.content.replace(/<[^>]*>|/g,"") + `</span>
                         </td>
                         <td class="hidden-xs text-center" style="width: 80px;">` + item.author + `</td>
                         <td class="hidden-xs text-right text-muted" style="width: 120px;">
